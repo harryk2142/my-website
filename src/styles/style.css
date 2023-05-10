@@ -1,0 +1,97 @@
+/* Globale Einstellungen */
+/* alle Elemente auf "box-sizing: border-box" setzen */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* wichtige Margins und Paddings auf 0 setzen */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+/* p, */
+/* a, */
+img,
+/* ul,
+ol,
+li, */
+form
+/* input, */
+/* textarea, */
+/* button */ {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html,
+body {
+  font-family: Verdana, sans-serif;
+  /* font-family: Arial, sans-serif; */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Hauptinhalt */
+main {
+  margin: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 30%;
+  float: right;
+  margin: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+/* Beiträge */
+.post {
+  margin-bottom: 30px;
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post p {
+  line-height: 1.5;
+}
+
+/* Fußzeile */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: #54e2ec;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

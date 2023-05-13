@@ -99,3 +99,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

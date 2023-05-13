@@ -32,6 +32,10 @@ const {
       .last-updated-on {
         font-style: italic;
       }
+      .blog-post-img-container {
+        width: 50%;
+        margin: auto;
+      }
     </style>
     {
       previewImage && (
@@ -47,11 +51,6 @@ const {
     <Header />
     <main>
       <article>
-        <!-- {
-          blogPostImage && (
-            <img width={720} height={360} src={blogPostImage} alt="" />
-          )
-        } -->
         <h1 class="title">{title}</h1>
         <FormattedDate date={pubDate} />
         {
@@ -63,12 +62,9 @@ const {
         }
         {
           blogPostImage && (
-            <img
-              src={"/images/blog/" + blogPostImage}
-              alt={blogPostImage}
-              width={512}
-              height="auto"
-            />
+            <div class="blog-post-img-container">
+              <img src={"/images/blog/" + blogPostImage} alt={blogPostImage} />
+            </div>
           )
         }
         <hr />

@@ -1,0 +1,181 @@
+:root {
+  --w1: calc(100% / 12 * 1);
+  --w2: calc(100% / 12 * 2);
+  --w3: calc(100% / 12 * 3);
+  --w4: calc(100% / 12 * 4);
+  --w5: calc(100% / 12 * 5);
+  --w6: calc(100% / 12 * 6);
+  --w7: calc(100% / 12 * 7);
+  --w8: calc(100% / 12 * 8);
+  --w9: calc(100% / 12 * 91);
+  --w10: calc(100% / 12 * 10);
+  --w11: calc(100% / 12 * 11);
+  --w12: 100%;
+}
+/* 5. 
+/* CUSTOM GRID START */
+.flex {
+  /* display: -ms-flexbox; */
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.flex > * {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+.s12 {
+  width: 100%;
+}
+.s11 {
+  width: var(--w11);
+}
+.s10 {
+  width: var(--w10);
+}
+.s9 {
+  width: var(--w9);
+}
+.s8 {
+  width: var(--w8);
+}
+.s7 {
+  width: var(--w7);
+}
+.s6 {
+  width: var(--w6);
+}
+.s5 {
+  width: var(--w5);
+}
+.s4 {
+  width: var(--w4);
+}
+.s3 {
+  width: var(--w3);
+}
+.s2 {
+  width: var(--w2);
+}
+.s1 {
+  width: var(--w1);
+}
+@media (min-width: 601px) {
+  .m12 {
+    width: 100%;
+  }
+  .m11 {
+    width: var(--w11);
+  }
+  .m10 {
+    width: var(--w10);
+  }
+  .m9 {
+    width: var(--w9);
+  }
+  .m8 {
+    width: var(--w8);
+  }
+  .m7 {
+    width: var(--w7);
+  }
+  .m6 {
+    width: var(--w6);
+  }
+  .m5 {
+    width: var(--w5);
+  }
+  .m4 {
+    width: var(--w4);
+  }
+  .m3 {
+    width: var(--w3);
+  }
+  .m2 {
+    width: var(--w2);
+  }
+  .m1 {
+    width: var(--w1);
+  }
+}
+@media (min-width: 993px) {
+  .l12 {
+    width: 100%;
+  }
+  .l11 {
+    width: var(--w11);
+  }
+  .l10 {
+    width: var(--w10);
+  }
+  .l9 {
+    width: var(--w9);
+  }
+  .l8 {
+    width: var(--w8);
+  }
+  .l7 {
+    width: var(--w7);
+  }
+  .l6 {
+    width: var(--w6);
+  }
+  .l5 {
+    width: var(--w5);
+  }
+  .l4 {
+    width: var(--w4);
+  }
+  .l3 {
+    width: var(--w3);
+  }
+  .l2 {
+    width: var(--w2);
+  }
+  .l1 {
+    width: var(--w1);
+  }
+}
+@media (min-width: 1201px) {
+  .xl12 {
+    width: 100%;
+  }
+  .xl11 {
+    width: var(--w11);
+  }
+  .xl10 {
+    width: var(--w10);
+  }
+  .xl9 {
+    width: var(--w9);
+  }
+  .xl8 {
+    width: var(--w8);
+  }
+  .xl7 {
+    width: var(--w7);
+  }
+  .xl6 {
+    width: var(--w6);
+  }
+  .xl5 {
+    width: var(--w5);
+  }
+  .xl4 {
+    width: var(--w4);
+  }
+  .xl3 {
+    width: var(--w3);
+  }
+  .xl2 {
+    width: var(--w2);
+  }
+  .xl1 {
+    width: var(--w1);
+  }
+}
+.rest {
+  overflow: hidden;
+}
+/* CUSTOM GRID END */

@@ -36,6 +36,9 @@ body {
   /* font-family: Arial, sans-serif; */
   font-size: 15px;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -52,6 +55,7 @@ header h1 {
 /* Hauptinhalt */
 main {
   margin: 20px;
+  flex: 1;
 }
 
 /* Sidebar */
@@ -84,11 +88,11 @@ footer {
   color: #fff;
   padding: 20px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 /* Links */
 a {
-  color: #54e2ec;
   text-decoration: none;
 }
 

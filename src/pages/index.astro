@@ -3,6 +3,12 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestPost = posts[0];
+import FormattedDate from "../components/FormattedDate.astro";
 ---
 
 <!DOCTYPE html>
@@ -13,8 +19,164 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header title={SITE_TITLE} />
     <main>
-      <h1>🧑‍🚀 Hello</h1>
+      <div>LIVE TICKER</div>
+      <div>
+        <div class="ticker-container">
+          <div class="ticker-item">
+            <span id="ticker0">111111111111111111111</span>
+            <span> ***</span>
+            <span id="ticker1">111111111111111111111</span>
+            <span> ***</span>
+            <span id="ticker2">111111111111111111111</span>
+            <span> ***</span>
+            <span id="ticker3">111111111111111111111</span>
+            <span> ***</span>
+          </div>
+        </div>
+      </div>
+      <div id="latest-post">
+        <div>LATEST POST</div>
+        <div id="latest-post-container">
+          <a href={`/blog/${latestPost.slug}/`}>
+            <div>
+              <FormattedDate date={latestPost.data.pubDate} /> - {
+                posts[0].data.title
+              }
+            </div>
+            {
+              latestPost.data.blogPostImage && (
+                <img
+                  src={"/images/blog/" + latestPost.data.blogPostImage}
+                  alt={latestPost.data.title}
+                  width={256}
+                  height="auto"
+                />
+              )
+            }
+          </a>
+        </div>
+      </div>
     </main>
     <Footer />
+    <style>
+      .ticker-container {
+        overflow: hidden;
+        position: relative;
+        height: 30px;
+      }
+
+      .ticker-item {
+        font-weight: bold;
+        font-size: 2ch;
+        color: darkgreen;
+        position: absolute;
+        white-space: nowrap;
+        transform: translateX(100%);
+        animation: ticker-animation 45s linear infinite;
+      }
+
+      @keyframes ticker-animation {
+        0% {
+          transform: translateX(20%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+    <script>
+      const headlines = [
+        "Wissenschaftler entdecken neues Mineral namens 'Lachstein' in Schokolade",
+        "Kater verschläft neun Leben und erwacht als Hausbesitzer",
+        "Stadt beschließt Verbot von Montagen - Dienstage als offizieller Faulenzertag eingeführt",
+        "Bienen gründen eigene Honigbierbrauerei - Beliebtheit steigt unter Insekten",
+        "Hund macht Yoga: Entwickelt neue Position 'nach unten schauender Dackel'",
+        "Pinguine erobern die Stadt - Forderung nach kostenlosen Fischbrötchen erhoben",
+        "Weltrekord gebrochen: Längste Pizza der Welt verschwunden - vermutlich aufgegessen",
+        "Forscher entdecken geheime Unterwasserstadt voller quakender Fische",
+        "Rentnergruppe gründet Flashmob-Chor: 'Gehstock-Gang' wird zum Internet-Hit",
+        "Bürgermeister verkündet: Ab jetzt sind Schokoladeneis und Lachanfälle obligatorisch",
+        "Neue Studie beweist: Schokolade ist das Geheimnis des Weltfriedens",
+        "Entlaufene Gartenzwerge organisieren erfolgreichen Weltrekord im Baumklettern",
+        "Kuh entpuppt sich als talentierte Balletttänzerin - Premiere von 'Schwanensee' begeistert Publikum",
+        "Polizei fängt flüchtigen Flamingo ein - Vogel behauptet, er sei 'nur zum Spaß' geflogen",
+        "Menschen überrascht: Schneckenrennen endet in dramatischem Fotofinish",
+        "Katzenvideo geht viral - Kätzchen entdeckt Schwerkraft und beschließt, sie zu ignorieren",
+        "Ältester Mann der Welt enthüllt sein Geheimnis: tägliches Frühstück aus Marshmallows und Cola",
+        "Stadt verbietet Montagblues - stattdessen wird 'Macarena Monday' eingeführt",
+        "Erfindung des Jahres: Roboter, der Pizza in kleinen mundgerechten Stücken füttert",
+        "Hundetruppe gründet eigene Rockband - erstes Album 'Wuffing on the Moon' stürmt die Charts",
+        "Mann überlebt sieben Meter Fall ohne seinen Kaffee zu verschütten",
+        "Frau gewinnt im Lotto, findet aber ihre verlorenen Schlüssel vor dem Haus",
+        "Weltrekord gebrochen: Jüngster Astronaut besteht Mars-Mission und verliert seinen ersten Milchzahn im All",
+        "Wissenschaftler entdecken sprechende Eichhörnchen: 'Nüsse sind sooo lecker!'",
+        "13-jähriger Junge eröffnet erfolgreiches Unternehmen für Schulschwänzen",
+        "Geheimer Tunnel unter dem Stadtpark führt zu Schlaraffenland",
+        "Frau gewinnt Wettschulden gegen Einhorn - fordert nun Flugreitstunden",
+        "Familie lebt seit 20 Jahren mit Dinosaurier als Haustier",
+        "Inselbewohner findet verlorene Stadt Atlantis hinter seinem Kühlschrank",
+        "Katze löst mysteriösen Kriminalfall - enttarnt den Postboten als geheimen Hundeenthusiasten",
+        "Steuern zahlen macht Spaß: Finanzamt eröffnet Achterbahn zur Steuererklärung",
+        "Stadt beschließt Steuererleichterung für Einhörner und andere mythologische Wesen",
+        "Steuern werden zum offiziellen Volkssport erklärt - erste Meisterschaft im Steuererklärungs-Marathon",
+        "Steuerskandal: Ein Mann behauptet, seine Goldfische hätten ein eigenes Steuerparadies",
+        "Forscher entdecken geheime Steuerquelle: Die Lachmünze im Kissen",
+        "Steuergesetz wird durch neues Prinzip ersetzt: 'Zahle, was du möchtest' - Chaos bricht aus",
+        "Finanzamt führt Steuervergünstigungen für Liegestütze und Bauchtanz ein",
+        "Steuervermeidung à la Hollywood: Prominente lassen ihre Steuern von Schauspielern zahlen",
+        "Steuerschnüffelhunde auf dem Vormarsch: Sie erschnüffeln unversteuerte Kekse",
+        "Steuersünder versteckt sich in Torte - Beamte finden ihn dank dem Hinweis 'Mit Extra-Mehrwertsteuer'",
+      ];
+      function getRandomHeadlines(count: number): string[] {
+        const shuffledHeadlines = headlines.sort(() => 0.5 - Math.random());
+        return shuffledHeadlines.slice(0, count);
+      }
+      function getRandomHeadline(): string {
+        const randomIndex = Math.floor(Math.random() * headlines.length);
+        return headlines[randomIndex];
+      }
+      function isElementVisible(element) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+        const windowWidth =
+          window.innerWidth || document.documentElement.clientWidth;
+
+        const isVisible =
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= windowHeight &&
+          rect.right <= windowWidth;
+
+        return isVisible;
+      }
+      function fillTicker(ticker: HTMLElement | null) {
+        if (ticker) {
+          ticker.textContent = getRandomHeadlines(1)[0];
+        }
+      }
+
+      function generateTicker() {
+        let tickers = [
+          document.getElementById("ticker0"),
+          document.getElementById("ticker1"),
+          document.getElementById("ticker2"),
+          document.getElementById("ticker3"),
+        ];
+        tickers.forEach((element) => {
+          fillTicker(element);
+        });
+
+        setInterval(() => {
+          tickers.forEach((element) => {
+            let isVisible = isElementVisible(element);
+            if (!isVisible) {
+              fillTicker(element);
+            }
+          });
+        }, 45000);
+      }
+      generateTicker();
+    </script>
   </body>
 </html>

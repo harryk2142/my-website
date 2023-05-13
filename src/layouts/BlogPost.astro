@@ -7,24 +7,14 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const {
-  title,
-  description,
-  pubDate,
-  updatedDate,
-  blogPostImage,
-  previewImage,
-} = Astro.props;
+const { title, description, pubDate, blogPostImage, previewImage } =
+  Astro.props;
 ---
 
-<html lang="en">
+<html lang="de">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} image={blogPostImage} />
     <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
       hr {
         border-top: 1px solid #ddd;
         margin: 1rem 0;
@@ -33,8 +23,20 @@ const {
         font-style: italic;
       }
       .blog-post-img-container {
-        width: 50%;
-        margin: auto;
+        width: 100%;
+        max-width: 450px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      article {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        word-wrap: break-word;
+      }
+      article h1 {
+        margin-bottom: 4px;
       }
     </style>
     {
@@ -51,15 +53,7 @@ const {
     <Header />
     <main>
       <article>
-        <h1 class="title">{title}</h1>
-        <FormattedDate date={pubDate} />
-        {
-          updatedDate && (
-            <div class="last-updated-on">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )
-        }
+        <h1 class="title"><FormattedDate date={pubDate} /> - {description}</h1>
         {
           blogPostImage && (
             <div class="blog-post-img-container">
@@ -67,7 +61,7 @@ const {
             </div>
           )
         }
-        <hr />
+        <div class="blog-post-date"></div>
         <slot />
       </article>
     </main>

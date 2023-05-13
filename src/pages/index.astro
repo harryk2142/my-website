@@ -18,47 +18,154 @@ import FormattedDate from "../components/FormattedDate.astro";
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <main>
-      <div>LIVE TICKER</div>
-      <div>
+    <main class="">
+      <div id="ticker">
+        <h2 id="ticker-head">BREAKING NEWS</h2>
         <div class="ticker-container">
-          <div class="ticker-item">
-            <span id="ticker0">111111111111111111111</span>
+          <div class="ticker-item" style="z-index:0">
+            <span id="ticker0"></span>
             <span> ***</span>
-            <span id="ticker1">111111111111111111111</span>
+            <span id="ticker1"></span>
             <span> ***</span>
-            <span id="ticker2">111111111111111111111</span>
+            <span id="ticker2"></span>
             <span> ***</span>
-            <span id="ticker3">111111111111111111111</span>
+            <span id="ticker3"></span>
             <span> ***</span>
           </div>
         </div>
       </div>
-      <div id="latest-post">
-        <div>LATEST POST</div>
-        <div id="latest-post-container">
-          <a href={`/blog/${latestPost.slug}/`}>
-            <div>
-              <FormattedDate date={latestPost.data.pubDate} /> - {
-                posts[0].data.title
+      <hr />
+      <div class="flex">
+        <div class="s12 m8 l6 xl4">
+          <section id="latest-post">
+            <h2>LATEST POST</h2>
+            <a href={`/blog/${latestPost.slug}/`}>
+              <article class="blog-post">
+                <div class="post-image">
+                  {
+                    latestPost.data.blogPostImage && (
+                      <>
+                        <img
+                          src={"/images/blog/" + latestPost.data.blogPostImage}
+                          alt={latestPost.data.description}
+                        />
+                        <div class="image-overlay" />
+                      </>
+                    )
+                  }
+                </div>
+                <div class="post-content">
+                  <p class="post-title">{latestPost.data.title}</p>
+                  <p><FormattedDate date={latestPost.data.pubDate} /></p>
+                </div>
+              </article>
+            </a>
+          </section>
+        </div>
+        <div class="s12 m4 l6 xl8">
+          <section id="latest-post-list">
+            <h2>More</h2>
+            <div class="">
+              {
+                posts.slice(1, 4).map((post) => (
+                  <div class="">
+                    <a href={`/blog/${post.slug}/`}>
+                      <div class="flex latest-post-list-item">
+                        {post.data.blogPostImage && (
+                          <div class="s6">
+                            <img
+                              class="latest-post-list-item-img"
+                              src={"/images/blog/" + post.data.blogPostImage}
+                              alt={post.data.description}
+                            />
+                          </div>
+                        )}
+
+                        <div class="s6">
+                          <div class="latest-post-list-item-content">
+                            <div>
+                              <FormattedDate date={post.data.pubDate} />
+                            </div>
+                            <div>{post.data.title}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))
               }
             </div>
-            {
-              latestPost.data.blogPostImage && (
-                <img
-                  src={"/images/blog/" + latestPost.data.blogPostImage}
-                  alt={latestPost.data.title}
-                  width={256}
-                  height="auto"
-                />
-              )
-            }
-          </a>
+          </section>
         </div>
       </div>
     </main>
     <Footer />
     <style>
+      #latest-post,
+      #latest-post-list {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .blog-post {
+        position: relative;
+        box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+      }
+
+      .post-image {
+        position: relative;
+        aspect-ratio: 1 / 1;
+      }
+
+      .post-title {
+        font-size: large;
+        font-weight: bold;
+      }
+
+      .post-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 1)
+        );
+      }
+
+      .post-content {
+        position: absolute;
+        bottom: 20px;
+        left: 40px;
+        text-align: left;
+        color: #fff; /* Weiße Farbe für den Text */
+        z-index: 1;
+        word-wrap: break-word;
+      }
+
+      .latest-post-list-item-img {
+        padding: 10px;
+      }
+      .latest-post-list-item {
+        box-shadow: 0 14px 6px 0 rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+      }
+      .latest-post-list-item-content {
+        padding: 10px;
+      }
+    </style>
+    <style>
+      #ticker {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
       .ticker-container {
         overflow: hidden;
         position: relative;
@@ -72,7 +179,7 @@ import FormattedDate from "../components/FormattedDate.astro";
         position: absolute;
         white-space: nowrap;
         transform: translateX(100%);
-        animation: ticker-animation 45s linear infinite;
+        animation: ticker-animation 60s linear infinite;
       }
 
       @keyframes ticker-animation {
@@ -126,6 +233,65 @@ import FormattedDate from "../components/FormattedDate.astro";
         "Steuervermeidung à la Hollywood: Prominente lassen ihre Steuern von Schauspielern zahlen",
         "Steuerschnüffelhunde auf dem Vormarsch: Sie erschnüffeln unversteuerte Kekse",
         "Steuersünder versteckt sich in Torte - Beamte finden ihn dank dem Hinweis 'Mit Extra-Mehrwertsteuer'",
+        "Außerirdisches Leben entdeckt! Marsrover findet Spuren von intelligenten Wesen.",
+        "UFO-Sichtungen nehmen weltweit zu: Außerirdische Besucher oder Massenillusion?",
+        "Geheime Regierungsdokumente enthüllen: Außerirdische haben Kontakt mit der Erde aufgenommen.",
+        "Außerirdisches Raumschiff landet im Garten einer Familie - Begegnung der dritten Art!",
+        "Forscher entdecken außerirdische Signale aus den Tiefen des Universums.",
+        "Alien-Invasion oder Marketing-Stunt? Riesige Außerirdische-Skulptur erscheint auf Times Square.",
+        "Alien-Technologie oder natürliche Phänomene? Rätselhafte Lichterscheinungen am Himmel.",
+        "Außerirdische Abduktionen auf dem Vormarsch? Betroffene berichten von Begegnungen der unheimlichen Art.",
+        "Neue Theorie: Außerirdische Zivilisationen könnten in Paralleluniversen existieren.",
+        "Erste Kontaktaufnahme mit intelligentem außerirdischen Leben? SETI-Forscher empfangen mysteriöse Botschaft.",
+        "Außerirdische bitten um Entschuldigung für Kornkreise - 'Wir waren nur im Spaßmodus!'",
+        "UFO-Entführung geht schief: Aliens beschweren sich über 'menschliche Ineffizienz'",
+        "Außerirdische Gastgeber geben zu: 'Wir haben vergessen, die Erdlinge einzuladen'",
+        "Aliens landen auf dem falschen Planeten - 'Wo zum Teufel sind wir gelandet?'",
+        "Klatsch aus dem All: Außerirdisches Paparazzi-Team erwischt Promi-Alien beim Sternenbrunch",
+        "Alien-Touristen verärgert über langweilige Sehenswürdigkeiten auf der Erde - 'Wir wollten mehr als nur Pyramiden sehen!'",
+        "Außerirdische Comedy-Show erobert den Kosmos - 'Es ist witziger als alles auf dem Mars!'",
+        "Kleinkind entpuppt sich als Außerirdischer - 'Kein Wunder, dass er so gut mit Technologie umgeht!'",
+        "Außerirdische Schönheitswettbewerb gewonnen von einem Blob - 'Es ist der Innere Wert, der zählt!'",
+        "Aliens entdecken irdisches Fast Food - 'Wir haben endlich die ultimative fettige Leckerei gefunden!'",
+        "Arbeitsplatz gesucht: Königreich sucht Hofnarren - Bewerber mit Clownserfahrung bevorzugt!",
+        "Forscher enthüllen: Kaffeepausen steigern die Produktivität um 200% - Chef fordert nun stündliche Pausen!",
+        "Skurriler Büro-Unfall: Mitarbeiter verwandelt sich versehentlich in Kaffeemaschine - Koffeinspiegel auf Rekordhoch!",
+        "Revolutionäre Entdeckung: Faulheit ist ansteckend - Mitarbeiter organisieren 'Weltmeisterschaft im Nichtstun'!",
+        "Karriere-Upgrade: Chef ersetzt Meetings durch spontane Tanzwettbewerbe - Wer hat den besten Moonwalk?",
+        "Untersuchung zeigt: Büroklammern verschwinden in parallelen Dimensionen - Forscher starten Suche nach dem Büroklammer-Wurmloch!",
+        "Studie enthüllt: Produktivität steigt mit dem Tragen von Einhorn-Hausschuhen - Unternehmen führt offizielle Dresscode-Änderung ein!",
+        "Mitarbeiterin überlistet Kaffeemaschine mit 'Alexa' - 'Endlich kann ich meinen Kaffee per Sprachbefehl bestellen!'",
+        "Eilmeldung: Bürogebäude von Papierflugzeugen bombardiert - Mitarbeiter fordern bessere Flugabwehrsysteme!",
+        "Arbeitspensum auf Null gesetzt: Unternehmen führt täglichen Mittagsschlaf für alle Mitarbeiter ein - Nickerchen-Wettbewerb geplant!",
+        "Wissenschaftliche Sensation: Forscher entdecken geheime Sprache der Laborratten - Dialoge über Käse und Experimentverweigerung enthüllt!",
+        "Forschungsergebnis schockiert die Welt: Schokolade ist das Geheimnis zur Gewichtsabnahme - Naschen für eine schlanke Figur!",
+        "Wissenschaftliche Studie enthüllt: Das Gehirn von Forschern besteht zu 90% aus Koffein!",
+        "Revolutionärer Durchbruch: Forscher entwickeln Schwerkraft-abschaltenden Schalter - Weltmeisterschaft im schwebenden Kugelstoßen geplant!",
+        "Forscher verwechseln DNA-Proben - Menschlicher Papagei entdeckt - Könnte fliegen und lustige Geräusche machen!",
+        "Geheime Experimente enthüllt: Forscher entwickeln tanzenden Roboter, der 'Macarena' besser beherrscht als Menschen!",
+        "Bahnbrechende Entdeckung: Forscher finden heraus, dass Lachen die beste Medizin ist - Krankenkassen planen Humor-Therapieabteilungen!",
+        "Forscher bestätigen: Kuscheln mit Plüschtieren steigert das IQ-Level - Teddybär-Akademie öffnet für Studierende!",
+        "Studie beweist: Forscher sind die besten Verkoster von Keksteig - Wettbewerb um den Goldenen Löffel gestartet!",
+        "Geheime Forschung: Wissenschaftler arbeiten an der Erfindung einer Zeitmaschine - Meetings sollen rückwirkend vermeidbar sein!",
+        "Forscherteam entdeckt neue Farbe im Regenbogen - 'Wolkenschafblau' sorgt für einen neuen Trend in der Modeindustrie!",
+        "Experimentaler Durchbruch: Forscher erschaffen tanzende Tomaten - Ketchup-Disco eröffnet in Kürze!",
+        "Wissenschaftler enthüllen: Die Quelle der ewigen Jugend ist ein Teller mit Spaghetti - Italienischer Rentner zum jüngsten Mann der Welt gekürt!",
+        "Studie bestätigt: Forscher haben die weltweit höchste Schokoladenkonsumrate - 'Naschkatzen International' für den Nobelpreis nominiert!",
+        "Neue Theorie: Forscher behaupten, dass Katzen in Wirklichkeit die wahren Herrscher der Welt sind - Miezen für den Weltherrschaftsgipfel eingeladen!",
+        "Forscherin erfindet Schwerkraft-trotzenden Haarspray - Menschen mit Schwebehaaren im Aufwind der Modewelt!",
+        "Wissenschaftlicher Durchbruch: Forscher entwickeln Schokoladen-teleportierendes Gerät - Naschen ohne Kalorien!",
+        "Forscher entdecken die wahre Identität von Bigfoot - Er entpuppt sich als frustrierter Promi-Fußballer im Rentenalter!",
+        "Studie bestätigt: Das Gehirn von Forschern ist ein Magnet für Schokolade - Neue Sicherheitsmaßnahmen in Laboren erforderlich!",
+        "Forscherin entdeckt geheime Formel für unendliche Kaffeemenge - Weltrekord im Koffeinkonsum gebrochen!",
+        "Studie bestätigt: Forscher haben das Geheimnis des perfekten Bad-Hair-Days gelöst - Shampoo-Hersteller verzweifelt!",
+        "Wissenschaftlicher Durchbruch: Forscher erschaffen sprechende Haustiere - Katze und Papagei gründen erfolgreiches Comedy-Duo!",
+        "Forscherteam entwickelt Gerät, das lästige Arbeitskollegen in Zimmerpflanzen verwandelt - Büros werden zum botanischen Garten!",
+        "Experimentelle Studie: Forscher trainieren Goldfische zum Synchronschwimmen - Fisch-Olympiade geplant!",
+        "Wissenschaftlicher Meilenstein: Forscher entdecken den ultimativen Schlüssel zum Glück - Eine Tüte Kartoffelchips pro Tag!",
+        "Forscherin enthüllt: Die geheime Sprache der Kaffeemaschinen - 'Koffeeschüttel-Code' revolutioniert die Kaffeekultur!",
+        "Revolutionäre Erfindung: Forscher entwickeln Schreibtisch mit eingebautem Nachmittagsschlaf - Produktivität erreicht neue Tiefs!",
+        "Studie bestätigt: Forscher sind anfällig für Lachanfälle - Wissenschaftskonferenz endet mit einer Stunde Gelächter!",
+        "Forscher erschaffen sprechenden Roboter, der bessere Witze erzählt als Comedians - Stand-up-Comedy vor dem Aus?",
       ];
       function getRandomHeadlines(count: number): string[] {
         const shuffledHeadlines = headlines.sort(() => 0.5 - Math.random());
@@ -135,7 +301,10 @@ import FormattedDate from "../components/FormattedDate.astro";
         const randomIndex = Math.floor(Math.random() * headlines.length);
         return headlines[randomIndex];
       }
-      function isElementVisible(element) {
+      function isElementVisible(element: HTMLElement | null) {
+        if (element === null) {
+          return false;
+        }
         const rect = element.getBoundingClientRect();
         const windowHeight =
           window.innerHeight || document.documentElement.clientHeight;
@@ -152,7 +321,7 @@ import FormattedDate from "../components/FormattedDate.astro";
       }
       function fillTicker(ticker: HTMLElement | null) {
         if (ticker) {
-          ticker.textContent = getRandomHeadlines(1)[0];
+          ticker.textContent = getRandomHeadline();
         }
       }
 
@@ -174,7 +343,7 @@ import FormattedDate from "../components/FormattedDate.astro";
               fillTicker(element);
             }
           });
-        }, 45000);
+        }, 60000);
       }
       generateTicker();
     </script>

@@ -45,19 +45,42 @@ body {
 header {
   background-color: #333;
   color: #fff;
-  padding: 20px;
+  padding: 4px 20px 4px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
 }
-
 header h1 {
-  margin: 0;
+  margin-right: 10px;
+  float: left;
 }
 
 /* Hauptinhalt */
 main {
-  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
   flex: 1;
+  max-width: 980px;
+  margin-top: 64px;
+  margin-bottom: 46px;
 }
 
+@media screen and (max-width: 600px) {
+  main {
+    margin-bottom: 76px;
+  }
+}
+@media screen and (max-width: 400px) {
+  main {
+    margin-bottom: 100px;
+  }
+}
+@media only screen and (max-width: 250px) {
+  main {
+    margin-bottom: 124px;
+  }
+}
 /* Sidebar */
 .sidebar {
   width: 30%;
@@ -88,7 +111,10 @@ footer {
   color: #fff;
   padding: 20px;
   text-align: center;
-  flex-shrink: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  bottom: 0;
 }
 
 /* Links */

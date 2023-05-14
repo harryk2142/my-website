@@ -14,7 +14,12 @@ const posts = (await getCollection("blog")).sort(
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+      image={"icons/favicon-96x96.png"}
+      type={"website"}
+    />
     <style>
       ul {
         list-style-type: none;

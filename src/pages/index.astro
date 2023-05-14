@@ -14,7 +14,12 @@ import FormattedDate from "../components/FormattedDate.astro";
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+      image={"icons/favicon-96x96.png"}
+      type={"website"}
+    />
   </head>
   <body>
     <Header title={SITE_TITLE} />
@@ -75,7 +80,7 @@ import FormattedDate from "../components/FormattedDate.astro";
                           <div class="s6">
                             <img
                               class="latest-post-list-item-img"
-                              src={"/images/blog/" + post.data.blogPostImage}
+                              src={"/images/blog/" + post.data.previewImage}
                               alt={post.data.description}
                             />
                           </div>

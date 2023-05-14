@@ -9,17 +9,18 @@ export interface Props {
   title: string;
   description: string;
   image?: string;
+  type?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
+const { title, description, image, type = "website" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png" href="icons/favicon.png" />
+<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -29,25 +30,42 @@ const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="manifest" href={canonicalURL.origin + "/manifest.webmanifest"} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+{
+  image && (
+    <meta property="og:image" content={canonicalURL.origin + "/" + image} />
+  )
+}
+<!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:creator" content="Harry Kramer" />
+<meta property="twitter:card" content="summary" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image:alt" content={description} />
+{
+  image && (
+    <meta
+      property="twitter:image"
+      content={canonicalURL.origin + "/" + image}
+    />
+  )
+}
 
 <!-- icons -->
 <meta name="msapplication-TileColor" content="#ffffff" />
-<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
+<meta
+  name="msapplication-TileImage"
+  content={canonicalURL.origin + "/icons/ms-icon-144x144.png"}
+/>
 <meta name="theme-color" content="#ffffff" />
 <link
   rel="icon"

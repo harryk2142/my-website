@@ -13,47 +13,46 @@ const { title, description, pubDate, blogPostImage, previewImage } =
 
 <html lang="de">
   <head>
-    <BaseHead title={title} description={description} image={blogPostImage} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={"images/blog/" + previewImage}
+      type={"article"}
+    />
     <style>
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
       .blog-post-img-container {
         width: 100%;
         max-width: 450px;
+        margin-top: 10px;
         margin-bottom: 10px;
         margin-left: auto;
         margin-right: auto;
       }
       article {
         text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
         word-wrap: break-word;
       }
       article h1 {
-        margin-bottom: 4px;
+        margin-bottom: 10px;
+      }
+      #publication-date {
+        font-size: larger;
+        color: seagreen;
+        font-weight: bold;
+        font-style: italic;
       }
     </style>
-    {
-      previewImage && (
-        <meta
-          property="og:image"
-          content={"https://www.harry-kramer.net/images/blog/" + previewImage}
-        />
-      )
-    }
   </head>
 
   <body>
     <Header />
     <main>
       <article>
-        <h1 class="title"><FormattedDate date={pubDate} /> - {description}</h1>
+        <h1 class="title">{description}</h1>
+        <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           blogPostImage && (
             <div class="blog-post-img-container">
@@ -61,7 +60,6 @@ const { title, description, pubDate, blogPostImage, previewImage } =
             </div>
           )
         }
-        <div class="blog-post-date"></div>
         <slot />
       </article>
     </main>

@@ -4,16 +4,27 @@ import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-  <h1>
-    <a href="/">{SITE_TITLE}</a>
-  </h1>
-  <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-  </nav>
+  <section id="title">
+    <h1>
+      <a href="/">{SITE_TITLE}</a>
+    </h1>
+  </section>
+  <br />
+  <section id="navigation">
+    <nav>
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+    </nav>
+  </section>
 </header>
 <style>
+  @media (max-width: 601px) {
+    #title h1 {
+      font-size: 1.5rem;
+    }
+  }
   nav {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

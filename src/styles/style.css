@@ -8,24 +8,13 @@
 /* wichtige Margins und Paddings auf 0 setzen */
 html,
 body,
-div,
-span,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-/* p, */
-/* a, */
-img,
-/* ul,
-ol,
-li, */
-form
-/* input, */
-/* textarea, */
-/* button */ {
+img {
   margin: 0;
   padding: 0;
   border: 0;
@@ -34,7 +23,7 @@ html,
 body {
   font-family: Verdana, sans-serif;
   /* font-family: Arial, sans-serif; */
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
@@ -62,13 +51,16 @@ main {
   margin-right: auto;
   flex: 1;
   max-width: 980px;
-  margin-top: 64px;
+  margin-top: 100px;
   margin-bottom: 46px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width: 600px) {
   main {
     margin-bottom: 76px;
+    margin-top: 100px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -80,16 +72,6 @@ main {
   main {
     margin-bottom: 124px;
   }
-}
-/* Sidebar */
-.sidebar {
-  width: 30%;
-  float: right;
-  margin: 20px;
-}
-
-.sidebar h2 {
-  margin-top: 0;
 }
 
 /* Beiträge */
@@ -130,4 +112,22 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
 }

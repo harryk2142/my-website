@@ -35,14 +35,27 @@ const { title, description, pubDate, blogPostImage, previewImage } =
         max-width: 600px;
         word-wrap: break-word;
       }
-      article h1 {
+      article h2 {
         margin-bottom: 10px;
+      }
+      @media (max-width: 601px) {
+        article h2 {
+          margin-top: 40px;
+          font-size: 1.25rem;
+        }
       }
       #publication-date {
         font-size: larger;
         color: seagreen;
         font-weight: bold;
         font-style: italic;
+      }
+      main {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      #main-content {
+        font-size: 1.25rem;
       }
     </style>
   </head>
@@ -51,7 +64,7 @@ const { title, description, pubDate, blogPostImage, previewImage } =
     <Header />
     <main>
       <article>
-        <h1 class="title">{description}</h1>
+        <h2 class="title">{description}</h2>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           blogPostImage && (
@@ -60,7 +73,9 @@ const { title, description, pubDate, blogPostImage, previewImage } =
             </div>
           )
         }
-        <slot />
+        <section id="main-content">
+          <slot />
+        </section>
       </article>
     </main>
     <Footer />

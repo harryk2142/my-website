@@ -30,7 +30,7 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
       </article>
       <hr />
       <div class="flex">
-        <div class="s12 m8 l6 xl4">
+        <div class="s12 m8 l6 xl6">
           <section id="latest-post">
             <h2>LATEST POST</h2>
             <a href={`/blog/${latestPost.slug}/`}>
@@ -54,7 +54,7 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
             </a>
           </section>
         </div>
-        <div class="s12 m4 l6 xl8">
+        <div class="s12 m4 l6 xl6">
           <section id="latest-post-list">
             <h2>More</h2>
             <div class="">
@@ -64,7 +64,7 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
                     <a href={`/blog/${post.slug}/`}>
                       <div class="flex latest-post-list-item">
                         {post.data.blogPostImage && (
-                          <div class="s6">
+                          <div class="s4 m12 l4">
                             <img
                               class="latest-post-list-item-img"
                               src={"/images/blog/" + post.data.previewImage}
@@ -73,12 +73,12 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
                           </div>
                         )}
 
-                        <div class="s6">
+                        <div class="s8 m12 l8">
                           <div class="latest-post-list-item-content">
                             <p class="latest-post-list-item-date">
                               <FormattedDate date={post.data.pubDate} />
                             </p>
-                            <div>{post.data.title}</div>
+                            <p>{post.data.title}</p>
                           </div>
                         </div>
                       </div>
@@ -87,14 +87,29 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
                 ))
               }
             </div>
+            <section id="zu-weiteren-posts" class="primary">
+              <a id="zu-weiteren-posts-button" href="/blog">
+                <div>Zu weiteren Posts</div>
+              </a>
+            </section>
           </section>
         </div>
       </div>
     </main>
     <Footer />
     <style>
+      #zu-weiteren-posts {
+        text-align: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      #zu-weiteren-posts-button,
+      #zu-weiteren-posts-button:visited {
+        color: #fff;
+      }
       .latest-post-list-item-date {
-        font-size: 16px;
+        font-size: 14px;
+        color: cadetblue;
       }
       #latest-post,
       #latest-post-list {

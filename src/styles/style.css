@@ -29,11 +29,12 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-/* Header */
-header {
+.primary {
   background-color: #333;
   color: #fff;
+}
+/* Header */
+header {
   padding: 4px 20px 4px 20px;
   position: fixed;
   width: 100%;
@@ -89,8 +90,6 @@ main {
 
 /* Fußzeile */
 footer {
-  background-color: #333;
-  color: #fff;
   padding: 20px;
   text-align: center;
   position: fixed;

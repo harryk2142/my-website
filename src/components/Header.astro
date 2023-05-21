@@ -3,28 +3,47 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="primary">
-  <section id="title">
-    <h1>
-      <a href="/">{SITE_TITLE}</a>
-    </h1>
-  </section>
-  <br />
+<article>
   <section id="navigation">
-    <nav>
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-    </nav>
+    <header>
+      <h1>
+        <a href="/">{SITE_TITLE}</a>
+      </h1>
+      <nav>
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+      </nav>
+    </header>
   </section>
-</header>
+</article>
+
 <style>
-  @media (max-width: 601px) {
+  /* @media (max-width: 601px) {
     #title h1 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
+  } */
+  article {
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    background-color: #333;
+  }
+  section {
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+    width: 100%;
+    max-width: 980px;
+    background-color: #333;
+  }
+  header {
+    position: fixed;
+    width: inherit;
+    max-width: inherit;
   }
   nav {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,5 +56,45 @@ import { SITE_TITLE } from "../consts";
   a.active {
     font-weight: bolder;
     text-decoration: underline;
+  }
+  /* Header */
+  header {
+    padding: 4px 20px 4px 20px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: #333;
+    color: #fff;
+
+    width: inherit;
+    max-width: inherit;
+  }
+  header h1 {
+    float: left;
+    text-align: center;
+    font-size: 2.25rem;
+  }
+  @media screen and (max-width: 600px) {
+    header {
+      margin-bottom: 76px;
+    }
+    header h1 {
+      font-size: 2rem;
+      float: none;
+    }
+    nav {
+      margin-top: 0px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    header h1 {
+      float: none;
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    header h1 {
+      font-size: 1.25rem;
+    }
   }
 </style>

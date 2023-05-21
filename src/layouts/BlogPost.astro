@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import Main from "../components/Main.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -40,8 +41,10 @@ const { title, description, pubDate, blogPostImage, previewImage } =
       }
       @media (max-width: 601px) {
         article h2 {
-          margin-top: 40px;
-          font-size: 1.25rem;
+          font-size: 1.5rem;
+        }
+        article {
+          margin-top: 6rem;
         }
       }
       #publication-date {
@@ -62,7 +65,7 @@ const { title, description, pubDate, blogPostImage, previewImage } =
 
   <body>
     <Header />
-    <main>
+    <Main>
       <article>
         <h2 class="title">{description}</h2>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
@@ -77,7 +80,7 @@ const { title, description, pubDate, blogPostImage, previewImage } =
           <slot />
         </section>
       </article>
-    </main>
+    </Main>
     <Footer />
   </body>
 </html>

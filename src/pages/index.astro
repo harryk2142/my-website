@@ -10,6 +10,7 @@ const posts = (await getCollection("blog")).sort(
 const latestPost = posts[0];
 import FormattedDate from "../components/FormattedDate.astro";
 import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
+import Main from "../components/Main.astro";
 ---
 
 <!DOCTYPE html>
@@ -24,8 +25,8 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <main class="">
-      <article>
+    <Main>
+      <article id="breaking-news-ticker">
         <BreakingNewsTicker />
       </article>
       <hr />
@@ -95,9 +96,17 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
           </section>
         </div>
       </div>
-    </main>
+    </Main>
     <Footer />
     <style>
+      #breaking-news-ticker {
+        margin-top: 4rem;
+      }
+      @media screen and (max-width: 600px) {
+        #breaking-news-ticker {
+          margin-top: 6rem;
+        }
+      }
       #zu-weiteren-posts {
         text-align: center;
         padding-top: 2rem;
@@ -171,5 +180,197 @@ import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
         padding: 10px;
       }
     </style>
-  </body>
+  </body><!-- 
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Blog Startseite</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		
+		header {
+			background-color: #333;
+			color: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			padding: 10px;
+		}
+		
+		nav {
+			float: right;
+			margin-top: 10px;
+		}
+		
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav li {
+			display: inline-block;
+			margin-left: 20px;
+		}
+		
+		main {
+			margin-top: 70px;
+			padding: 20px;
+		}
+		
+		h1 {
+			font-size: 36px;
+			margin-bottom: 20px;
+		}
+		
+		h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+		
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			margin-bottom: 10px;
+		}
+		
+		.post {
+			margin-bottom: 20px;
+			
+			border-bottom: 1px solid #ccc;
+			
+			padding-bottom: 20px;
+			
+			display:flex; 
+  			flex-wrap:no-wrap; 
+  			align-items:center; 
+  			gap:.5rem; 
+  			width:auto; 
+  			height:auto; 
+  			max-width:none; 
+  			max-height:none; 
+  			min-width:none; 
+  			min-height:none; 
+  			flex-direction:flex-row; 
+  			flex-flow:none; 
+  			order:none; 
+  			flex-grow:none; 
+  			flex-shrink:none; 
+  			flex-basis:auto; 
+  			align-self:auto; 
+  			box-sizing:border-box; 
+  			border-radius:none; 
+  			border-style:none; 
+  			border-color:none; 
+  			border-width:none; 
+  			background-color:none; 
+  			color:#000000
+  		}
+  		
+  		.post img {
+  		    width:auto !important; 
+  		    height:auto !important;  
+  		    max-width:none !important;  
+  		    max-height:none !important;  
+  		    min-width:none !important;  
+  		    min-height:none !important
+  		}
+  		
+  		.post .post-title {
+  		    font-size:24px !important
+  		}
+  		
+  		.post .post-content {
+  		    font-size:16px !important
+  		}
+  		
+  		h3 {
+  		    font-size:18px !important
+  		}
+  		
+  		h4 {
+  		    font-size:16px !important
+  		}
+		
+  		h5 {
+  		    font-size:14px !important
+  		}
+  		
+  		h6 {
+  		    font-size:12px !important
+  		}
+
+  		h2 a,
+  		h3 a,
+  		h4 a,
+  		h5 a,
+  		h6 a {
+  		    color:#000000 !important
+  		}
+
+  		h2 a:hover,
+  		h3 a:hover,
+  		h4 a:hover,
+  		h5 a:hover,
+  		h6 a:hover {
+  		    color:#ff0000 !important
+  		}
+
+        footer{
+            position:absolute;
+            bottom:-100%;
+            width:auto;
+            height:auto;
+            background-color:#333333;
+            color:#ffffff;
+
+        }
+        
+        .footer-container{
+            display:flex;
+
+        }
+        
+        .footer-container p{
+            margin-left:auto;
+
+        }
+        
+        .footer-container ul{
+            list-style-type:none;
+
+        }
+        
+        .footer-container li{
+            display:inline-block;
+
+        }
+        
+        .footer-container li:not(:last-child){
+            margin-right:.5rem;
+
+        }
+        
+        .footer-container a{
+            color:#ffffff;
+
+        }
+        
+        .footer-container a:hover{
+            color:#ff0000;
+
+        }
+
+    </style>
+</
+ -->
 </html>

@@ -4,7 +4,7 @@ description: "Männliches Einhorn in einem magischen Wald im Harz entdeckt"
 pubDate: 2023-03-13
 blogPostImage: "goldenes-einhorn.webp"
 previewImage: "goldenes-einhorn-preview.webp"
-tags: [unglaubliches]
+tags: [einhorn, magischer-wald, harz, entdeckung, fantasy]
 ---
 
 Eine sensationelle Entdeckung wurde im magischen Wald im Harz gemacht. Ein männliches Einhorn wurde von einem Wanderer namens Hans Müller fotografiert. Das Tier hat ein silbernes Fell, ein goldenes Horn und blaues Haar.

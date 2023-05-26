@@ -1,0 +1,117 @@
+<div id="eye-container" class="eye-container">
+  <div id="upper-lid" class="upper-lid"></div>
+  <canvas id="eye-canvas" class="eye-canvas"></canvas>
+</div>
+
+<script>
+  interface Point {
+    x: number;
+    y: number;
+  }
+
+  const canvas = document.getElementById("eye-canvas") as HTMLCanvasElement;
+  const upperLid = document.getElementById("upper-lid") as HTMLElement;
+  const eyeContainer = document.getElementById("eye-container") as HTMLElement;
+  const parent = eyeContainer.parentElement as HTMLElement;
+  eyeContainer.style.width = parent.style.width;
+  eyeContainer.style.height = parent.style.height;
+  canvas.width = eyeContainer.clientWidth;
+  canvas.height = eyeContainer.clientHeight;
+  upperLid.style.width = canvas.width + "px";
+  const context = canvas.getContext("2d")!;
+  const pointEye1 = { x: canvas.width / 2 - 30, y: canvas.height / 2 };
+  const pointEye2 = { x: canvas.width / 2 + 30, y: canvas.height / 2 };
+  const radius = (canvas.height - 10) / 2;
+
+  function drawEye({ x: centerX, y: centerY }, mousePosition: Point) {
+    context.beginPath();
+    // Auge 1
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    context.fillStyle = "white";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "black";
+    context.stroke();
+
+    const pupilPosition = getPupilPosition(
+      { x: centerX, y: centerY },
+      mousePosition
+    );
+    const pupilRadius = radius / 2;
+
+    context.beginPath();
+    context.arc(pupilPosition.x, pupilPosition.y, pupilRadius, 0, 2 * Math.PI);
+    context.fillStyle = "black";
+    context.fill();
+  }
+
+  function getPupilPosition(center: Point, mousePosition: Point): Point {
+    const distance = Math.sqrt(
+      Math.pow(mousePosition.x - center.x, 2) +
+        Math.pow(mousePosition.y - center.y, 2)
+    );
+    const pupilRadius = radius / 2;
+    const maxDistance = radius - pupilRadius;
+    if (distance > maxDistance) {
+      const angle = Math.atan2(
+        mousePosition.y - center.y,
+        mousePosition.x - center.x
+      );
+      return {
+        x: center.x + Math.cos(angle) * maxDistance,
+        y: center.y + Math.sin(angle) * maxDistance,
+      };
+    }
+    return {
+      x: mousePosition.x,
+      y: mousePosition.y,
+    };
+  }
+
+  function getMousePosition(event: MouseEvent): Point {
+    return {
+      x: event.clientX - canvas.getBoundingClientRect().left,
+      y: event.clientY - canvas.getBoundingClientRect().top,
+    };
+  }
+
+  document.addEventListener("mousemove", (event) => {
+    const mousePosition = getMousePosition(event);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawEye(pointEye1, mousePosition);
+    drawEye(pointEye2, mousePosition);
+  });
+  drawEye(pointEye1, pointEye1);
+  drawEye(pointEye2, pointEye2);
+</script>
+<style>
+  @keyframes blink {
+    0% {
+      height: 0%;
+    }
+    48% {
+      height: 0%;
+    }
+    50% {
+      height: 100%;
+    }
+    52% {
+      height: 0%;
+    }
+    100% {
+      height: 0%;
+    }
+  }
+
+  #upper-lid {
+    position: absolute;
+    top: 0%;
+    background-color: #333;
+    animation: blink 10s infinite;
+  }
+  #eye-container {
+    height: 100%;
+    margin: 0 10px;
+    text-align: center;
+  }
+</style>

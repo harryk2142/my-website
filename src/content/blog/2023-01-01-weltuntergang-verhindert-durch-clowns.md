@@ -2,9 +2,13 @@
 title: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 description: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 pubDate: 2023-01-01
+postImage:
+  src: "clowns-retten-die-welt.webp"
+  prevSrc: "clowns-retten-die-welt-preview.webp"
+  alt: "Zwei Clowns stehen um die Erdkugel herum"
 blogPostImage: "clowns-retten-die-welt.webp"
 previewImage: "clowns-retten-die-welt-preview.webp"
-tags: [clowns, weltuntergang]
+tags: [clowns, weltuntergang, silvester2022]
 ---
 
 Die Menschheit stand kurz vor dem Weltuntergang, als sich am Silvesterabend des Jahres 2022 plötzlich etwas Unerwartetes ereignete. Aus dem Nichts tauchten Hunderte von Clowns auf und verteilten sich über den ganzen Globus.

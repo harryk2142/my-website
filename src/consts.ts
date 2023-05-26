@@ -1,3 +1,5 @@
+export const MAIN_PRIMARY = "#333";
+export const MAIN_SECONDARY = "#d9d9d9";
 export const SITE_TITLE = "The AI Laughter Files";
 export const SITE_DESCRIPTION_SHORT =
   "Willkommen auf meinem Blog, deinem Zuhause für lustigen und satirischen Content, der mithilfe von AI erstellt wird. " +

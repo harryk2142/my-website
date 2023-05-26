@@ -4,7 +4,7 @@ description: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durc
 pubDate: 2023-01-27
 blogPostImage: "fusionskraftwerk-auf-dem-mars.webp"
 previewImage: "fusionskraftwerk-auf-dem-mars-preview.webp"
-tags: [fusion, marsianer, terraner]
+tags: [fusion, marsianer, terraner, science-fiction, technologie]
 ---
 
 ## Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch

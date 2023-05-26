@@ -1,0 +1,33 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import MainHeader from "../../components/MainHeader.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../../consts";
+import Main from "../../components/Main.astro";
+import TagCloud from "../../components/TagCloud.astro";
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION_SHORT}
+      image={"icons/favicon-96x96.png"}
+      type={"website"}
+    />
+  </head>
+  <body>
+    <MainHeader />
+    <Main>
+      <h2>TAGS</h2>
+      <TagCloud />
+    </Main>
+    <Footer />
+    <style>
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>

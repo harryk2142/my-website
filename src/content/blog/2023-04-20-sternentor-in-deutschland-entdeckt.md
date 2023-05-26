@@ -4,7 +4,7 @@ description: "Sensationelle Entdeckung: Forscher finden antikes Sternentor in de
 pubDate: 2023-04-20
 blogPostImage: "sternentor-in-deutschland-entdeckt.webp"
 previewImage: "sternentor-in-deutschland-entdeckt-preview.webp"
-tags: [unglaubliches]
+tags: [sternentor, antike, speyer, entdeckung, science-fiction]
 ---
 
 Was für eine Überraschung! Bei Bauarbeiten in der Nähe des Kaiser- und Mariendoms in Speyer, einem bedeutenden romanischen Bauwerk, haben zwei Arbeiter möglicherweise ein mysteriöses Portal freigelegt.

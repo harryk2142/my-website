@@ -1,3 +1,45 @@
+:root {
+  --main-gold: #ffd700;
+  --main-black: #000000;
+  --main-primary: #333;
+  --main-secondary: antiquewhite;
+
+  /* Abstufungen von Blau */
+  --element-water-lightest: #ebf8ff;
+  --element-water-lighter: #d1e5fe;
+  --element-water-light: #add8e6;
+  --element-water: #00bfff;
+  --element-water-dark: #0066cc;
+  --element-water-darker: #003399;
+  --element-water-darkest: #000066;
+
+  /* Abstufungen von Rot */
+  --element-fire-lightest: #ffe6e6;
+  --element-fire-lighter: #ffcccc;
+  --element-fire-light: #ff9999;
+  --element-fire: #ff0000;
+  --element-fire-dark: #cc0000;
+  --element-fire-darker: #990000;
+  --element-fire-darkest: #660000;
+
+  /* Abstufungen von Gelb */
+  --element-air-lightest: #ffffe6;
+  --element-air-lighter: #ffffcc;
+  --element-air-light: #ffff99;
+  --element-air: #ffff00;
+  --element-air-dark: #cccc00;
+  --element-air-darker: #999900;
+  --element-air-darkest: #666600;
+
+  /* Abstufungen von Grün */
+  --element-earth-lightest: #e6ffe6;
+  --element-earth-lighter: #ccffcc;
+  --element-earth-light: #99ff99;
+  --element-earth: #00ff00;
+  --element-earth-dark: #00cc00;
+  --element-earth-darker: #009900;
+  --element-earth-darkest: #006600;
+}
 /* Globale Einstellungen */
 /* alle Elemente auf "box-sizing: border-box" setzen */
 *,
@@ -25,6 +67,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -41,13 +84,13 @@ a:hover {
   text-decoration: underline;
 }
 h1 {
-  font-size: 36px;
+  font-size: 3rem;
 }
 h2 {
-  font-size: 30px;
+  font-size: 2rem;
 }
 h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 h4 {
   font-size: 20px;
@@ -57,4 +100,78 @@ h5 {
 }
 h6 {
   font-size: 16px;
+}
+.primary {
+  background-color: var(--main-primary);
+  color: antiquewhite;
+}
+.content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.container,
+.panel {
+  padding: 0.01em 16px;
+}
+.panel {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* HEADER */
+#main-header {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 100;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* #main-header ~ * {
+  margin-top: calc(2.5rem + 30px);
+} */
+#main-header h1 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+#main-header {
+  height: 6rem;
+}
+main {
+  margin-top: 6rem;
+}
+@media screen and (min-width: 601px) {
+  #main-header h1 {
+    font-size: 1.75rem;
+  }
+  #main-header {
+    height: 6.5rem;
+  }
+  main {
+    margin-top: 6.5rem;
+  }
+}
+@media screen and (min-width: 771px) {
+  #main-header h1 {
+    font-size: 1.75rem;
+  }
+  #main-header {
+    height: 7rem;
+  }
+  main {
+    margin-top: 7rem;
+  }
+}
+@media screen and (min-width: 993px) {
+  #main-header h1 {
+    font-size: 2.25rem;
+  }
+  #main-header {
+    height: 5rem;
+  }
+  main {
+    margin-top: 5rem;
+  }
 }

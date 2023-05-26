@@ -4,7 +4,7 @@ description: "Gedankenlesendes Bakterium auf dem Mars entdeckt"
 pubDate: 2023-02-08
 blogPostImage: "gruenes-bakterium-blaue-fluessingkeit.webp"
 previewImage: "gruenes-bakterium-blaue-fluessingkeit-preview.webp"
-tags: [bakterium, mars, erde]
+tags: [bakterium, mars, entdeckung, mystery]
 ---
 
 ## Gedankenlesendes Bakterium auf dem Mars entdeckt

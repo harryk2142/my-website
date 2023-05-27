@@ -11,6 +11,8 @@ const latestPost = posts[0];
 import FormattedDate from "../components/FormattedDate.astro";
 import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
 import Main from "../components/Main.astro";
+import Ufo from "../components/Ufo.astro";
+import Sizes from "../components/Ufo.astro";
 ---
 
 <!DOCTYPE html>
@@ -57,7 +59,9 @@ import Main from "../components/Main.astro";
         </div>
         <div class="s12 m4 l6 xl6">
           <section id="latest-post-list">
-            <h2>More</h2>
+            <a id="more-link" href="/blog">
+              <h2>More</h2>
+            </a>
             <div class="">
               {
                 posts.slice(1, 4).map((post) => (
@@ -76,10 +80,12 @@ import Main from "../components/Main.astro";
 
                         <div class="s8 m12 l8">
                           <div class="latest-post-list-item-content">
-                            <p class="latest-post-list-item-date">
+                            <div class="latest-post-list-item-date">
                               <FormattedDate date={post.data.pubDate} />
-                            </p>
-                            <p>{post.data.title}</p>
+                            </div>
+                            <div>
+                              <span>{post.data.title}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -90,7 +96,7 @@ import Main from "../components/Main.astro";
             </div>
             <section id="zu-weiteren-posts" class="primary">
               <a id="zu-weiteren-posts-button" href="/blog">
-                <div>Zu weiteren Posts</div>
+                <div>Zu weiteren Posts <Ufo size="L" /></div>
               </a>
             </section>
           </section>
@@ -107,6 +113,9 @@ import Main from "../components/Main.astro";
           margin-top: 6rem;
         }
       } */
+      #more-link {
+        color: black;
+      }
       #zu-weiteren-posts {
         background-color: #333;
         text-align: center;
@@ -171,7 +180,7 @@ import Main from "../components/Main.astro";
       }
 
       .latest-post-list-item-img {
-        padding: 10px;
+        padding: 10px 10px;
       }
       .latest-post-list-item {
         box-shadow: 0 14px 6px 0 rgba(0, 0, 0, 0.2);

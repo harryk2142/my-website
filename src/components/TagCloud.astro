@@ -4,7 +4,9 @@ import { getCollection } from "astro:content";
 // SRC: https://alvaromontoro.com/blog/67945/create-a-tag-cloud-with-html-and-css
 
 const allPosts = await getCollection("blog");
-const tags = allPosts.flatMap((post) => post.data.tags);
+const tags = allPosts
+  .filter((e) => !e.data.draft)
+  .flatMap((post) => post.data.tags);
 const uniqueTags = [...new Set(tags)];
 const tagsWithValues: Array<{ key: string; value: number }> = [];
 const maxFontSize = 3;

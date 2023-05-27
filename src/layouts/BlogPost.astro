@@ -39,14 +39,14 @@ const { title, description, pubDate, blogPostImage, previewImage, tags } =
       article h2 {
         margin-bottom: 10px;
       }
-      @media (max-width: 601px) {
+      /* @media (max-width: 601px) {
         article h2 {
           font-size: 1.5rem;
         }
         article {
           margin-top: 6rem;
         }
-      }
+      } */
       #publication-date {
         font-size: larger;
         color: seagreen;
@@ -67,7 +67,7 @@ const { title, description, pubDate, blogPostImage, previewImage, tags } =
     <MainHeader />
     <Main>
       <article>
-        <h2 class="title">{description}</h2>
+        <h2 class="title container">{description}</h2>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           blogPostImage && (

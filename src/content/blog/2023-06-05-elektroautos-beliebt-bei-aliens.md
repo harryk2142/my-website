@@ -1,7 +1,7 @@
 ---
 title: "Elektroautos besonders beliebt bei UFO-Entführungen"
 description: "Unglaublich - Elektroautos beliebt bei Aliens"
-pubDate: 2023-06-01
+pubDate: 2023-06-05
 blogPostImage: "elektroauto-wird-von-ufo-entfuehrt.webp"
 previewImage: "elektroauto-wird-von-ufo-entfuehrt-preview.webp"
 tags: [elektroautos, ufo, entfuherung, mystery]

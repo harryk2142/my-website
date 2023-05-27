@@ -4,23 +4,28 @@ import { SITE_TITLE } from "../consts";
 import Eyes from "./Eyes.astro";
 ---
 
-<article class="primary" id="main-header">
-  <section class="content flex" style="height:3rem">
-    <header class="s12 m12 l6">
-      <h1 class="container">
-        <a href="/">{SITE_TITLE}</a>
-      </h1>
+<section id="main-header" class="primary">
+  <div id="main-header-content" class="content flex">
+    <header class="s12 m12 l7 xl7">
+      <div>
+        <h1 class="container">
+          <a href="/">{SITE_TITLE}</a>
+        </h1>
+      </div>
     </header>
-    <div class="s4 m5 l3" id="" style="min-height: 100%;height:100%">
-      <Eyes />
+    <div class="s4 m4 l2 xl2" id="eyes">
+      <div id="">
+        <Eyes />
+      </div>
     </div>
-    <nav class="s8 m5 l3">
+
+    <nav class="s8 m8 l3 xl3 center">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/tags">Tags</HeaderLink>
     </nav>
-  </section>
-</article>
+  </div>
+</section>
 <style>
   a {
     color: #fdfdfd;

@@ -1,4 +1,5 @@
 ---
+id: "20230127-0"
 title: "Durchbruch im Bereich Fusion"
 description: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
 pubDate: 2023-01-27

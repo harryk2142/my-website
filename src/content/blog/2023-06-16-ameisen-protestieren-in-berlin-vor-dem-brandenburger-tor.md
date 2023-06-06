@@ -1,4 +1,5 @@
 ---
+id: "20230616-0"
 title: "Großes Ameisenaufgebot vor dem Brandenburger Tor"
 description: "Großes Ameisenaufgebot vor dem Brandenburger Tor: Die Insektenrevolution für den Klimaschutz"
 pubDate: 2023-06-16

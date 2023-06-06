@@ -1,4 +1,5 @@
 ---
+id: "20230505-0"
 title: "Gigantischer Gorilla in Frankfurt gesichtet"
 description: "Breaking News: Riesiger Gorilla in Frankfurter Skyline gesichtet!"
 pubDate: 2023-05-05

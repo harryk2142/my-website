@@ -5,10 +5,13 @@ import MainHeader from "../components/MainHeader.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Main from "../components/Main.astro";
+import LeftAside from "src/components/BlogPost/Left.astro";
+import Comments from "src/components/BlogPost/Comments.astro";
 
 type Props = CollectionEntry<"blog">["data"];
-
-const { title, description, pubDate, blogPostImage, previewImage, tags } =
+const pathSegments = Astro.request.url.split("/");
+const blogPostIdentifier = pathSegments.at(pathSegments.length - 2);
+const { id, title, description, pubDate, blogPostImage, previewImage, tags } =
   Astro.props;
 ---
 
@@ -60,14 +63,22 @@ const { title, description, pubDate, blogPostImage, previewImage, tags } =
       #main-content {
         font-size: 1.25rem;
       }
+      /* Style page content */
+      #blogpost-container {
+        margin-left: 80px; /* Same as the width of the sidebar */
+        padding: 0px 10px;
+      }
     </style>
   </head>
 
   <body>
     <MainHeader />
     <Main>
-      <article>
-        <h2 class="title container">{description}</h2>
+      <span hidden id="blog-post-identifier">{blogPostIdentifier}</span>
+      <span hidden id="post-id"></span>
+      <LeftAside />
+      <article id="blogpost-container">
+        <h2 class="title container" id="title">{description}</h2>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           blogPostImage && (
@@ -89,8 +100,212 @@ const { title, description, pubDate, blogPostImage, previewImage, tags } =
         <section id="main-content">
           <slot />
         </section>
+        <Comments />
       </article>
     </Main>
+    <style>
+      form {
+        margin-bottom: 2rem;
+      }
+    </style>
+    <script>
+      setTimeout(() => {
+        import("./../components/BlogPost/Content.js").then((contentHelper) => {
+          const blogPostIdentifier = document.querySelector(
+            "#blog-post-identifier"
+          ).innerText;
+          contentHelper.getPostID(blogPostIdentifier).then((postID) => {
+            document.querySelector("#post-id").innerText = postID;
+            contentHelper.loadLikes(postID).then((likes) => {
+              document.querySelector("#like-counter").innerText = likes;
+            });
+            document
+              .querySelector("#like-btn")
+              .addEventListener("click", async () => {
+                const newLikeCount = await contentHelper.submitLike(postID);
+                document.querySelector("#like-counter").innerText =
+                  newLikeCount;
+              });
+
+            document
+              .querySelector("#load-comments-btn")
+              .addEventListener("click", async () => {
+                contentHelper.loadComments(postID).then((comments) => {
+                  loadComments(comments);
+                  const b = document.querySelector("#load-comments-btn");
+                  b.style.display = "none";
+                });
+              });
+
+            document
+              .querySelector("#submit-comment-btn")
+              .addEventListener("click", async (event) => {
+                event.preventDefault();
+                var botProtection =
+                  document.getElementById("bot-protection")?.value;
+                if (botProtection) {
+                  // Bot erkannt, Formular nicht absenden
+                  return;
+                }
+                // @ts-ignore
+                var parentCommentID =
+                  document.getElementById("parent-comment-id")?.value;
+                // @ts-ignore
+                var commentText =
+                  document.getElementById("comment-text")?.value;
+                // @ts-ignore
+                var username = document.getElementById("username")?.value;
+                if (!username) {
+                  username = "ANONYM";
+                }
+
+                if (parentCommentID) {
+                  // addCommentReply(postID, parentCommentID, commentText, author);
+                } else {
+                  contentHelper.submitComment(postID, commentText, username);
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1000);
+                }
+              });
+          });
+
+          // document.querySelector(".message").textContent = "interactive";
+          // document.querySelector(".card").style.display = "block";
+          // document.querySelector(".spinner").style.display = "none";
+        });
+      }, 1000);
+      const fillCommentWithData = (commentDiv, element) => {
+        var username = document.createElement("span");
+        username.className = "comment-username";
+        username.textContent = element.username;
+        var date = document.createElement("span");
+        date.className = "comment-date";
+        date.textContent = new Date(element.date).toLocaleString();
+        var text = document.createElement("div");
+        text.className = "commment-text";
+        text.textContent = element.text;
+        var replyBtn = document.createElement("button");
+        replyBtn.className = "reply-btn";
+        replyBtn.id = "reply-btn-" + element.id;
+        replyBtn.textContent = "Antworten";
+
+        commentDiv.appendChild(username);
+        commentDiv.appendChild(date);
+        commentDiv.appendChild(text);
+        commentDiv.appendChild(replyBtn);
+        replyBtn.addEventListener("click", async (event) => {
+          const a = document.querySelector("#reply-box-" + element.id);
+          if (a) {
+            return;
+          }
+          appendCommentReplyInputBlock(commentDiv, element.id);
+        });
+      };
+      const appendCommentReplyInputBlock = (parent, commentID) => {
+        var block = document.createElement("div");
+        block.id = "reply-box-" + commentID;
+        block.className = "comment-reply-input-block";
+        var hiddenParentID = document.createElement("input");
+        hiddenParentID.textContent = commentID;
+        hiddenParentID.style.display = "none";
+        var hiddenBotProtection = document.createElement("input");
+        var lblUsername = document.createElement("label");
+        lblUsername.textContent = "Username (optional)";
+        var inputUsername = document.createElement("input");
+        inputUsername.className = "comment-reply-input";
+        inputUsername.id = "comment-reply-username-" + commentID;
+        inputUsername.placeholder = "Anonym";
+        var lblComment = document.createElement("label");
+        lblComment.textContent = "Kommentar:";
+        var inputComment = document.createElement("input");
+        inputComment.className = "comment-reply-input";
+        inputComment.id = "comment-reply-text-" + commentID;
+        inputComment.placeholder = "Antwort";
+        var buttonAbbrechen = document.createElement("button");
+        buttonAbbrechen.id = "abbrechen-btn-" + commentID;
+        buttonAbbrechen.className = "abbrechen-btn";
+        buttonAbbrechen.textContent = "Abbrechen";
+        var buttonSubmit = document.createElement("button");
+        buttonSubmit.id = "send-reply-btn-" + commentID;
+        buttonSubmit.className = "send-reply-btn primary";
+        buttonSubmit.textContent = "Antwort senden";
+        block.appendChild(hiddenParentID);
+        block.appendChild(lblUsername);
+        block.appendChild(inputUsername);
+        block.appendChild(lblComment);
+        block.appendChild(inputComment);
+        block.appendChild(buttonAbbrechen);
+        block.appendChild(buttonSubmit);
+        parent.appendChild(block);
+        buttonAbbrechen.addEventListener("click", (event) => {
+          // @ts-ignore
+          const id = event.target.id
+            .split("-")
+            .at(event.target.id.split("-").length - 1);
+          const box = document.querySelector("#reply-box-" + id);
+          box.parentNode.removeChild(box);
+        });
+        buttonSubmit.addEventListener("click", (event) => {
+          import("./../components/BlogPost/Content.js").then(
+            async (contentHelper) => {
+              // @ts-ignore
+              const id = event.target.id
+                .split("-")
+                .at(event.target.id.split("-").length - 1);
+              const box = document.querySelector("#reply-box-" + id);
+              const postID = document.querySelector("#post-id").innerText;
+              const text = document.querySelector(
+                "#comment-reply-text-" + id
+              ).value;
+              let username = document.querySelector(
+                "#comment-reply-username-" + id
+              ).value;
+              if (!username) {
+                username = "ANONYM";
+              }
+              if (text) {
+                await contentHelper.submitReply(postID, id, text, username);
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
+              }
+              box.parentNode.removeChild(box);
+            }
+          );
+        });
+      };
+      function addRepliesToParent(parent, replies) {
+        replies.forEach((element) => {
+          // Kommentar zur Liste hinzufügen
+          var commentDiv = document.createElement("div");
+          commentDiv.className = "comment-replies comment-block";
+          commentDiv.id = element.id;
+          fillCommentWithData(commentDiv, element);
+
+          parent.appendChild(commentDiv);
+          if (element.replies && element.replies.length > 0) {
+            addRepliesToParent(commentDiv, element.replies);
+          }
+        });
+      }
+      function loadComments(comments) {
+        comments.forEach((element) => {
+          // Kommentar zur Liste hinzufügen
+          var commentDiv = document.createElement("div");
+          commentDiv.className = "comment-block";
+          commentDiv.id = element.id;
+
+          fillCommentWithData(commentDiv, element);
+
+          if (element.replies && element.replies.length > 0) {
+            addRepliesToParent(commentDiv, element.replies);
+          }
+
+          document.getElementById("comments")?.appendChild(commentDiv);
+        });
+      }
+    </script>
     <Footer />
   </body>
 </html>

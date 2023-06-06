@@ -1,4 +1,5 @@
 ---
+id: "20230101-0"
 title: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 description: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 pubDate: 2023-01-01

@@ -1,6 +1,33 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "strictNullChecks": true
+    "baseUrl": ".",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "ESNext",
+    "typeRoots": ["./types", "./note_modules/@types/*"],
+    "paths": {
+      "https://cdn.skypack.dev/canvas-confetti": [
+        "./node_modules/@types/canvas-confetti/index.d.ts"
+      ],
+      "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js": [
+        "./node_modules/@firebase/app/dist/app.d.ts"
+      ],
+      "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js": [
+        "./node_modules/@firebase/auth/dist/auth.d.ts"
+      ],
+      "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js": [
+        "./node_modules/@firebase/firestore/dist/lite/index.d.ts"
+      ]
+    }
   }
 }

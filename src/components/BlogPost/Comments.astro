@@ -1,0 +1,97 @@
+<div id="comment-form-container">
+    <h3>Kommentar hinzufügen</h3>
+    <input type="hidden" id="parent-comment-id" />
+    <input type="hidden" id="bot-protection" />
+    <label for="username">Username (optional):</label>
+    <input type="text" id="username" autocomplete="off" />
+    <label for="comment-text">Kommentar:</label>
+    <input id="comment-text" autocomplete="off" style="width:100%" />
+    <button id="submit-comment-btn" type="submit" class="primary"
+        >Absenden</button
+    >
+</div>
+
+<div id="comments-container" style="">
+    <h3>Bisherige Kommentare</h3>
+    <button id="load-comments-btn" type="button" class="primary">Laden</button>
+    <div id="comments">
+        <style is:inline>
+            #comment-form-container {
+                width: 100%;
+                border: 1px solid #333;
+                padding: 10px;
+            }
+            label {
+                float: left;
+                margin-right: 10px;
+            }
+            h3 {
+                margin-bottom: 6px;
+            }
+            #submit-comment-btn,
+            #load-comments-btn {
+                font-size: 1.25rem;
+                cursor: pointer;
+                margin-top: 10px;
+                margin-bottom: 4px;
+            }
+            #username,
+            #comment-text {
+                font-size: 1.25rem;
+                display: block;
+            }
+
+            #comments-container {
+                padding: 6px;
+            }
+            .comment-block {
+                border: 1px solid #333;
+                padding: 8px;
+                margin: 10px;
+            }
+            .comment-username {
+                font-weight: bold;
+                margin-right: 4px;
+            }
+            .comment-text {
+                font-size: 1rem;
+            }
+            .comment-date {
+                font-size: 14px;
+                color: #333;
+            }
+            .reply-btn,
+            .abbrechen-btn {
+                font-weight: bold;
+                border: none;
+                background-color: white;
+            }
+            .reply-btn:hover,
+            .abbrechen-btn:hover {
+                background-color: lightgray;
+            }
+            .reply-btn,
+            .abbrechen-btn,
+            .send-reply-btn {
+                font-size: 1.25rem;
+                cursor: pointer;
+                padding: 8px 10px;
+            }
+            .comment-reply-input-block {
+                padding: 10px;
+                border-bottom: 1px solid #333;
+                margin-bottom: 10px;
+            }
+            .comment-reply-input,
+            .comment-reply-label {
+                font-size: 1rem;
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .comment-replies {
+                margin-left: 20px;
+            }
+        </style>
+    </div>
+</div>

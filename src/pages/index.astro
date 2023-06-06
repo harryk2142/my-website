@@ -189,5 +189,15 @@ import Ufo from "../components/Ufo.astro";
         padding: 10px;
       }
     </style>
+    <script>
+      const ticker = document.querySelector(
+        "#breaking-news-ticker"
+      ) as HTMLElement;
+      ticker.addEventListener("click", async () => {
+        const { callConfetti } = await import("./../scripts/confetti");
+
+        callConfetti();
+      });
+    </script>
   </body>
 </html>

@@ -3,8 +3,10 @@ id: "20230127-0"
 title: "Durchbruch im Bereich Fusion"
 description: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
 pubDate: 2023-01-27
-blogPostImage: "fusionskraftwerk-auf-dem-mars.webp"
-previewImage: "fusionskraftwerk-auf-dem-mars-preview.webp"
+postImage:
+  src: "fusionskraftwerk-auf-dem-mars.webp"
+  prevSrc: "fusionskraftwerk-auf-dem-mars-preview.webp"
+  alt: "Ein modernes Funsionskraftwerk auf dem Mars"
 tags: [fusion, mars, marsianer, terraner, science-fiction, technologie]
 ---
 

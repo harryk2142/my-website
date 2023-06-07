@@ -3,8 +3,10 @@ id: "20230420-0"
 title: "Forscher entdecken antikes Sternentor in Deutschland"
 description: "Sensationelle Entdeckung: Forscher finden antikes Sternentor in der Nähe der Stadt Speyer in Deutschland"
 pubDate: 2023-04-20
-blogPostImage: "sternentor-in-deutschland-entdeckt.webp"
-previewImage: "sternentor-in-deutschland-entdeckt-preview.webp"
+postImage:
+  src: "sternentor-in-deutschland-entdeckt.webp"
+  prevSrc: "sternentor-in-deutschland-entdeckt-preview.webp"
+  alt: "Ein großes steinernes rundes Sternentor mit zwei Archäologen"
 tags: [sternentor, antike, speyer, entdeckung, science-fiction]
 ---
 

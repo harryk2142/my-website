@@ -1,3 +1,18 @@
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  orderBy,
+  query,
+  setDoc,
+  where,
+} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+
 interface Comment {
   id: string;
   postID?: string;
@@ -5,7 +20,6 @@ interface Comment {
   formattedDate?: string;
   username: string;
   text: string;
-  // path: string;
   parentID?: string;
   replies?: Comment[];
 }
@@ -36,8 +50,8 @@ const commentConverter = {
   toFirestore(comment: Comment) {
     return {
       date: comment.date,
-      username: comment.username,
-      text: comment.text,
+      username: comment.username ?? "anonymous",
+      text: comment.text ?? "",
     };
   },
   fromFirestore(snapshot): Comment {
@@ -68,20 +82,10 @@ export const getApp = async () => {
 
 export const initApp = async () => {
   const config = {
-    apiKey: "AIzaSyCL_EGEdWUO8Q4bSsZJtikBUZ029KnbgN0",
-    projectId: "my-blog-42",
+    apiKey: FB_API_KEY,
+    projectId: FB_PROJECT_ID,
   };
-
-  let { initializeApp } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"
-  );
-  let { getAuth, signInAnonymously } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"
-  );
-
   const app = initializeApp(config);
-  const auth = getAuth();
-  await signInAnonymously(auth);
   firebaseApp = app;
   return app;
 };
@@ -89,10 +93,6 @@ export const getBlogPostByIdentifier = async (
   app: FirebaseApp,
   blogPostIdentifier: string
 ): Promise<Post | undefined> => {
-  let { getFirestore, collection, getDocs, query, where, getDoc } =
-    await import(
-      "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-    );
   const db = getFirestore(app);
 
   const q = query(
@@ -114,13 +114,7 @@ export const getPostById = async (
   app: FirebaseApp,
   id: string
 ): Promise<Post | undefined> => {
-  let { getFirestore, doc, getDoc } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-  );
-  if (!firebaseApp) {
-    firebaseApp = await initApp();
-  }
-  const db = getFirestore(firebaseApp);
+  const db = getFirestore(app);
   const ref = doc(db, "posts", id).withConverter(postConverter);
 
   if (ref) {
@@ -135,14 +129,7 @@ export const savePost = async (
   app: FirebaseApp,
   blogPostIdentifier: string
 ) => {
-  let { getFirestore, collection, getDocs, query, where, addDoc } =
-    await import(
-      "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-    );
-  if (!firebaseApp) {
-    firebaseApp = await initApp();
-  }
-  const db = getFirestore(firebaseApp);
+  const db = getFirestore(app);
 
   const q = query(
     collection(db, "posts").withConverter(postConverter),
@@ -158,12 +145,6 @@ export const savePost = async (
 };
 
 export const like = async (app: FirebaseApp, postID: string) => {
-  let { getFirestore, doc, setDoc } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-  );
-  if (!firebaseApp) {
-    await initApp();
-  }
   const db = getFirestore(app);
   const post = await getPostById(app, postID);
 
@@ -173,15 +154,10 @@ export const like = async (app: FirebaseApp, postID: string) => {
     await setDoc(doc(db, "posts", postID), post);
     return likes;
   }
-
-  // await addDoc(collection(db, "posts"), { title: title, likes: 1 });
   return 0;
 };
 
 export const getComments = async (app: FirebaseApp, postId: string) => {
-  let { getFirestore, collection, getDocs, query, orderBy } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-  );
   const db = getFirestore(app);
 
   const q = query(
@@ -204,9 +180,6 @@ export const addComment = async (
   commentText: string,
   author: string
 ) => {
-  let { getFirestore, collection, addDoc } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-  );
   const db = getFirestore(app);
   const nComment = {
     date: Date.now(),
@@ -223,9 +196,6 @@ export const addCommentReply = async (
   commentText: string,
   author: string
 ) => {
-  let { getFirestore, collection, addDoc } = await import(
-    "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js"
-  );
   const db = getFirestore(app);
   const nComment = {
     date: Date.now(),
@@ -240,29 +210,19 @@ export const getCommentsWithReplies = async (
   app: FirebaseApp,
   postID: string
 ) => {
-  // Rufe die getComments-Funktion auf
   const comments = await getComments(app, postID);
-
-  // Rekursive Funktion zum Hinzufügen von Antworten zu Kommentaren
   function addReplies(comments: Comment[]) {
     comments.forEach((comment) => {
-      // Finde alle Antworten auf diesen Kommentar
       const replies = comments.filter((c) => c.parentID === comment.id);
-
-      // Füge die Antworten zum Kommentar hinzu
       if (replies.length > 0) {
         comment.replies = replies;
-
-        // Rufe die Funktion rekursiv für die Antworten auf
         addReplies(replies);
       }
     });
   }
 
-  // Rufe die rekursive Funktion auf
   addReplies(comments);
 
-  // Filtere die Liste, um nur Kommentare ohne Eltern zurückzugeben
   const topLevelComments = comments.filter((comment) => !comment.parentID);
 
   return topLevelComments;

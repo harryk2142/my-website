@@ -38,11 +38,11 @@ import Ufo from "../components/Ufo.astro";
             <a href={`/blog/${latestPost.slug}/`}>
               <article class="blog-post">
                 {
-                  latestPost.data.blogPostImage && (
+                  latestPost.data.postImage && (
                     <section class="post-image">
                       <img
-                        src={"/images/blog/" + latestPost.data.blogPostImage}
-                        alt={latestPost.data.description}
+                        src={"/images/blog/" + latestPost.data.postImage.src}
+                        alt={latestPost.data.postImage.alt}
                       />
                       <div class="image-overlay" />
                     </section>
@@ -67,12 +67,14 @@ import Ufo from "../components/Ufo.astro";
                   <div class="">
                     <a href={`/blog/${post.slug}/`}>
                       <div class="flex latest-post-list-item">
-                        {post.data.blogPostImage && (
+                        {post.data.postImage && (
                           <div class="s4 m12 l4">
                             <img
                               class="latest-post-list-item-img"
-                              src={"/images/blog/" + post.data.previewImage}
-                              alt={post.data.description}
+                              src={
+                                "/images/blog/" + post.data.postImage.prevSrc
+                              }
+                              alt={post.data.postImage.alt}
                             />
                           </div>
                         )}

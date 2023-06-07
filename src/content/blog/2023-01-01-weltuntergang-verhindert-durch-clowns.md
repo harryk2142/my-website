@@ -7,8 +7,6 @@ postImage:
   src: "clowns-retten-die-welt.webp"
   prevSrc: "clowns-retten-die-welt-preview.webp"
   alt: "Zwei Clowns stehen um die Erdkugel herum"
-blogPostImage: "clowns-retten-die-welt.webp"
-previewImage: "clowns-retten-die-welt-preview.webp"
 tags: [clowns, weltuntergang, silvester2022]
 ---
 

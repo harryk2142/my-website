@@ -11,8 +11,7 @@ import Comments from "src/components/BlogPost/Comments.astro";
 type Props = CollectionEntry<"blog">["data"];
 const pathSegments = Astro.request.url.split("/");
 const blogPostIdentifier = pathSegments.at(pathSegments.length - 2);
-const { id, title, description, pubDate, blogPostImage, previewImage, tags } =
-  Astro.props;
+const { id, title, description, pubDate, postImage, tags } = Astro.props;
 ---
 
 <html lang="de">
@@ -20,7 +19,7 @@ const { id, title, description, pubDate, blogPostImage, previewImage, tags } =
     <BaseHead
       title={title}
       description={description}
-      image={"images/blog/" + previewImage}
+      image={"images/blog/" + postImage?.prevSrc}
       type={"article"}
     />
     <style>
@@ -81,9 +80,9 @@ const { id, title, description, pubDate, blogPostImage, previewImage, tags } =
         <h2 class="title container" id="title">{description}</h2>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
-          blogPostImage && (
+          postImage && (
             <div class="blog-post-img-container">
-              <img src={"/images/blog/" + blogPostImage} alt={blogPostImage} />
+              <img src={"/images/blog/" + postImage.src} alt={postImage.alt} />
             </div>
           )
         }

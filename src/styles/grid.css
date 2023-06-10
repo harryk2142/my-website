@@ -17,14 +17,47 @@
 .flex {
   /* display: -ms-flexbox; */
   display: flex;
-  width: 100%;
+  padding: 0;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
 .flex > * {
-  box-sizing: border-box;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
 }
+.flex.column {
+  flex-direction: column;
+}
+.flex.row {
+  flex-direction: row;
+}
+.flex.center {
+  justify-content: center;
+}
+.flex.start {
+  justify-content: flex-start;
+}
+.flex.end {
+  justify-content: flex-end;
+}
+.flex.space-around {
+  justify-content: space-around;
+}
+.flex.space-between {
+  justify-content: space-between;
+}
+.flex.align-center {
+  align-items: center;
+}
+.flex.align-start {
+  align-items: flex-start;
+}
+.flex.align-end {
+  align-items: flex-end;
+}
+.flex.align-stretch {
+  align-items: stretch;
+}
+
 .s12 {
   width: 100%;
 }

@@ -41,30 +41,22 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       article h2 {
         margin-bottom: 10px;
       }
-      /* @media (max-width: 601px) {
-        article h2 {
-          font-size: 1.5rem;
-        }
-        article {
-          margin-top: 6rem;
-        }
-      } */
       #publication-date {
         font-size: larger;
-        color: seagreen;
+        color: var(--element-water-dark);
         font-weight: bold;
         font-style: italic;
       }
-      main {
+      /* main {
         padding-left: 10px;
         padding-right: 10px;
-      }
+      } */
       #main-content {
         font-size: 1.25rem;
       }
       /* Style page content */
       #blogpost-container {
-        margin-left: 80px; /* Same as the width of the sidebar */
+        margin-left: 40px; /* Same as the width of the sidebar */
         padding: 0px 10px;
       }
     </style>
@@ -90,7 +82,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
           {
             tags &&
               tags.map((tag) => (
-                <a href={`/tags/${tag}`} class="link-tag text-dark">
+                <a href={`/tags/${tag}`} class="link-tag">
                   #{tag}
                 </a>
               ))
@@ -103,8 +95,8 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       </article>
     </Main>
     <style>
-      form {
-        margin-bottom: 2rem;
+      .link-tag {
+        color: var(--element-water-dark);
       }
     </style>
     <script>
@@ -164,7 +156,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
                   contentHelper.submitComment(postID, commentText, username);
                   setTimeout(() => {
                     window.location.reload();
-                  }, 1000);
+                  }, 500);
                 }
               });
           });
@@ -173,7 +165,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
           // document.querySelector(".card").style.display = "block";
           // document.querySelector(".spinner").style.display = "none";
         });
-      }, 1000);
+      }, 500);
       const fillCommentWithData = (commentDiv, element) => {
         var username = document.createElement("span");
         username.className = "comment-username";

@@ -5,35 +5,122 @@ import Eyes from "./Eyes.astro";
 ---
 
 <section id="main-header" class="primary">
-  <div id="main-header-content" class="content flex">
-    <header class="s12 m12 l7 xl7">
-      <div>
-        <h1 class="container">
-          <a href="/">{SITE_TITLE}</a>
-        </h1>
-      </div>
-    </header>
-    <div class="s4 m4 l2 xl2" id="eyes">
-      <div id="">
+  <div id="main-header-content" class="flex mobile-container primary">
+    <div id="header-image" class="hide-small m1 l1">
+      <img src="/icons/icon.webp" alt="" srcset="" />
+    </div>
+    <div class="s4 m3 l3 flex column align-center">
+      <h1>
+        <a href="/">{SITE_TITLE}</a>
+      </h1>
+      <span>A mystery blog</span>
+    </div>
+
+    <div class="s4" style="height:100%">
+      <div id="eyes" class="">
         <Eyes />
       </div>
     </div>
 
-    <nav class="s8 m8 l3 xl3 center">
+    <nav
+      id="navigation-links-large"
+      class="hide-medium hide-small flex center align-center"
+    >
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+      <HeaderLink href="/tags">Tags</HeaderLink>
+    </nav>
+
+    <div id="menu-icons" class="hide-large s1 l1 m1">
+      <span id="menu-icon-open" class="menu-icon">&equiv;</span>
+      <span id="menu-icon-close" class="menu-icon">x</span>
+    </div>
+  </div>
+  <div id="navigation-links-container" class="hide-large flex end align-end">
+    <nav id="navigation-links-small" class="mobile-container primary">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/tags">Tags</HeaderLink>
     </nav>
   </div>
 </section>
+
 <style>
-  a {
-    color: #fdfdfd;
-    display: inline-block;
-    text-decoration: none;
+  #main-header,
+  #main-header-content {
+    height: 5rem;
+    /* max-height: 5rem; */
   }
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
+  #main-header,
+  #navigation-links-container {
+    overflow: hidden;
+    /* Set the navbar to fixed position */
+    position: fixed;
+    /* Position the navbar at the top of the page */
+    top: 0;
+    /* Full width */
+    width: 100%;
+    z-index: 100;
+  }
+  div:has(> #eyes) {
+    margin-top: 10px;
+  }
+  #eyes {
+    float: left;
+    height: calc(100% - 20px);
+  }
+  #header-image {
+    height: 100%;
+  }
+  #header-image img {
+    max-height: 100%;
+    width: auto;
+  }
+
+  #menu-icon-close {
+    display: none;
+  }
+  .menu-icon {
+    font-size: 3rem;
+  }
+  #menu-icons {
+    cursor: pointer;
+  }
+  #navigation-links-container {
+    display: none;
+    overflow: hidden;
+    background-color: #333;
+    margin-top: 5rem;
+  }
+  #navigation-links-small > a {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  #navigation-links {
+    text-align: center;
   }
 </style>
+<script>
+  function openCloseMenu() {
+    var x = document.getElementById(
+      "navigation-links-container"
+    ) as HTMLElement;
+    if (x.style.display === "block") {
+      const close = document.querySelector("#menu-icon-close") as HTMLElement;
+      const open = document.querySelector("#menu-icon-open") as HTMLElement;
+      close.style.display = "none";
+      open.style.display = "block";
+      x.style.display = "none";
+    } else {
+      const close = document.querySelector("#menu-icon-close") as HTMLElement;
+      const open = document.querySelector("#menu-icon-open") as HTMLElement;
+      close.style.display = "block";
+      open.style.display = "none";
+      x.style.display = "block";
+    }
+  }
+  document.querySelector("#menu-icons")?.addEventListener("click", () => {
+    openCloseMenu();
+  });
+</script>

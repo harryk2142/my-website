@@ -1,5 +1,5 @@
 <div class="sidenav">
-    <div class="like-container">
+    <div class="like-container flex column center align-center">
         <span class="aside-btn" id="like-btn">&#x1F44D;</span>
         <span id="like-counter">Lade</span>
     </div>
@@ -21,7 +21,7 @@
     /* The sidebar menu */
     .sidenav {
         height: 100%; /* Full-height: remove this if you want "auto" height */
-        width: 80px; /* Set the width of the sidebar */
+        width: 40px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
         z-index: 1; /* Stay on top */
         /* top: 0; */
@@ -37,7 +37,13 @@
     }
 
     .aside-btn {
-        font-size: 3rem;
+        font-size: 2rem;
         cursor: pointer;
+    }
+
+    #like-counter {
+        font-size: 1.5rem;
+        color: var(--element-earth-darker);
+        font-weight: bold;
     }
 </style>

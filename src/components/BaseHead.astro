@@ -17,7 +17,6 @@ const { title, description, image, type = "website" } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -27,7 +26,6 @@ const { title, description, image, type = "website" } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<link rel="manifest" href={canonicalURL.origin + "/manifest.webmanifest"} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -59,16 +57,19 @@ const { title, description, image, type = "website" } = Astro.props;
 
 <!-- icons -->
 <meta name="msapplication-TileColor" content="#ffffff" />
-<meta
-  name="msapplication-TileImage"
-  content={canonicalURL.origin + "/icons/ms-icon-144x144.png"}
-/>
+<meta name="msapplication-TileImage" content="/icons/mstile-150x150.png" } />
 <meta name="theme-color" content="#ffffff" />
 <link
   rel="icon"
   type="image/png"
   sizes="192x192"
-  href="/icons/android-icon-192x192.png"
+  href="/icons/android-chrome-192x192.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/icons/android-chrome-512x512.png"
 />
 <link
   rel="icon"
@@ -79,60 +80,27 @@ const { title, description, image, type = "website" } = Astro.props;
 <link
   rel="icon"
   type="image/png"
-  sizes="96x96"
-  href="/icons/favicon-96x96.png"
-/>
-<link
-  rel="icon"
-  type="image/png"
   sizes="16x16"
   href="/icons/favicon-16x16.png"
 />
-<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
-<link
-  rel="apple-touch-icon"
-  sizes="114x114"
-  href="/icons/apple-icon-114x114.png"
-/>
-<link
-  rel="apple-touch-icon"
-  sizes="120x120"
-  href="/icons/apple-icon-120x120.png"
-/>
-<link
-  rel="apple-touch-icon"
-  sizes="144x144"
-  href="/icons/apple-icon-144x144.png"
-/>
-<link
-  rel="apple-touch-icon"
-  sizes="152x152"
-  href="/icons/apple-icon-152x152.png"
-/>
-<link
-  rel="apple-touch-icon"
-  sizes="180x180"
-  href="/icons/apple-icon-180x180.png"
-/>
+<link rel="apple-touch-icon" href="/icons/apple-touch.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
 <!-- Matomo -->
 <script is:inline>
-  var _paq = (window._paq = window._paq || []);
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
-  (function () {
-    var u = "//analytics.harry-kramer.net/";
-    _paq.push(["setTrackerUrl", u + "matomo.php"]);
-    _paq.push(["setSiteId", "1"]);
-    var d = document,
-      g = d.createElement("script"),
-      s = d.getElementsByTagName("script")[0];
-    g.async = true;
-    g.src = u + "matomo.js";
-    s.parentNode.insertBefore(g, s);
-  })();
+var _paq = (window._paq = window._paq || []);
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(["trackPageView"]);
+_paq.push(["enableLinkTracking"]);
+(function () {
+  var u = "//analytics.harry-kramer.net/";
+  _paq.push(["setTrackerUrl", u + "matomo.php"]);
+  _paq.push(["setSiteId", "1"]);
+  var d = document,
+    g = d.createElement("script"),
+    s = d.getElementsByTagName("script")[0];
+  g.async = true;
+  g.src = u + "matomo.js";
+  s.parentNode.insertBefore(g, s);
+})();
 </script>
 <!-- End Matomo Code -->

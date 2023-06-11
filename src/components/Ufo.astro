@@ -8,11 +8,12 @@ enum Sizes {
 interface Props {
   size: string;
 }
-const size = Astro.props;
+const { size } = Astro.props;
+const cssClass = "ufo-" + size;
 ---
 
-<span class="ufo">🛸</span>
-<style>
+<span class={"ufo-" + size}>🛸</span>
+<style is:inline>
   .ufo {
     font-size: 2rem;
   }

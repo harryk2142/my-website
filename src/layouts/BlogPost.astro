@@ -97,24 +97,24 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       }
     </style>
     <script>
-      const sc = (element, c) => {
-        if (element.replies.length > 0) {
-          element.replies.forEach((e) => {
-            c += sc(e, c);
-          });
-        }
-        return c;
-      };
-      const calculateNumberOfAllComments = (elements: []): number => {
-        if (elements.length > 0) {
-          let counter = 0;
-          elements.forEach((e) => {
-            counter += sc(e, 1);
-          });
-          return counter;
-        }
-        return 0;
-      };
+      // const sc = (element, c) => {
+      //   if (element.replies.length > 0) {
+      //     element.replies.forEach((e) => {
+      //       c += sc(e, c);
+      //     });
+      //   }
+      //   return c;
+      // };
+      // const calculateNumberOfAllComments = (elements: []): number => {
+      //   if (elements.length > 0) {
+      //     let counter = 0;
+      //     elements.forEach((e) => {
+      //       counter += sc(e, 1);
+      //     });
+      //     return counter;
+      //   }
+      //   return 0;
+      // };
 
       setTimeout(() => {
         import("./../components/BlogPost/Content.js").then((contentHelper) => {
@@ -136,11 +136,14 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
 
             contentHelper.loadComments(postID).then((comments) => {
               if (comments.length > 0) {
-                const sumComments = calculateNumberOfAllComments(comments);
+                console.log(comments);
+                const commentsCounter = comments.length;
                 document.querySelector("#comments-counter").innerText =
-                  sumComments;
-
-                loadComments(comments);
+                  commentsCounter;
+                const commentsWithReplies =
+                  contentHelper.fillCommentsWithReplies(comments);
+                console.log(commentsWithReplies);
+                loadComments(commentsWithReplies);
               } else {
                 const noCommentsSpan = document.createElement(
                   "span"
@@ -151,19 +154,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
                   .getElementById("comments")
                   ?.appendChild(noCommentsSpan);
               }
-              // const b = document.querySelector("#load-comments-btn");
-              // b.style.display = "none";
             });
-
-            // document
-            //   .querySelector("#load-comments-btn")
-            //   .addEventListener("click", async () => {
-            //     contentHelper.loadComments(postID).then((comments) => {
-            //       loadComments(comments);
-            //       const b = document.querySelector("#load-comments-btn");
-            //       b.style.display = "none";
-            //     });
-            //   });
 
             document
               .querySelector("#submit-comment-btn")
@@ -197,10 +188,6 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
                 }
               });
           });
-
-          // document.querySelector(".message").textContent = "interactive";
-          // document.querySelector(".card").style.display = "block";
-          // document.querySelector(".spinner").style.display = "none";
         });
       }, 500);
       const fillCommentWithData = (commentDiv, element) => {

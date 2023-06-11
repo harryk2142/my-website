@@ -13,7 +13,7 @@ import {
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
-interface Comment {
+export interface Comment {
   id: string;
   postID?: string;
   date: Date;
@@ -24,13 +24,13 @@ interface Comment {
   replies?: Comment[];
 }
 
-interface Post {
+export interface Post {
   id: string;
   blogPostIdentifier: string;
   likes: number;
 }
 
-let firebaseApp: FirebaseApp | undefined;
+let firebaseApp: FirebaseApp;
 
 const postConverter = {
   toFirestore(post: Post) {
@@ -204,26 +204,4 @@ export const addCommentReply = async (
     parentID: parentCommentID,
   };
   await addDoc(collection(db, "posts", postID, "comments"), nComment);
-};
-
-export const getCommentsWithReplies = async (
-  app: FirebaseApp,
-  postID: string
-) => {
-  const comments = await getComments(app, postID);
-  function addReplies(comments: Comment[]) {
-    comments.forEach((comment) => {
-      const replies = comments.filter((c) => c.parentID === comment.id);
-      if (replies.length > 0) {
-        comment.replies = replies;
-        addReplies(replies);
-      }
-    });
-  }
-
-  addReplies(comments);
-
-  const topLevelComments = comments.filter((comment) => !comment.parentID);
-
-  return topLevelComments;
 };

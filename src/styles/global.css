@@ -150,10 +150,10 @@ b {
   margin: 0;
   font-family: Verdana, Helvetica, Arial, sans-serif;
 }
-h1 {
+/* h1 {
   font-style: normal;
   font-weight: 400;
-}
+} */
 a {
   color: var(--main-color-primary);
 }

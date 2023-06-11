@@ -7,7 +7,6 @@ postImage:
   src: "ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor.webp"
   prevSrc: "ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor-preview.webp"
   alt: "Viele große Ameisen protestieren in Berlin vor dem Brandenburger Tor"
-draft: true
 tags: [ameisen, brandenburgertor, insektenrevolution, klimaschutz, protest]
 ---
 

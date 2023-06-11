@@ -1,25 +1,20 @@
 <div class="sidenav">
-    <div class="like-container flex column center align-center">
+    <div class="like-container flex column center-x center-y">
         <span class="aside-btn" id="like-btn">&#x1F44D;</span>
-        <span id="like-counter">Lade</span>
+        <span id="like-counter">0</span>
+        <span>---</span>
+        <a href="#comments-container">
+            <span id="to-comments">&#x1F5E8;</span>
+        </a>
+        <span id="comments-counter">0</span>
+        <span>---</span>
     </div>
 </div>
-<style>
-    /* The navigation menu links */
-    .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-    }
 
-    /* When you mouse over the navigation links, change their color */
-    .sidenav a:hover {
-        color: #f1f1f1;
-    }
+<style>
     /* The sidebar menu */
     .sidenav {
+        background-color: var(--element-water-lightest);
         height: 100%; /* Full-height: remove this if you want "auto" height */
         width: 40px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -41,9 +36,16 @@
         cursor: pointer;
     }
 
-    #like-counter {
+    #like-counter,
+    #comments-counter {
         font-size: 1.5rem;
         color: var(--element-earth-darker);
+        font-weight: bold;
+    }
+
+    #to-comments {
+        font-size: 1.5rem;
+        color: var(--element-water-dark);
         font-weight: bold;
     }
 </style>

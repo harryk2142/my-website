@@ -35,8 +35,9 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        max-width: 600px;
+        max-width: 700px;
         word-wrap: break-word;
+        padding-bottom: 20px;
       }
       article h2 {
         margin-bottom: 10px;
@@ -47,10 +48,6 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
         font-weight: bold;
         font-style: italic;
       }
-      /* main {
-        padding-left: 10px;
-        padding-right: 10px;
-      } */
       #main-content {
         font-size: 1.25rem;
       }
@@ -69,7 +66,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       <span hidden id="post-id"></span>
       <LeftAside />
       <article id="blogpost-container">
-        <h2 class="title container" id="title">{description}</h2>
+        <h1 class="title container" id="title">{description}</h1>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           postImage && (
@@ -100,6 +97,25 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       }
     </style>
     <script>
+      const sc = (element, c) => {
+        if (element.replies.length > 0) {
+          element.replies.forEach((e) => {
+            c += sc(e, c);
+          });
+        }
+        return c;
+      };
+      const calculateNumberOfAllComments = (elements: []): number => {
+        if (elements.length > 0) {
+          let counter = 0;
+          elements.forEach((e) => {
+            counter += sc(e, 1);
+          });
+          return counter;
+        }
+        return 0;
+      };
+
       setTimeout(() => {
         import("./../components/BlogPost/Content.js").then((contentHelper) => {
           const blogPostIdentifier = document.querySelector(
@@ -118,15 +134,36 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
                   newLikeCount;
               });
 
-            document
-              .querySelector("#load-comments-btn")
-              .addEventListener("click", async () => {
-                contentHelper.loadComments(postID).then((comments) => {
-                  loadComments(comments);
-                  const b = document.querySelector("#load-comments-btn");
-                  b.style.display = "none";
-                });
-              });
+            contentHelper.loadComments(postID).then((comments) => {
+              if (comments.length > 0) {
+                const sumComments = calculateNumberOfAllComments(comments);
+                document.querySelector("#comments-counter").innerText =
+                  sumComments;
+
+                loadComments(comments);
+              } else {
+                const noCommentsSpan = document.createElement(
+                  "span"
+                ) as HTMLElement;
+                noCommentsSpan.innerText = "Keine Kommentare vorhanden";
+
+                document
+                  .getElementById("comments")
+                  ?.appendChild(noCommentsSpan);
+              }
+              // const b = document.querySelector("#load-comments-btn");
+              // b.style.display = "none";
+            });
+
+            // document
+            //   .querySelector("#load-comments-btn")
+            //   .addEventListener("click", async () => {
+            //     contentHelper.loadComments(postID).then((comments) => {
+            //       loadComments(comments);
+            //       const b = document.querySelector("#load-comments-btn");
+            //       b.style.display = "none";
+            //     });
+            //   });
 
             document
               .querySelector("#submit-comment-btn")
@@ -228,7 +265,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
         block.appendChild(inputComment);
         block.appendChild(buttonAbbrechen);
         block.appendChild(buttonSubmit);
-        parent.appendChild(block);
+        parent.insertBefore(block, parent.children[4]);
         buttonAbbrechen.addEventListener("click", (event) => {
           // @ts-ignore
           const id = event.target.id

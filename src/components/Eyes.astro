@@ -15,15 +15,18 @@
     canvas.height = canvas.offsetHeight;
   };
   const calculateLeftPoint = () => {
-    return { x: canvas.width / 2 - 30, y: canvas.height / 2 };
+    const halfCanvasHeight = canvas.height / 2;
+    return { x: canvas.width / 2 - halfCanvasHeight, y: halfCanvasHeight };
   };
   const calculateRightPoint = () => {
-    return { x: canvas.width / 2 + 30, y: canvas.height / 2 };
+    const halfCanvasHeight = canvas.height / 2;
+    return { x: canvas.width / 2 + halfCanvasHeight, y: halfCanvasHeight };
   };
 
   const canvas = document.getElementById("eye-canvas") as HTMLCanvasElement;
 
   fitToContainer(canvas);
+  console.log("HERE");
 
   const upperLid = document.getElementById("upper-lid") as HTMLElement;
   upperLid.style.width = canvas.width + "px";

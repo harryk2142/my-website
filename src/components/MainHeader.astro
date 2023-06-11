@@ -5,107 +5,96 @@ import Eyes from "./Eyes.astro";
 ---
 
 <section id="main-header" class="primary">
-  <div id="main-header-content" class="flex mobile-container primary">
-    <div id="header-image" class="hide-small m1 l1">
-      <img src="/icons/icon.webp" alt="" srcset="" />
+  <div id="main-header-content" class="flex wrapper primary">
+    <div id="header-image-container" class="s2 m2 l2">
+      <img src="/icons/icon.webp" alt="Logo der Webseite" />
     </div>
-    <div class="s4 m3 l3 flex column align-center">
-      <h1>
+    <div class="s4 m3 l2s" id="title-container">
+      <span class="block" id="title">
         <a href="/">{SITE_TITLE}</a>
-      </h1>
-      <span>A mystery blog</span>
+      </span>
+      <span class="block" id="subtitle">A mystery blog</span>
     </div>
 
-    <div class="s4" style="height:100%">
+    <div class="s4 m2 l2" style="">
       <div id="eyes" class="">
         <Eyes />
       </div>
     </div>
+    <div class="hide-small flex right center-y m5 l4">
+      <nav id="navigation-links" class="container">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/tags">Tags</HeaderLink>
+      </nav>
+    </div>
 
-    <nav
-      id="navigation-links-large"
-      class="hide-medium hide-small flex center align-center"
-    >
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/tags">Tags</HeaderLink>
-    </nav>
-
-    <div id="menu-icons" class="hide-large s1 l1 m1">
-      <span id="menu-icon-open" class="menu-icon">&equiv;</span>
-      <span id="menu-icon-close" class="menu-icon">x</span>
+    <div id="menu-icons" class="hide-large hide-medium s2 m2 flex right">
+      <div class="container">
+        <span id="menu-icon-open" class="menu-icon">&equiv;</span>
+        <span id="menu-icon-close" class="menu-icon">x</span>
+      </div>
     </div>
   </div>
-  <div id="navigation-links-container" class="hide-large flex end align-end">
-    <nav id="navigation-links-small" class="mobile-container primary">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/tags">Tags</HeaderLink>
-    </nav>
-  </div>
+  <nav id="navigation-links-small" class="primary hide-medium hide-large">
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/tags">Tags</HeaderLink>
+  </nav>
 </section>
 
 <style>
-  #main-header,
   #main-header-content {
-    height: 5rem;
-    /* max-height: 5rem; */
+    height: 4rem;
+    max-height: 4rem;
   }
-  #main-header,
-  #navigation-links-container {
-    overflow: hidden;
+  #main-header {
+    /* overflow: hidden; */
     /* Set the navbar to fixed position */
-    position: fixed;
+    position: sticky;
     /* Position the navbar at the top of the page */
     top: 0;
     /* Full width */
     width: 100%;
     z-index: 100;
   }
-  div:has(> #eyes) {
-    margin-top: 10px;
-  }
-  #eyes {
-    float: left;
-    height: calc(100% - 20px);
-  }
-  #header-image {
+  #title-container {
     height: 100%;
   }
-  #header-image img {
-    max-height: 100%;
-    width: auto;
+  #title {
+    display: block;
+    font-size: 1.5rem;
+  }
+  #header-image-container {
+    height: 100%;
+  }
+  #header-image-container > img {
+    height: 100%;
   }
 
   #menu-icon-close {
     display: none;
   }
   .menu-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   #menu-icons {
     cursor: pointer;
   }
-  #navigation-links-container {
+  #navigation-links-small {
     display: none;
     overflow: hidden;
     background-color: #333;
-    margin-top: 5rem;
   }
   #navigation-links-small > a {
     width: 100%;
     text-align: center;
-    font-size: 1.5rem;
-  }
-  #navigation-links {
-    text-align: center;
+    font-size: 1.25rem;
   }
 </style>
 <script>
   function openCloseMenu() {
-    var x = document.getElementById(
-      "navigation-links-container"
-    ) as HTMLElement;
+    var x = document.getElementById("navigation-links-small") as HTMLElement;
     if (x.style.display === "block") {
       const close = document.querySelector("#menu-icon-close") as HTMLElement;
       const open = document.querySelector("#menu-icon-open") as HTMLElement;
@@ -123,4 +112,11 @@ import Eyes from "./Eyes.astro";
   document.querySelector("#menu-icons")?.addEventListener("click", () => {
     openCloseMenu();
   });
+</script>
+<script>
+  const titleContainer = document.querySelector(
+    "#title-container"
+  ) as HTMLElement;
+  const eyes = document.querySelector("#eyes") as HTMLElement;
+  eyes.style.height = titleContainer.offsetHeight + "px";
 </script>

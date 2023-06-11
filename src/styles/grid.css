@@ -12,17 +12,11 @@
   --w11: calc(100% / 12 * 11);
   --w12: 100%;
 }
-/* 5. 
-/* CUSTOM GRID START */
 .flex {
-  /* display: -ms-flexbox; */
   display: flex;
   padding: 0;
   flex-wrap: wrap;
   box-sizing: border-box;
-}
-.flex > * {
-  flex: 1 1 auto;
 }
 .flex.column {
   flex-direction: column;
@@ -30,13 +24,13 @@
 .flex.row {
   flex-direction: row;
 }
-.flex.center {
+.flex.center-x {
   justify-content: center;
 }
-.flex.start {
+.flex.left {
   justify-content: flex-start;
 }
-.flex.end {
+.flex.right {
   justify-content: flex-end;
 }
 .flex.space-around {
@@ -45,13 +39,13 @@
 .flex.space-between {
   justify-content: space-between;
 }
-.flex.align-center {
+.flex.center-y {
   align-items: center;
 }
-.flex.align-start {
+.flex.top {
   align-items: flex-start;
 }
-.flex.align-end {
+.flex.bottom {
   align-items: flex-end;
 }
 .flex.align-stretch {

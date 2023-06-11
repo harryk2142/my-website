@@ -13,6 +13,7 @@ import {
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
+const sammlungName = "blogpostsMyBlog";
 export interface Comment {
   id: string;
   postID?: string;
@@ -96,7 +97,7 @@ export const getBlogPostByIdentifier = async (
   const db = getFirestore(app);
 
   const q = query(
-    collection(db, "posts").withConverter(postConverter),
+    collection(db, sammlungName).withConverter(postConverter),
     where("blogPostIdentifier", "==", blogPostIdentifier)
   );
   const querySnapshot = await getDocs(q);
@@ -115,7 +116,7 @@ export const getPostById = async (
   id: string
 ): Promise<Post | undefined> => {
   const db = getFirestore(app);
-  const ref = doc(db, "posts", id).withConverter(postConverter);
+  const ref = doc(db, sammlungName, id).withConverter(postConverter);
 
   if (ref) {
     const snapshot = await getDoc(ref);
@@ -132,13 +133,13 @@ export const savePost = async (
   const db = getFirestore(app);
 
   const q = query(
-    collection(db, "posts").withConverter(postConverter),
+    collection(db, sammlungName).withConverter(postConverter),
     where("blogPostIdentifier", "==", blogPostIdentifier)
   );
   const querySnapshot = await getDocs(q);
   if (querySnapshot.size === 0) {
     const post = { blogPostIdentifier: blogPostIdentifier, likes: 0 };
-    const id = (await addDoc(collection(db, "posts"), post)).id;
+    const id = (await addDoc(collection(db, sammlungName), post)).id;
     return id;
   }
   return "0";
@@ -161,7 +162,9 @@ export const getComments = async (app: FirebaseApp, postId: string) => {
   const db = getFirestore(app);
 
   const q = query(
-    collection(db, "posts", postId, "comments").withConverter(commentConverter),
+    collection(db, sammlungName, postId, "comments").withConverter(
+      commentConverter
+    ),
     orderBy("date")
   );
 
@@ -186,7 +189,7 @@ export const addComment = async (
     username: author,
     text: commentText,
   };
-  await addDoc(collection(db, "posts", postID, "comments"), nComment);
+  await addDoc(collection(db, sammlungName, postID, "comments"), nComment);
 };
 
 export const addCommentReply = async (
@@ -203,5 +206,5 @@ export const addCommentReply = async (
     text: commentText,
     parentID: parentCommentID,
   };
-  await addDoc(collection(db, "posts", postID, "comments"), nComment);
+  await addDoc(collection(db, sammlungName, postID, "comments"), nComment);
 };

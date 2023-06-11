@@ -97,25 +97,6 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
       }
     </style>
     <script>
-      // const sc = (element, c) => {
-      //   if (element.replies.length > 0) {
-      //     element.replies.forEach((e) => {
-      //       c += sc(e, c);
-      //     });
-      //   }
-      //   return c;
-      // };
-      // const calculateNumberOfAllComments = (elements: []): number => {
-      //   if (elements.length > 0) {
-      //     let counter = 0;
-      //     elements.forEach((e) => {
-      //       counter += sc(e, 1);
-      //     });
-      //     return counter;
-      //   }
-      //   return 0;
-      // };
-
       setTimeout(() => {
         import("./../components/BlogPost/Content.js").then((contentHelper) => {
           const blogPostIdentifier = document.querySelector(

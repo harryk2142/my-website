@@ -1,8 +1,8 @@
-import { Comment } from "src/scripts/firebase";
+import { Comment } from "../../scripts/firebase";
 
 const getPostID = async (blogPostIdentifier) => {
   const { getApp, getBlogPostByIdentifier, savePost } = await import(
-    "src/scripts/firebase"
+    "../../scripts/firebase"
   );
   const app = await getApp();
   const post = await getBlogPostByIdentifier(app, blogPostIdentifier);
@@ -16,13 +16,13 @@ const getPostID = async (blogPostIdentifier) => {
 
 // LIKE
 const loadLikes = async (postID: string) => {
-  const { getApp, getPostById } = await import("src/scripts/firebase");
+  const { getApp, getPostById } = await import("../../scripts/firebase");
   const app = await getApp();
   const post = await getPostById(app, postID);
   return post?.likes;
 };
 const submitLike = async (postID: string) => {
-  const { getApp, like } = await import("src/scripts/firebase");
+  const { getApp, like } = await import("../../scripts/firebase");
   const app = await getApp();
   const likes = like(app, postID);
   return likes;
@@ -30,7 +30,7 @@ const submitLike = async (postID: string) => {
 
 // COMMENTS
 const loadComments = async (postID: string) => {
-  const { getApp, getComments } = await import("src/scripts/firebase");
+  const { getApp, getComments } = await import("../..//scripts/firebase");
   const app = await getApp();
   const comments = await getComments(app, postID);
 
@@ -58,7 +58,7 @@ const submitComment = async (
   commentText: string,
   author: string
 ) => {
-  const { getApp, addComment } = await import("src/scripts/firebase");
+  const { getApp, addComment } = await import("../..//scripts/firebase");
   const app = await getApp();
   console.log(postID);
   console.log(author);
@@ -71,7 +71,7 @@ const submitReply = async (
   commentText: string,
   author: string
 ) => {
-  const { getApp, addCommentReply } = await import("src/scripts/firebase");
+  const { getApp, addCommentReply } = await import("../..//scripts/firebase");
   const app = await getApp();
   addCommentReply(app, postID, commentParentID, commentText, author);
 };

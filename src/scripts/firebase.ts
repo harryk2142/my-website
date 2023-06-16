@@ -1,3 +1,4 @@
+import { FirebaseApp, initializeApp } from "https://esm.sh/firebase/app";
 import {
   addDoc,
   collection,
@@ -9,11 +10,9 @@ import {
   query,
   setDoc,
   where,
-} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js";
+} from "https://esm.sh/firebase/firestore/lite";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-
-const sammlungName = "blogpostsMyBlog";
+const sammlungName = "posts";
 export interface Comment {
   id: string;
   postID?: string;
@@ -51,7 +50,7 @@ const commentConverter = {
   toFirestore(comment: Comment) {
     return {
       date: comment.date,
-      username: comment.username ?? "anonymous",
+      username: comment.username ?? "ANONYM",
       text: comment.text ?? "",
     };
   },
@@ -65,7 +64,7 @@ const commentConverter = {
       postID: postID,
       date: data.date ?? "0",
       formattedDate: new Date(data.date).toLocaleString(),
-      username: data.username ?? "anonymous",
+      username: data.username ?? "ANONYM",
       text: data.text ?? "",
       parentID: data.parentID ?? "",
       replies: [],

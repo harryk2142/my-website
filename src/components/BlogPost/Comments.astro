@@ -1,11 +1,16 @@
-<div id="comment-form-container">
+<div id="comment-form-container" style="margin-top:20px">
     <h3>Kommentar hinzufügen</h3>
     <input type="hidden" id="parent-comment-id" />
     <input type="hidden" id="bot-protection" />
     <label for="username">Username (optional):</label>
-    <input type="text" id="username" autocomplete="off" />
+    <input type="text" id="username" autocomplete="off" placeholder="Anonym" />
     <label for="comment-text">Kommentar:</label>
-    <input id="comment-text" autocomplete="off" />
+    <textarea
+        id="comment-text"
+        cols="45"
+        rows="8"
+        placeholder="Hier eigeben..."
+        autocomplete="off"></textarea>
     <button id="submit-comment-btn" type="submit" class="primary"
         >Absenden</button
     >
@@ -36,7 +41,7 @@
                 margin-bottom: 4px;
             }
             #username,
-            #comment-text {
+            #newcomment-text {
                 font-size: 1.25rem;
                 display: block;
                 width: 100%;
@@ -50,12 +55,13 @@
                 padding: 8px;
                 margin: 10px;
             }
+            .comment-text {
+                margin-top: 10px;
+                white-space: pre-wrap;
+            }
             .comment-username {
                 font-weight: bold;
-                margin-right: 4px;
-            }
-            .comment-text {
-                font-size: 1rem;
+                margin-right: 10px;
             }
             .comment-date {
                 font-size: 14px;

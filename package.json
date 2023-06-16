@@ -16,15 +16,8 @@
     "astro": "^2.6.1"
   },
   "devDependencies": {
-    "@firebase/app": "^0.9.11",
-    "@firebase/app-types": "^0.9.0",
-    "@firebase/auth": "^0.23.2",
-    "@firebase/auth-types": "^0.12.0",
-    "@firebase/firestore": "^3.12.1",
-    "@firebase/firestore-types": "^2.5.1",
     "@types/canvas-confetti": "^1.6.0",
     "dotenv": "^16.1.4",
-    "firebase": "^9.22.1",
-    "vite-plugin-import-maps": "^0.1.2"
+    "firebase": "^9.22.1"
   }
 }

@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import dotenv from "dotenv";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 dotenv.config(); // load env vars from .env
 
 // https://astro.build/config
@@ -16,9 +15,7 @@ export default defineConfig({
     },
     plugins: [],
     build: {
-      modulePreload: {
-        polyfill: false,
-      },
+      modulePreload: false,
     },
   },
 });

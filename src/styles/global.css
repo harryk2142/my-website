@@ -163,9 +163,18 @@ nav a {
 textarea {
   width: 100%;
   font-size: 16px;
+  padding: 10px;
 }
 input {
   font-size: 16px;
+  padding: 10px;
+}
+button {
+  font-size: 1.25rem;
+  cursor: pointer;
+  /* margin-top: 10px; */
+  /* margin-bottom: 4px; */
+  padding: 8px 10px;
 }
 content {
   line-height: 1.6;

@@ -63,7 +63,7 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
     <MainHeader />
     <Main>
       <span hidden id="blog-post-identifier">{blogPostIdentifier}</span>
-      <span hidden id="post-id"></span>
+      <span hidden id="post-id">-</span>
       <LeftAside />
       <article id="blogpost-container">
         <h1 class="title container" id="title">{description}</h1>
@@ -88,90 +88,204 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
         <section id="main-content">
           <slot />
         </section>
+        <div id="comments-box">
+          <div id="send-comment-template" hidden>
+            <input type="hidden" id="bot-protection" />
+            <label id="lbl-username" for="username">Username (optional):</label>
+            <input
+              type="text"
+              id="username"
+              class="username"
+              autocomplete="off"
+              placeholder="Anonym"
+            />
+            <label id="lbl-comment-text" for="comment-text">Kommentar:</label>
+            <textarea
+              id="comment-text"
+              cols="45"
+              rows="8"
+              placeholder="Hier eigeben..."
+              autocomplete="off"></textarea>
+            <button id="submit-comment-btn" type="submit" class="primary"
+              >Absenden</button
+            >
+          </div>
+          <div id="send-reply-template" hidden>
+            <input type="hidden" id="reply-bot-protection" />
+            <label id="lbl-reply-username" for="reply-username"
+              >Username (optional):</label
+            >
+            <input
+              type="text"
+              class="username"
+              id="reply-username"
+              autocomplete="off"
+              placeholder="Anonym"
+            />
+            <label id="lbl-reply-text" for="reply-text">Kommentar:</label>
+            <textarea
+              id="reply-text"
+              cols="45"
+              rows="8"
+              placeholder="Hier eigeben..."
+              autocomplete="off"></textarea>
+            <button id="abbrechen-reply-btn" type="submit" class="abbrechen-btn"
+              >Abbrechen</button
+            >
+            <button id="submit-reply-btn" type="submit" class="primary"
+              >Absenden</button
+            >
+          </div>
+        </div>
+
+        <div id="comment-form-container" style="margin-top:20px">
+          <h3>Kommentar hinzufügen</h3>
+          <div id="new-comment-form"></div>
+        </div>
+
         <Comments />
       </article>
     </Main>
+
     <style>
       .link-tag {
         color: var(--element-water-dark);
       }
     </style>
     <script>
-      setTimeout(() => {
-        import("./../components/BlogPost/Content.js").then((contentHelper) => {
-          const blogPostIdentifier = document.querySelector(
-            "#blog-post-identifier"
-          ).innerText;
-          contentHelper.getPostID(blogPostIdentifier).then((postID) => {
-            document.querySelector("#post-id").innerText = postID;
-            contentHelper.loadLikes(postID).then((likes) => {
-              document.querySelector("#like-counter").innerText = likes;
-            });
-            document
-              .querySelector("#like-btn")
-              .addEventListener("click", async () => {
-                const newLikeCount = await contentHelper.submitLike(postID);
-                document.querySelector("#like-counter").innerText =
-                  newLikeCount;
-              });
+      import {
+        addComment,
+        addCommentReply,
+        getApp,
+        getBlogPostByIdentifier,
+        getPostById,
+        getComments,
+        savePost,
+        like,
+      } from "../scripts/firebase";
+      // lade ID
+      function main() {
+        const clonedForm = document
+          .querySelector("#send-comment-template")
+          .cloneNode(true);
+        clonedForm.hidden = false;
+        document.querySelector("#new-comment-form").appendChild(clonedForm);
+      }
+      main();
 
-            contentHelper.loadComments(postID).then((comments) => {
-              if (comments.length > 0) {
-                console.log(comments);
-                const commentsCounter = comments.length;
-                document.querySelector("#comments-counter").innerText =
-                  commentsCounter;
-                const commentsWithReplies =
-                  contentHelper.fillCommentsWithReplies(comments);
-                console.log(commentsWithReplies);
-                loadComments(commentsWithReplies);
-              } else {
-                const noCommentsSpan = document.createElement(
-                  "span"
-                ) as HTMLElement;
-                noCommentsSpan.innerText = "Keine Kommentare vorhanden";
+      function showReplyBox(parent, commentID) {
+        const clonedForm = document
+          .querySelector("#send-reply-template")
+          .cloneNode(true);
+        clonedForm.hidden = false;
+        clonedForm.id = "reply-box-" + commentID;
+        clonedForm.className = "comment-reply-input-block";
 
-                document
-                  .getElementById("comments")
-                  ?.appendChild(noCommentsSpan);
-              }
-            });
+        const hiddenParentID = document.createElement("input");
+        hiddenParentID.textContent = commentID;
+        hiddenParentID.style.display = "none";
+        clonedForm.appendChild(hiddenParentID);
+        const clonedUsernameInput = clonedForm.querySelector("#reply-username");
+        clonedUsernameInput.id = "comment-reply-username-" + commentID;
+        const clonedTextInput = clonedForm.querySelector("#reply-text");
+        clonedTextInput.id = "comment-reply-text-" + commentID;
 
-            document
-              .querySelector("#submit-comment-btn")
-              .addEventListener("click", async (event) => {
-                event.preventDefault();
-                var botProtection =
-                  document.getElementById("bot-protection")?.value;
-                if (botProtection) {
-                  // Bot erkannt, Formular nicht absenden
-                  return;
-                }
-                // @ts-ignore
-                var parentCommentID =
-                  document.getElementById("parent-comment-id")?.value;
-                // @ts-ignore
-                var commentText =
-                  document.getElementById("newcomment-text")?.value;
-                // @ts-ignore
-                var username = document.getElementById("username")?.value;
-                if (!username) {
-                  username = "ANONYM";
-                }
-
-                if (parentCommentID) {
-                  // addCommentReply(postID, parentCommentID, commentText, author);
-                } else {
-                  contentHelper.submitComment(postID, commentText, username);
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 500);
-                }
-              });
-          });
+        const clonedAbbrechenBtn = clonedForm.querySelector(
+          "#abbrechen-reply-btn"
+        );
+        clonedAbbrechenBtn.id = "abbrechen-btn-" + commentID;
+        const clonedSubmitReplyBtn =
+          clonedForm.querySelector("#submit-reply-btn");
+        clonedSubmitReplyBtn.id = "send-reply-btn-" + commentID;
+        parent.insertBefore(clonedForm, parent.children[4]);
+        clonedAbbrechenBtn.addEventListener("click", (event) => {
+          // @ts-ignore
+          const id = event.target.id
+            .split("-")
+            .at(event.target.id.split("-").length - 1);
+          const box = document.querySelector("#reply-box-" + id);
+          box.parentNode.removeChild(box);
         });
-      }, 500);
-      const fillCommentWithData = (commentDiv, element) => {
+        clonedSubmitReplyBtn.addEventListener("click", async (event) => {
+          // @ts-ignore
+          const id = event.target.id
+            .split("-")
+            .at(event.target.id.split("-").length - 1);
+          const box = document.querySelector("#reply-box-" + id);
+          const postID = document.querySelector("#post-id").innerText;
+          const text = document.querySelector(
+            "#comment-reply-text-" + id
+          ).value;
+          let username = document.querySelector(
+            "#comment-reply-username-" + id
+          ).value;
+          if (!username) {
+            username = "ANONYM";
+          }
+
+          if (text) {
+            await submitReply(postID, id, text, username);
+            setTimeout(() => {
+              window.location.reload();
+            }, 500);
+          }
+          box.parentNode.removeChild(box);
+        });
+      }
+
+      const loadId = async () => {
+        const blogPostIdentifier = document.querySelector(
+          "#blog-post-identifier"
+        ).innerText;
+        const app = await getApp();
+        const post = await getBlogPostByIdentifier(app, blogPostIdentifier);
+        if (post) {
+          return post.id;
+        }
+
+        const newPostID = await savePost(app, blogPostIdentifier);
+        return newPostID;
+      };
+      // lade likes
+      const loadLikes = async (postID: string) => {
+        const app = await getApp();
+        const post = await getPostById(app, postID);
+        if (post?.likes) {
+          document.querySelector("#like-counter").innerText = post.likes;
+        }
+      };
+      // click auf likes
+      const submitLike = async (postID: string) => {
+        const app = await getApp();
+        const likes = like(app, postID);
+        return likes;
+      };
+      // lade Kommentare
+      const loadCommentsFromFirebase = async (postID: string) => {
+        const app = await getApp();
+        const comments = await getComments(app, postID);
+        console.log(comments);
+        return comments;
+      };
+      const fillCommentsWithReplies = (comments: Comment[]) => {
+        function addReplies(comments: Comment[]) {
+          comments.forEach((comment) => {
+            const replies = comments.filter((c) => c.parentID === comment.id);
+            if (replies.length > 0) {
+              comment.replies = replies;
+              addReplies(replies);
+            }
+          });
+        }
+        addReplies(comments);
+        const topLevelComments = comments.filter(
+          (comment) => !comment.parentID
+        );
+
+        return topLevelComments;
+      };
+      // Kommentar zu HTML
+      const fillHtmlCommentWithData = (commentDiv, element) => {
         var username = document.createElement("span");
         username.className = "comment-username";
         username.textContent = element.username;
@@ -197,114 +311,113 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
           if (a) {
             return;
           }
-          appendCommentReplyInputBlock(commentDiv, element.id);
+          showReplyBox(commentDiv, element.id);
         });
       };
-      const appendCommentReplyInputBlock = (parent, commentID) => {
-        var block = document.createElement("div");
-        block.id = "reply-box-" + commentID;
-        block.className = "comment-reply-input-block";
-        var hiddenParentID = document.createElement("input");
-        hiddenParentID.textContent = commentID;
-        hiddenParentID.style.display = "none";
-        var hiddenBotProtection = document.createElement("input");
-        var lblUsername = document.createElement("label");
-        lblUsername.textContent = "Username (optional)";
-        var inputUsername = document.createElement("input");
-        inputUsername.className = "comment-reply-input";
-        inputUsername.id = "comment-reply-username-" + commentID;
-        inputUsername.placeholder = "Anonym";
-        var lblComment = document.createElement("label");
-        lblComment.textContent = "Kommentar:";
-        var inputComment = document.createElement("textarea");
-        inputComment.className = "comment-reply-input";
-        inputComment.id = "comment-reply-text-" + commentID;
-        inputComment.placeholder = "Hier eingeben...";
-        inputComment.cols = 45;
-        inputComment.rows = 8;
-        var buttonAbbrechen = document.createElement("button");
-        buttonAbbrechen.id = "abbrechen-btn-" + commentID;
-        buttonAbbrechen.className = "abbrechen-btn";
-        buttonAbbrechen.textContent = "Abbrechen";
-        var buttonSubmit = document.createElement("button");
-        buttonSubmit.id = "send-reply-btn-" + commentID;
-        buttonSubmit.className = "send-reply-btn primary";
-        buttonSubmit.textContent = "Antwort senden";
-        block.appendChild(hiddenParentID);
-        block.appendChild(lblUsername);
-        block.appendChild(inputUsername);
-        block.appendChild(lblComment);
-        block.appendChild(inputComment);
-        block.appendChild(buttonAbbrechen);
-        block.appendChild(buttonSubmit);
-        parent.insertBefore(block, parent.children[4]);
-        buttonAbbrechen.addEventListener("click", (event) => {
-          // @ts-ignore
-          const id = event.target.id
-            .split("-")
-            .at(event.target.id.split("-").length - 1);
-          const box = document.querySelector("#reply-box-" + id);
-          box.parentNode.removeChild(box);
-        });
-        buttonSubmit.addEventListener("click", (event) => {
-          import("./../components/BlogPost/Content.js").then(
-            async (contentHelper) => {
-              // @ts-ignore
-              const id = event.target.id
-                .split("-")
-                .at(event.target.id.split("-").length - 1);
-              const box = document.querySelector("#reply-box-" + id);
-              const postID = document.querySelector("#post-id").innerText;
-              const text = document.querySelector(
-                "#comment-reply-text-" + id
-              ).value;
-              let username = document.querySelector(
-                "#comment-reply-username-" + id
-              ).value;
-              if (!username) {
-                username = "ANONYM";
-              }
-              if (text) {
-                await contentHelper.submitReply(postID, id, text, username);
-                setTimeout(() => {
-                  window.location.reload();
-                }, 500);
-              }
-              box.parentNode.removeChild(box);
-            }
-          );
-        });
-      };
-      function addRepliesToParent(parent, replies) {
+      function addHtmlRepliesToParent(parent, replies) {
         replies.forEach((element) => {
           // Kommentar zur Liste hinzufügen
           var commentDiv = document.createElement("div");
           commentDiv.className = "comment-replies comment-block";
           commentDiv.id = element.id;
-          fillCommentWithData(commentDiv, element);
+          fillHtmlCommentWithData(commentDiv, element);
 
           parent.appendChild(commentDiv);
           if (element.replies && element.replies.length > 0) {
-            addRepliesToParent(commentDiv, element.replies);
+            addHtmlRepliesToParent(commentDiv, element.replies);
           }
         });
       }
-      function loadComments(comments) {
+      function fillHtmlComment(comments) {
         comments.forEach((element) => {
           // Kommentar zur Liste hinzufügen
           var commentDiv = document.createElement("div");
           commentDiv.className = "comment-block";
           commentDiv.id = element.id;
 
-          fillCommentWithData(commentDiv, element);
+          fillHtmlCommentWithData(commentDiv, element);
 
           if (element.replies && element.replies.length > 0) {
-            addRepliesToParent(commentDiv, element.replies);
+            addHtmlRepliesToParent(commentDiv, element.replies);
           }
 
           document.getElementById("comments")?.appendChild(commentDiv);
         });
       }
+
+      // Sende Kommentar
+      const submitComment = async (postId, text, username) => {
+        const app = await getApp();
+        addComment(app, postId, text, username);
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      };
+      // Sende Antwort
+      const submitReply = async (postId, parentCommentId, text, username) => {
+        const app = await getApp();
+        addCommentReply(app, postId, parentCommentId, text, username);
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      };
+
+      setTimeout(() => {
+        loadId().then((id) => {
+          document.querySelector("#post-id").innerText = id;
+
+          loadLikes(id);
+
+          document
+            .querySelector("#like-btn")
+            .addEventListener("click", async () => {
+              const newLikeCount = await submitLike(id);
+              document.querySelector("#like-counter").innerText = newLikeCount;
+            });
+
+          loadCommentsFromFirebase(id).then((comments) => {
+            if (comments.length > 0) {
+              const commentsCounter = comments.length;
+              document.querySelector("#comments-counter").innerText =
+                commentsCounter;
+              const commentsWithReplies = fillCommentsWithReplies(comments);
+              console.log(commentsWithReplies);
+              fillHtmlComment(commentsWithReplies);
+            } else {
+              const noCommentsSpan = document.createElement(
+                "span"
+              ) as HTMLElement;
+              noCommentsSpan.innerText = "Keine Kommentare vorhanden";
+              document.getElementById("comments")?.appendChild(noCommentsSpan);
+            }
+          });
+
+          document
+            .querySelector("#submit-comment-btn")
+            .addEventListener("click", async (event) => {
+              event.preventDefault();
+
+              var botProtection =
+                document.getElementById("bot-protection")?.value;
+              if (botProtection) {
+                // Bot erkannt, Formular nicht absenden
+                return;
+              }
+              var text = document.getElementById("comment-text")?.value;
+              if (!text) {
+                return;
+              }
+              var parentCommentID =
+                document.getElementById("parent-comment-id")?.value;
+              var username = document.getElementById("username")?.value;
+              if (!username) {
+                username = "ANONYM";
+              }
+
+              submitComment(id, text, username);
+            });
+        });
+      }, 500);
     </script>
     <Footer />
   </body>

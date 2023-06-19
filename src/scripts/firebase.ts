@@ -2,6 +2,7 @@ import { FirebaseApp, initializeApp } from "https://esm.sh/firebase/app";
 import {
   addDoc,
   collection,
+  connectFirestoreEmulator,
   doc,
   getDoc,
   getDocs,
@@ -94,6 +95,7 @@ export const getBlogPostByIdentifier = async (
   blogPostIdentifier: string
 ): Promise<Post | undefined> => {
   const db = getFirestore(app);
+  connectFirestoreEmulator(db, "127.0.0.1", 8088);
 
   const q = query(
     collection(db, sammlungName).withConverter(postConverter),

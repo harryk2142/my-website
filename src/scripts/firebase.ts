@@ -1,4 +1,7 @@
-import { FirebaseApp, initializeApp } from "https://esm.sh/firebase/app";
+import {
+  FirebaseApp,
+  initializeApp,
+} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import {
   addDoc,
   collection,
@@ -11,7 +14,7 @@ import {
   query,
   setDoc,
   where,
-} from "https://esm.sh/firebase/firestore/lite";
+} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js";
 
 const sammlungName = "posts";
 export interface Comment {
@@ -95,7 +98,11 @@ export const getBlogPostByIdentifier = async (
   blogPostIdentifier: string
 ): Promise<Post | undefined> => {
   const db = getFirestore(app);
-  connectFirestoreEmulator(db, "127.0.0.1", 8088);
+  if (location.hostname === "localhost") {
+    console.log("LOCALHOST");
+
+    connectFirestoreEmulator(db, "127.0.0.1", 8088);
+  }
 
   const q = query(
     collection(db, sammlungName).withConverter(postConverter),

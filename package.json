@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && size-limit && pnpm pagefind",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,8 +16,20 @@
     "astro": "^2.6.1"
   },
   "devDependencies": {
+    "@size-limit/file": "^8.2.4",
     "@types/canvas-confetti": "^1.6.0",
     "dotenv": "^16.1.4",
-    "firebase": "^9.22.1"
-  }
+    "firebase": "^9.22.1",
+    "size-limit": "^8.2.4"
+  },
+  "size-limit": [
+    {
+      "path": "dist/**/*.js",
+      "gzip": false
+    },
+    {
+      "path": "dist/**/*.css",
+      "gzip": false
+    }
+  ]
 }

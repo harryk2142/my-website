@@ -1,6 +1,6 @@
 ---
 id: "20230626-0"
-title: "Die NASA schickt ein riesiges Gehirn ins Weltall: Anna Lüse und ihr Team machen es möglich"
+title: "Die NASA schickt ein riesiges Gehirn ins Weltall"
 description: "Anna Lüse und ihr Team haben es geschafft: Ein riesiges Gehirn wird ins Weltall geschickt. Lesen Sie hier, wie sie das unmögliche möglich gemacht haben"
 pubDate: 2023-06-26
 postImage:

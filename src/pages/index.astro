@@ -24,12 +24,20 @@ import Ufo from "../components/Ufo.astro";
       type={"website"}
     />
   </head>
-  <body>
+  <body data-pagefind-ignore>
     <MainHeader title={SITE_TITLE} />
     <Main>
       <article id="breaking-news-ticker">
         <BreakingNewsTicker />
       </article>
+      <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+      <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+      <div id="search"></div>
+      <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+          new PagefindUI({ element: "#search" });
+        });
+      </script>
       <hr />
       <div class="flex" style="padding-bottom:4rem">
         <div class="s12 m8 l6 xl6">
@@ -95,8 +103,8 @@ import Ufo from "../components/Ufo.astro";
                 ))
               }
             </div>
-            <section id="zu-weiteren-posts" class="primary">
-              <a id="zu-weiteren-posts-button" href="/blog">
+            <section id="zu-weiteren-posts">
+              <a id="zu-weiteren-posts-button" class="primary" href="/blog">
                 <div>Zu weiteren Posts <Ufo size="M" /></div>
               </a>
             </section>
@@ -106,25 +114,16 @@ import Ufo from "../components/Ufo.astro";
     </Main>
     <Footer />
     <style>
-      /* #breaking-news-ticker {
-        margin-top: 5rem;
-      }
-      @media screen and (max-width: 600px) {
-        #breaking-news-ticker {
-          margin-top: 6rem;
-        }
-      } */
       #more-link {
         color: black;
       }
       #zu-weiteren-posts {
         background-color: #333;
         text-align: center;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
       }
       #zu-weiteren-posts-button,
       #zu-weiteren-posts-button:visited {
+        height: 100%;
         color: #fff;
       }
       .latest-post-list-item-date {

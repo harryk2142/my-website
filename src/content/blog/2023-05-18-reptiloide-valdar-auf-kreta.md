@@ -1,16 +1,16 @@
 ---
 id: "20230518-0"
-title: "Valdar der Reptiolid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
-description: "Valdar der Reptiolid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
+title: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
+description: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 pubDate: 2023-05-18
 postImage:
-  src: "reptiolide-mit-strohhut.webp"
-  prevSrc: "reptiolide-mit-strohhut-preview.webp"
-  alt: "Ein Reptiolide mit einem Strohut am Strand"
-tags: [valdar, reptiolid, urlaub, kreta, strand]
+  src: "reptiloide-mit-strohhut.webp"
+  prevSrc: "reptiloide-mit-strohhut-preview.webp"
+  alt: "Ein Reptiloide mit einem Strohut am Strand"
+tags: [valdar, reptiloid, urlaub, kreta, strand]
 ---
 
-Liebe Leserinnen und Leser, heute lüften wir das Geheimnis um Valdar, den freizeitliebenden Reptioliden, der sich auf Kreta einen ungewöhnlichen Urlaub gönnt. Begleiten Sie uns zu einem genauer definierten Ort, an dem der Strand von Elafonisi mit seinem einzigartigen Charme Valdar zu unerwarteten Offenbarungen über seine Arbeit verleitet.
+Liebe Leserinnen und Leser, heute lüften wir das Geheimnis um Valdar, den freizeitliebenden Reptiloliden, der sich auf Kreta einen ungewöhnlichen Urlaub gönnt. Begleiten Sie uns zu einem genauer definierten Ort, an dem der Strand von Elafonisi mit seinem einzigartigen Charme Valdar zu unerwarteten Offenbarungen über seine Arbeit verleitet.
 
 Valdar, mit seinen glänzenden Schuppen und den wachen Augen, entschied sich bewusst für Elafonisi als Urlaubsziel. Er behauptet, dass die Kombination aus dem kristallklaren Wasser und dem feinen rosafarbenen Sand die perfekte Kulisse für seine Entspannung bietet. Obwohl die Menschen den Strand normalerweise als exotisches Paradies betrachten, betrachtet Valdar ihn als seinen persönlichen "Büroausflug".
 
@@ -22,7 +22,7 @@ Und dann, als wäre es das Natürlichste der Welt, erwähnt Valdar beiläufig, d
 
 Während Valdar seine abenteuerliche Vergangenheit preisgibt, ist es schwer, zwischen den Lachern nicht den Eindruck zu gewinnen, dass sein Urlaub in Wirklichkeit eine gelungene Flucht vor den täglichen Verpflichtungen ist. Doch wer kann es ihm verübeln? Schließlich hat jeder das Recht auf etwas Erholung und eine Auszeit vom Weltenlenken.
 
-Und so lässt Valdar, der skurrile Reptiolid, die Sonne Kretas auf sich scheinen, während er mit einem Cocktail in der einen und einem antiken Geschichtsbuch in der anderen Hand die wahren und unwahren Abenteuer seiner Vergangenheit mit einem Augenzwinkern erzählt.
+Und so lässt Valdar, der skurrile Reptiloid, die Sonne Kretas auf sich scheinen, während er mit einem Cocktail in der einen und einem antiken Geschichtsbuch in der anderen Hand die wahren und unwahren Abenteuer seiner Vergangenheit mit einem Augenzwinkern erzählt.
 
 Schlussworte:
-Liebe Leserinnen und Leser, der Strand von Elafonisi mag für die meisten ein Paradies des Entspannens sein, doch für Valdar, den unkonventionellen Reptioliden, ist er ein Ort, an dem er seine verrückten Geschichten über Zeus, Herkules und fiktive Reiseführer teilen kann. Während er seinen Urlaub genießt, erinnert uns Valdar daran, dass es im Leben nicht immer ernst zugehen muss und dass selbst diejenigen, die die Welt lenken, eine Pause brauchen.
+Liebe Leserinnen und Leser, der Strand von Elafonisi mag für die meisten ein Paradies des Entspannens sein, doch für Valdar, den unkonventionellen Reptiloiden, ist er ein Ort, an dem er seine verrückten Geschichten über Zeus, Herkules und fiktive Reiseführer teilen kann. Während er seinen Urlaub genießt, erinnert uns Valdar daran, dass es im Leben nicht immer ernst zugehen muss und dass selbst diejenigen, die die Welt lenken, eine Pause brauchen.

@@ -73,6 +73,11 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
         {
           postImage && (
             <div class="blog-post-img-container">
+              <img
+                hidden
+                src={"/images/blog/" + postImage.prevSrc}
+                alt={postImage.alt}
+              />
               <img src={"/images/blog/" + postImage.src} alt={postImage.alt} />
             </div>
           )
@@ -96,7 +101,6 @@ const { id, title, description, pubDate, postImage, tags } = Astro.props;
           <h3>Kommentar hinzufügen</h3>
           <div id="new-comment-form"></div>
         </div>
-
         <Comments />
       </article>
     </Main>

@@ -2,12 +2,18 @@ import { defineConfig } from "astro/config";
 import dotenv from "dotenv";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+
 dotenv.config(); // load env vars from .env
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://harry-kramer.net",
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes("https://harry-kramer.net/tags"),
+    }),
+  ],
   vite: {
     define: {
       FB_API_KEY: JSON.stringify(process.env.FIREBASE_COMMENTS_API_KEY),
@@ -16,6 +22,7 @@ export default defineConfig({
     plugins: [],
     build: {
       modulePreload: false,
+      // reportCompressedSize: true,
     },
   },
 });

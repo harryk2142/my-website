@@ -2,6 +2,7 @@
 id: "20230127-0"
 title: "Durchbruch im Bereich Fusion"
 description: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
+seoPreviewText: "Die Zukunft der Energieversorgung ist gesichert. Nach jahrelanger Forschung und Zusammenarbeit haben Wissenschaftler von der Erde und dem Mars einen bahnbrechenden Erfolg im Bereich der Kernfusion erzielt. Sie haben einen Fusionsreaktor entwickelt, der mehr Energie erzeugt, als er verbraucht. Dieser Reaktor könnte sowohl den Planeten Erde als auch den Mars mit sauberer und unbegrenzter Energie versorgen. In diesem Blogeintrag erfährst du mehr über die Hintergründe, die Herausforderungen und die Bedeutung dieses historischen Durchbruchs. Lese jetzt weiter und entdecke, wie die Fusion die Zukunft verändern wird!"
 pubDate: 2023-01-27
 postImage:
   src: "fusionskraftwerk-auf-dem-mars.webp"

@@ -1,7 +1,12 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE, SUB_TITLE } from "../consts";
 import Eyes from "./Eyes.astro";
+interface Props {
+  isStartPage?: boolean;
+}
+
+const { isStartPage } = Astro.props;
 ---
 
 <section id="main-header" class="primary">
@@ -10,10 +15,27 @@ import Eyes from "./Eyes.astro";
       <img src="/icons/icon.webp" alt="Logo der Webseite" />
     </div>
     <div class="s4 m3 l2s" id="title-container">
-      <span class="block" id="title">
-        <a href="/">{SITE_TITLE}</a>
-      </span>
-      <span class="block" id="subtitle">A mystery blog</span>
+      {
+        isStartPage ? (
+          <h1>
+            <span class="block" id="title">
+              <a href="/">{SITE_TITLE}</a>
+            </span>
+            <span class="block" id="subtitle">
+              {SUB_TITLE}
+            </span>
+          </h1>
+        ) : (
+          <>
+            <span class="block" id="title">
+              <a href="/">{SITE_TITLE}</a>
+            </span>
+            <span class="block" id="subtitle">
+              {SUB_TITLE}
+            </span>
+          </>
+        )
+      }
     </div>
 
     <div class="s4 m2 l2" style="">
@@ -64,6 +86,12 @@ import Eyes from "./Eyes.astro";
   #title {
     display: block;
     font-size: 1.2rem;
+    font-weight: lighter;
+  }
+  #subtitle {
+    display: block;
+    font-size: 1rem;
+    font-weight: lighter;
   }
   #header-image-container {
     height: 100%;

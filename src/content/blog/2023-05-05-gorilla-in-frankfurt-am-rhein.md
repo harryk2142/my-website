@@ -1,7 +1,7 @@
 ---
 id: "20230505-0"
 title: "Gigantischer Gorilla in Frankfurt gesichtet"
-description: "Breaking News: Riesiger Gorilla in Frankfurter Skyline gesichtet!"
+description: "Breaking News: Gigantischer Gorilla in Frankfurter Skyline gesichtet!"
 pubDate: 2023-05-05
 postImage:
   src: "gigantischer-gorilla-in-frankfurt.webp"

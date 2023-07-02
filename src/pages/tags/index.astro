@@ -20,14 +20,13 @@ import TagCloud from "../../components/TagCloud.astro";
   <body data-pagefind-ignore>
     <MainHeader />
     <Main>
-      <h2>TAGS</h2>
-      <TagCloud />
+      <div class="wrapper">
+        <dir class="container">
+          <h1 class="center">TAGS</h1>
+          <TagCloud />
+        </dir>
+      </div>
     </Main>
     <Footer />
-    <style>
-      h2 {
-        text-align: center;
-      }
-    </style>
   </body>
 </html>

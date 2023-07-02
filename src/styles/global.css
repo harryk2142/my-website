@@ -132,6 +132,9 @@ h6 {
 .block {
   display: block;
 }
+.center {
+  text-align: center;
+}
 .content {
   margin-bottom: 3rem;
 }

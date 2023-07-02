@@ -6,6 +6,7 @@ const blog = defineCollection({
     id: z.string(),
     title: z.string(),
     description: z.string(),
+    seoPreviewText: z.string().optional(),
     pubDate: z
       .string()
       .or(z.date())

@@ -1,17 +1,16 @@
 ---
 id: "20230127-0"
 title: "Durchbruch im Bereich Fusion"
-description: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
-seoPreviewText: "Die Zukunft der Energieversorgung ist gesichert. Nach jahrelanger Forschung und Zusammenarbeit haben Wissenschaftler von der Erde und dem Mars einen bahnbrechenden Erfolg im Bereich der Kernfusion erzielt. Sie haben einen Fusionsreaktor entwickelt, der mehr Energie erzeugt, als er verbraucht. Dieser Reaktor könnte sowohl den Planeten Erde als auch den Mars mit sauberer und unbegrenzter Energie versorgen. In diesem Blogeintrag erfährst du mehr über die Hintergründe, die Herausforderungen und die Bedeutung dieses historischen Durchbruchs. Lese jetzt weiter und entdecke, wie die Fusion die Zukunft verändern wird!"
+description: "Die Zukunft der Energieversorgung ist gesichert. Lese jetzt weiter und entdecke, wie die Fusion die Zukunft verändern wird!"
+headline: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
 pubDate: 2023-01-27
 postImage:
   src: "fusionskraftwerk-auf-dem-mars.webp"
   prevSrc: "fusionskraftwerk-auf-dem-mars-preview.webp"
+  thumbnail: "fusionskraftwerk-auf-dem-mars-preview.jpg"
   alt: "Ein modernes Funsionskraftwerk auf dem Mars"
 tags: [fusion, mars, marsianer, terraner, science-fiction, technologie]
 ---
-
-## Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch
 
 Der Durchbruch, den die Marsianer nun erzielt haben, besteht darin, dass es ihnen gelungen ist, einen Fusionsreaktor zu entwickeln, der in der Lage ist, Strom zu erzeugen.
 Der Leiter der Forschungsgruppe, Dr. Jessica Taylor, ist stolz auf das Ergebnis: 'Wir haben Jahre damit verbracht, an diesem Fusionsreaktor zu arbeiten, und es ist unglaublich, dass es uns nun gelungen ist, ihn erfolgreich zu testen.

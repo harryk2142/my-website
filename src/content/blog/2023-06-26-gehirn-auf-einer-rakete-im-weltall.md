@@ -2,10 +2,12 @@
 id: "20230626-0"
 title: "Die NASA schickt ein riesiges Gehirn ins Weltall"
 description: "Anna Lüse und ihr Team haben es geschafft: Ein riesiges Gehirn wird ins Weltall geschickt. Lesen Sie hier, wie sie das unmögliche möglich gemacht haben"
+headline: "Die NASA schickt ein riesiges Gehirn ins Weltall"
 pubDate: 2023-06-26
 postImage:
   src: "gehirn-auf-einer-rakete-im-weltall.webp"
   prevSrc: "gehirn-auf-einer-rakete-im-weltall-preview.webp"
+  thumbnail: "gehirn-auf-einer-rakete-im-weltall-preview.jpg"
   alt: "Ein großes Gehirn auf dem Rücken einer Rakte im Weltall"
 tags: [nasa, weltall, gehirn, wissenschaft, annaluese, annalüse, technologie]
 ---

@@ -5,8 +5,8 @@ const blog = defineCollection({
   schema: z.object({
     id: z.string(),
     title: z.string(),
+    headline: z.string(),
     description: z.string(),
-    seoPreviewText: z.string().optional(),
     pubDate: z
       .string()
       .or(z.date())
@@ -20,6 +20,7 @@ const blog = defineCollection({
       .object({
         src: z.string(),
         prevSrc: z.string(),
+        thumbnail: z.string().optional(),
         alt: z.string(),
       })
       .optional(),

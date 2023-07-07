@@ -1,12 +1,13 @@
 ---
 id: "20230702-0"
 title: "Enthüllt: Die geheimnisvolle Blaupause"
-description: "Enthüllt: Die geheimnisvolle Blaupause - Das faszinierende Rätsel um Artie Fact und die Maschine"
-seoPreviewText: "Taucht ein in die faszinierende Welt des Abenteurers Artie Fact, der auf eine geheimnisvolle Blaupause stößt. Verfolgt sein atemberaubendes Rätselraten, während er in eine Verschwörung verstrickt wird, die die Welt bedroht. Ein packender Thriller voller Spannung, der die Wahrheit hinter der mysteriösen Maschine enthüllt."
+description: "Enthüllt: Die geheimnisvolle Blaupause - Lese hier weiter was Arti Fact rausgefunden hat."
+headline: "Enthüllt: Die geheimnisvolle Blaupause"
 pubDate: 2023-07-02
 postImage:
   src: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte.webp"
   prevSrc: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.webp"
+  thumbnail: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.jpg"
   alt: "Eine Blaupause einer großen mysteriösen Maschine mit einem Menschen in der Mitte"
 tags:
   [

@@ -13,16 +13,17 @@ import CommentTemplate from "../components/BlogPost/CommentTemplate.astro";
 type Props = CollectionEntry<"blog">["data"];
 const pathSegments = Astro.request.url.split("/");
 const blogPostIdentifier = pathSegments.at(pathSegments.length - 2);
-const { id, title, description, pubDate, postImage, seoPreviewText, tags } =
+const { id, title, description, headline, pubDate, postImage, tags } =
   Astro.props;
+const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
 ---
 
 <html lang="de">
   <head>
     <BaseHead
       title={title}
-      description={seoPreviewText ? seoPreviewText : description}
-      image={"images/blog/" + postImage?.prevSrc}
+      description={description}
+      image={"images/blog/" + headImage}
       type={"article"}
     />
     <style>
@@ -68,7 +69,7 @@ const { id, title, description, pubDate, postImage, seoPreviewText, tags } =
       <span hidden id="blog-post-id"></span>
       <LeftAside />
       <article id="blogpost-container">
-        <h1 class="title container" id="title">{description}</h1>
+        <h1 class="title container" id="title">{headline}</h1>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
         {
           postImage && (

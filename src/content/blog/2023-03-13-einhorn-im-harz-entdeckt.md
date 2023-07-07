@@ -1,11 +1,13 @@
 ---
 id: "20230313-0"
 title: "Männliches Einhorn im magischen Wald entdeckt"
-description: "Männliches Einhorn in einem magischen Wald im Harz entdeckt"
+description: "Exlusiv - Männliches Einhorn in einem magischen Wald im Harz entdeckt. Lese hier mehr dazu."
+headline: "Exklusiv - Männliches Einhorn in einem magischen Wald im Harz entdeckt"
 pubDate: 2023-03-13
 postImage:
   src: "goldenes-einhorn.webp"
   prevSrc: "goldenes-einhorn-preview.webp"
+  thumbnail: "goldenes-einhorn-preview.jpg"
   alt: "Ein goldenes Einhorn mit blauem Haar"
 tags: [einhorn, magischer-wald, harz, entdeckung, fantasy]
 ---

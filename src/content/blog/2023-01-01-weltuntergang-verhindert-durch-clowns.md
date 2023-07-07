@@ -1,14 +1,15 @@
 ---
 id: "20230101-0"
 title: "Silvester 2022: Weltuntergang verhindert durch Clowns"
-description: "Silvester 2022: Weltuntergang verhindert durch Clowns"
-seoPreviewText: "Was wäre, wenn du erfährst, dass die Welt am 31. Dezember 2022 untergehen soll? Würdest du verzweifeln, feiern oder kämpfen? In diesem Blogeintrag erzähle ich dir die unglaubliche Geschichte, wie eine Gruppe von Clowns die Apokalypse verhindert hat. Du wirst lachen, weinen und staunen, wie diese mutigen Spaßmacher die Menschheit gerettet haben. Lese jetzt weiter und erfahre, wie die Clowns den Weltuntergang gestoppt haben!"
+description: "In diesem Blogeintrag erfährst du die unglaubliche Geschichte, wie eine Gruppe von Clowns die Apokalypse verhindert hat. Lese jetzt weiter."
+headline: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 pubDate: 2023-01-01
 postImage:
   src: "clowns-retten-die-welt.webp"
   prevSrc: "clowns-retten-die-welt-preview.webp"
+  thumbnail: "clowns-retten-die-welt-preview.jpg"
   alt: "Zwei Clowns stehen um die Erdkugel herum"
-tags: [clowns, weltuntergang, silvester2022]
+tags: [apokalypse, clowns, silvester2022, silvester, weltuntergang]
 ---
 
 Die Menschheit stand kurz vor dem Weltuntergang, als sich am Silvesterabend des Jahres 2022 plötzlich etwas Unerwartetes ereignete. Aus dem Nichts tauchten Hunderte von Clowns auf und verteilten sich über den ganzen Globus.

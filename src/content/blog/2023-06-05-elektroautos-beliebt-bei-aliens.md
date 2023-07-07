@@ -1,11 +1,13 @@
 ---
 id: "20230605-0"
 title: "Elektroautos besonders beliebt bei UFO-Entführungen"
-description: "Unglaublich - Elektroautos beliebt bei Aliens"
+description: "Unglaublich - Elektroautos beliebt bei Aliens. Lese hier weiter was die ersten Erkentnisse dazu sind."
+headline: "Unglaublich - Elektroautos beliebt bei Aliens"
 pubDate: 2023-06-05
 postImage:
   src: "elektroauto-wird-von-ufo-entfuehrt.webp"
   prevSrc: "elektroauto-wird-von-ufo-entfuehrt-preview.webp"
+  thumbnail: "elektroauto-wird-von-ufo-entfuehrt-preview.jpg"
   alt: "Ein rotes Elektroauto wird gerade von einem Ufo entführt"
 tags: [elektroautos, ufo, entfuherung, mystery]
 ---

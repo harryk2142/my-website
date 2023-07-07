@@ -2,10 +2,12 @@
 id: "20230518-0"
 title: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 description: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
+headline: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 pubDate: 2023-05-18
 postImage:
   src: "reptiloide-mit-strohhut.webp"
   prevSrc: "reptiloide-mit-strohhut-preview.webp"
+  thumbnail: "reptiloide-mit-strohhut-preview.jpg"
   alt: "Ein Reptiloide mit einem Strohut am Strand"
 tags: [valdar, reptiloid, urlaub, kreta, strand]
 ---

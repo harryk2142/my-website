@@ -1,11 +1,13 @@
 ---
 id: "20230208-0"
 title: "Gedankenlesendes Bakterium entdeckt"
-description: "Gedankenlesendes Bakterium auf dem Mars entdeckt"
+description: "Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Lese hier die Hintergründe dazu."
+headline: "Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt"
 pubDate: 2023-02-08
 postImage:
   src: "gruenes-bakterium-blaue-fluessingkeit.webp"
   prevSrc: "gruenes-bakterium-blaue-fluessingkeit-preview.webp"
+  thumbnail: "gruenes-bakterium-blaue-fluessingkeit-preview.jpg"
   alt: "Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen."
 tags: [bakterium, mars, entdeckung, mystery]
 ---

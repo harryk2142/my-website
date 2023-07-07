@@ -35,11 +35,7 @@ const { title, description, image, type = "website" } = Astro.props;
 <meta property="og:description" content={description} />
 {
   image && (
-    <meta
-      property="og:image"
-      data-pagefind-default-meta="image[content]"
-      content={canonicalURL.origin + "/" + image}
-    />
+    <meta property="og:image" content={canonicalURL.origin + "/" + image} />
   )
 }
 <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->

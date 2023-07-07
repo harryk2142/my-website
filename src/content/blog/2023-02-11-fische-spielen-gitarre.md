@@ -1,11 +1,13 @@
 ---
 id: "20230211-0"
 title: "Gitarre spielende Fische entdeckt"
-description: "Gitarre spielende Fische im Lake Tahoe entdeckt"
+description: "Es wurden Gitarre spielende Fische im Lake Tahoe entdeckt. Lese jetzt hier weiter."
+headline: "wow - Gitarre spielende Fische im Lake Tahoe entdeckt"
 pubDate: 2023-02-11
 postImage:
   src: "fische-spielen-gitarre.webp"
   prevSrc: "fische-spielen-gitarre-preview.webp"
+  thumbnail: "fische-spielen-gitarre-preview.jpg"
   alt: "Zwei Fische spielen Gitarre"
 tags: [fische, lake-tahoe, entdeckung, musik]
 ---

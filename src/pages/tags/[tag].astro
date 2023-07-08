@@ -38,26 +38,34 @@ const { posts } = Astro.props;
     <meta name="robots" content="noindex" />
   </head>
   <body data-pagefind-ignore>
+    <style>
+      ul {
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margins */
+      }
+      #tag-list {
+        margin-left: 6px;
+      }
+    </style>
     <MainHeader />
     <Main class="">
-      <h1>#{tag}</h1>
-      <div>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="wrapper">
+        <div class="container">
+          <h1>#{tag}</h1>
+          <div id="tag-list">
+            <ul>
+              {
+                posts.map((post) => (
+                  <li>
+                    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     </Main>
     <Footer />
-    <style>
-      div {
-        margin-top: 2rem;
-      }
-    </style>
   </body>
 </html>

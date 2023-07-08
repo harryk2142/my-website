@@ -12,7 +12,9 @@ const { isStartPage } = Astro.props;
 <section id="main-header" class="primary">
   <div id="main-header-content" class="flex wrapper primary">
     <div id="header-image-container" class="s2 m2 l2">
-      <img src="/icons/icon.webp" alt="Logo der Webseite" />
+      <a href="/">
+        <img src="/icons/icon.webp" alt="Logo der Webseite" />
+      </a>
     </div>
     <div class="s4 m3 l2s" id="title-container">
       {
@@ -96,7 +98,7 @@ const { isStartPage } = Astro.props;
   #header-image-container {
     height: 100%;
   }
-  #header-image-container > img {
+  img {
     height: 100%;
   }
 

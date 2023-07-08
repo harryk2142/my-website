@@ -2,14 +2,24 @@
 id: "20230211-0"
 title: "Gitarre spielende Fische entdeckt"
 description: "Es wurden Gitarre spielende Fische im Lake Tahoe entdeckt. Lese jetzt hier weiter."
-headline: "wow - Gitarre spielende Fische im Lake Tahoe entdeckt"
+headline: "Wow - Gitarre spielende Fische im Lake Tahoe entdeckt"
 pubDate: 2023-02-11
 postImage:
   src: "fische-spielen-gitarre.webp"
   prevSrc: "fische-spielen-gitarre-preview.webp"
   thumbnail: "fische-spielen-gitarre-preview.jpg"
   alt: "Zwei Fische spielen Gitarre"
-tags: [fische, lake-tahoe, entdeckung, musik]
+tags:
+  [
+    fische,
+    lake-tahoe,
+    entdeckung,
+    musik,
+    musikalischeswunder,
+    lustigetiere,
+    tierischemusik,
+    ungewöhnlichetalente,
+  ]
 ---
 
 Ein erstaunlicher Fund im Lake Tahoe, Kalifornien: Eine Gruppe von Fischen hat entdeckt, dass sie eine unglaubliche Begabung dafür haben, Gitarre zu spielen. Wie es dazu kam? Ein Frachtschiff hat auf seiner Reise einen Container verloren, der voll mit Musikinstrumenten war. Als der Container auf den Grund des Lake Tahoe sank, entdeckten die Fische die Gitarren und begannen, damit zu experimentieren.

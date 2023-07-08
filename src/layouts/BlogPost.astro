@@ -47,7 +47,7 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
         margin-bottom: 10px;
       }
       #publication-date {
-        font-size: larger;
+        font-size: 1.25rem;
         color: var(--element-water-dark);
         font-weight: bold;
         font-style: italic;
@@ -59,6 +59,14 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
       #blogpost-container {
         margin-left: 40px; /* Same as the width of the sidebar */
         padding: 0px 10px;
+      }
+      .link-tag {
+        color: var(--element-water-dark);
+      }
+    </style>
+    <style is:inline>
+      #main-content p {
+        margin-bottom: 24px;
       }
     </style>
   </head>
@@ -87,7 +95,7 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
             </div>
           )
         }
-        <p class="">
+        <div class="panel">
           {
             tags &&
               tags.map((tag) => (
@@ -96,7 +104,7 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
                 </a>
               ))
           }
-        </p>
+        </div>
         <section id="main-content">
           <slot />
         </section>
@@ -110,11 +118,7 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
       </article>
     </Main>
 
-    <style>
-      .link-tag {
-        color: var(--element-water-dark);
-      }
-    </style>
+    <style is:inline></style>
     <script>
       import {
         loadBlogPost,

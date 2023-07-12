@@ -13,7 +13,7 @@ import CommentTemplate from "../components/BlogPost/CommentTemplate.astro";
 type Props = CollectionEntry<"blog">["data"];
 const pathSegments = Astro.request.url.split("/");
 const blogPostIdentifier = pathSegments.at(pathSegments.length - 2);
-const { id, title, description, headline, pubDate, postImage, tags } =
+const { id, title, description, headline, pubDate, postImage, place, tags } =
   Astro.props;
 const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
 ---
@@ -52,6 +52,10 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
         font-weight: bold;
         font-style: italic;
       }
+      #place {
+        font-size: 1rem;
+        color: var(--element-water-darker);
+      }
       #main-content {
         font-size: 1.25rem;
       }
@@ -79,6 +83,14 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
       <article id="blogpost-container">
         <h1 class="title container" id="title">{headline}</h1>
         <span id="publication-date"><FormattedDate date={pubDate} /></span>
+        {
+          place && (
+            <>
+              <br />
+              <span id="place">{place}</span>
+            </>
+          )
+        }
         {
           postImage && (
             <div class="blog-post-img-container">

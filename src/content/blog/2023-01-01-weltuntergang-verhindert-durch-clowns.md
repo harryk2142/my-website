@@ -9,7 +9,16 @@ postImage:
   prevSrc: "clowns-retten-die-welt-preview.webp"
   thumbnail: "clowns-retten-die-welt-preview.jpg"
   alt: "Zwei Clowns stehen um die Erdkugel herum"
-tags: [apokalypse, clowns, silvester2022, silvester, weltuntergang]
+place: Planet Erde, Überall
+tags:
+  [
+    apokalypse,
+    clowns,
+    silvester2022,
+    silvester,
+    lustigerblogeintrag,
+    weltuntergang,
+  ]
 ---
 
 Die Menschheit stand kurz vor dem Weltuntergang, als sich am Silvesterabend des Jahres 2022 plötzlich etwas Unerwartetes ereignete. Aus dem Nichts tauchten Hunderte von Clowns auf und verteilten sich über den ganzen Globus.

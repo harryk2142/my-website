@@ -9,6 +9,7 @@ postImage:
   prevSrc: "goldenes-einhorn-preview.webp"
   thumbnail: "goldenes-einhorn-preview.jpg"
   alt: "Ein goldenes Einhorn mit blauem Haar"
+place: Nationalpark Harz - Region Niedersachsen - Deutschland
 tags: [einhorn, magischer-wald, harz, entdeckung, fantasy]
 ---
 

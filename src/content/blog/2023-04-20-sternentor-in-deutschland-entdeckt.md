@@ -9,6 +9,7 @@ postImage:
   prevSrc: "sternentor-in-deutschland-entdeckt-preview.webp"
   thumbnail: "sternentor-in-deutschland-entdeckt-preview.jpg"
   alt: "Ein großes steinernes rundes Sternentor mit zwei Archäologen"
+place: Speyer - Rheinland-Pfalz - Deutschland
 tags: [sternentor, antike, speyer, entdeckung, science-fiction]
 ---
 

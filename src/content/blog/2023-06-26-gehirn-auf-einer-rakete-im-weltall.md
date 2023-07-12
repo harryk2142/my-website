@@ -9,7 +9,8 @@ postImage:
   prevSrc: "gehirn-auf-einer-rakete-im-weltall-preview.webp"
   thumbnail: "gehirn-auf-einer-rakete-im-weltall-preview.jpg"
   alt: "Ein großes Gehirn auf dem Rücken einer Rakte im Weltall"
-tags: [nasa, weltall, gehirn, wissenschaft, annaluese, annalüse, technologie]
+place: NASA Headquarters - Washington, D.C. (300 E Street SW)
+tags: [nasa, weltall, gehirn, wissenschaft, annalüse, technologie]
 ---
 
 Die NASA hat kürzlich eine Rakete mit einem riesigen Gehirn auf dem Rücken ins Weltall geschickt. Die Mission? Die Erforschung des menschlichen Gehirns und die Suche nach intelligentem Leben im Universum.

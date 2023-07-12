@@ -9,16 +9,19 @@ postImage:
   prevSrc: "fische-spielen-gitarre-preview.webp"
   thumbnail: "fische-spielen-gitarre-preview.jpg"
   alt: "Zwei Fische spielen Gitarre"
+place: Lake Tahoe - Kalifornien, Nevada, USA
 tags:
   [
     fische,
-    lake-tahoe,
+    laketahoe,
     entdeckung,
     musik,
     musikalischeswunder,
     lustigetiere,
     tierischemusik,
+    lustigerblogeintrag,
     ungewöhnlichetalente,
+    ungewoehnlichetalente,
   ]
 ---
 

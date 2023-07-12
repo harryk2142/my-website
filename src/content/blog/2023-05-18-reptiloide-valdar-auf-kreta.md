@@ -9,6 +9,7 @@ postImage:
   prevSrc: "reptiloide-mit-strohhut-preview.webp"
   thumbnail: "reptiloide-mit-strohhut-preview.jpg"
   alt: "Ein Reptiloide mit einem Strohut am Strand"
+place: Kreta - Griechenland
 tags: [valdar, reptiloid, urlaub, kreta, strand]
 ---
 

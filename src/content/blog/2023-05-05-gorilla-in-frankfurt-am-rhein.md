@@ -9,6 +9,7 @@ postImage:
   prevSrc: "gigantischer-gorilla-in-frankfurt-preview.webp"
   thumbnail: "gigantischer-gorilla-in-frankfurt-preview.jpg"
   alt: "Gigantischer Gorilla auf einem Dach eines Hochhauses in Frankfurt"
+place: Innenstadt - Frankfurt am Main - Deutschland
 tags: [gorilla, frankfurt, skyline, sichtung, action]
 ---
 

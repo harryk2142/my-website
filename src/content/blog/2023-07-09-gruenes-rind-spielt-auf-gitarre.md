@@ -1,5 +1,5 @@
 ---
-id: "20230702-0"
+id: "20230709-0"
 title: "Ein grünes Rind mit Rockstar-Ambitionen"
 description: "Entdecke die fesselnde Geschichte eines grünen Rindes, das mit Leidenschaft Gitarre spielt. Ein musikalisches Abenteuer voller Überraschungen und humorvoller Momente"
 headline: "Ein ungewöhnliches Rind mit Rockstar-Ambitionen: Das grüne Rind, das Gitarre spielt"
@@ -9,6 +9,7 @@ postImage:
   prevSrc: "gruenes-rind-mit-gitarre-preview.webp"
   thumbnail: "gruenes-rind-mit-gitarre-preview.jpg"
   alt: "Ein grünes Rind spielt auf der Weide auf einer Gitarre"
+place: Kuhlingen - Bayern - Deutschland
 tags:
   [
     grünakord,
@@ -19,6 +20,8 @@ tags:
     lustigetiere,
     tierischemusik,
     musikalischeswunder,
+    lustigerblogeintrag,
+    kuhlingen,
   ]
 ---
 

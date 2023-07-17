@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build && size-limit && pnpm pagefind",
     "preview": "astro preview",
+    "build-and-preview": "pnpm build && pnpm preview",
     "astro": "astro"
   },
   "dependencies": {

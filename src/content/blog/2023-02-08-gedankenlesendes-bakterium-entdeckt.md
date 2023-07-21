@@ -9,7 +9,7 @@ postImage:
   prevSrc: "gruenes-bakterium-blaue-fluessingkeit-preview.webp"
   thumbnail: "gruenes-bakterium-blaue-fluessingkeit-preview.jpg"
   alt: "Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen."
-tags: [bakterium, mars, entdeckung, mystery]
+tags: [bakterium, entdeckung, hans-weltraumwunder, mars, mystery]
 ---
 
 ## Gedankenlesendes Bakterium auf dem Mars entdeckt

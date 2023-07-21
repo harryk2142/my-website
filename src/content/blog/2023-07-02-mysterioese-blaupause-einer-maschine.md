@@ -11,7 +11,7 @@ postImage:
   alt: "Eine Blaupause einer großen mysteriösen Maschine mit einem Menschen in der Mitte"
 tags:
   [
-    artiefact,
+    artie-fact,
     mysteriöseblaupause,
     geheimnisvollemaschine,
     abenteuerlust,

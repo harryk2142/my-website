@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../../consts";
 import Main from "../../components/Main.astro";
 import { getCollection } from "astro:content";
+import FormattedDate from "src/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
@@ -13,9 +14,9 @@ export async function getStaticPaths() {
   ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts
-      .filter((e) => !e.data.draft)
-      .filter((post) => post.data.tags.includes(tag));
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -57,7 +58,13 @@ const { posts } = Astro.props;
               {
                 posts.map((post) => (
                   <li>
-                    <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                    <a href={`/blog/${post.slug}/`}>
+                      <>
+                        <FormattedDate date={post.data.pubDate} />
+                        <span> - </span>
+                      </>
+                      {post.data.title}
+                    </a>
                   </li>
                 ))
               }

@@ -1,13 +1,13 @@
 import type { APIRoute } from "astro";
 
 const blogPosts = [
-  // {
-  //   title: "UFO oder fortschrittlicher Satellit? Was ist hier zu sehen?",
-  //   img: "zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.webp",
-  //   alt: "Zwei Wissenschaftler untersuchen Teile eines Ufos. Schwarz Weiß Foto aus dem Jahr 1970",
-  //   pubDate: "2023-07-21T00:00:00.000Z",
-  //   url: "2023-07-21-foto-eines-ufos-in-einem-lagerhaus-1970",
-  // },
+  {
+    title: "UFO oder fortschrittlicher Satellit? Was ist hier zu sehen?",
+    img: "zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.webp",
+    alt: "Zwei Wissenschaftler untersuchen Teile eines Ufos. Schwarz Weiß Foto aus dem Jahr 1970",
+    pubDate: "2023-07-21T00:00:00.000Z",
+    url: "2023-07-21-foto-eines-ufos-in-einem-lagerhaus-1970",
+  },
 
   {
     title: "Ufo-Alarm in Kuhlingen",

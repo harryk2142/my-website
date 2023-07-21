@@ -10,7 +10,16 @@ postImage:
   thumbnail: "fusionskraftwerk-auf-dem-mars-preview.jpg"
   alt: "Ein modernes Funsionskraftwerk auf dem Mars"
 place: "Mars, Elysium Planitia-Region, Koordinaten: 4.5°N, 135°E"
-tags: [fusion, mars, marsianer, terraner, science-fiction, technologie]
+tags:
+  [
+    fusion,
+    jessica-taylor,
+    mars,
+    marsianer,
+    sciencefiction,
+    technologie,
+    terraner,
+  ]
 ---
 
 Der Durchbruch, den die Marsianer nun erzielt haben, besteht darin, dass es ihnen gelungen ist, einen Fusionsreaktor zu entwickeln, der in der Lage ist, Strom zu erzeugen.

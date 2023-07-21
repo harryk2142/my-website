@@ -10,7 +10,7 @@ postImage:
   thumbnail: "gigantischer-gorilla-in-frankfurt-preview.jpg"
   alt: "Gigantischer Gorilla auf einem Dach eines Hochhauses in Frankfurt"
 place: Innenstadt - Frankfurt am Main - Deutschland
-tags: [gorilla, frankfurt, skyline, sichtung, action]
+tags: [action, frankfurt, gorilla, sichtung, skyline]
 ---
 
 In einer dramatischen und beunruhigenden Entwicklung hat ein gigantischer Gorilla heute Morgen in der Frankfurter Skyline für Aufregung gesorgt. Der Gorilla, der Experten zufolge mindestens zehn Meter groß ist und ein Gewicht von mehreren Tonnen hat, wurde zuerst von Angestellten eines Hochhauses in der Innenstadt gesichtet.

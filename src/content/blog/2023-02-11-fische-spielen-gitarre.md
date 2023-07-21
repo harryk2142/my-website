@@ -12,16 +12,16 @@ postImage:
 place: Lake Tahoe - Kalifornien, Nevada, USA
 tags:
   [
+    entdeckung,
     fische,
     laketahoe,
-    entdeckung,
+    lustigerblogeintrag,
+    lustigetiere,
     musik,
     musikalischeswunder,
-    lustigetiere,
     tierischemusik,
-    lustigerblogeintrag,
-    ungewöhnlichetalente,
     ungewoehnlichetalente,
+    ungewöhnlichetalente,
   ]
 ---
 

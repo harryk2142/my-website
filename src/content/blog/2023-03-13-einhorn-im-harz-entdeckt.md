@@ -10,7 +10,16 @@ postImage:
   thumbnail: "goldenes-einhorn-preview.jpg"
   alt: "Ein goldenes Einhorn mit blauem Haar"
 place: Nationalpark Harz - Region Niedersachsen - Deutschland
-tags: [einhorn, magischer-wald, harz, entdeckung, fantasy]
+tags:
+  [
+    einhorn,
+    entdeckung,
+    fantasy,
+    hans-mueller,
+    harz,
+    magischerwald,
+    niedersachsen,
+  ]
 ---
 
 Eine sensationelle Entdeckung wurde im magischen Wald im Harz gemacht. Ein männliches Einhorn wurde von einem Wanderer namens Hans Müller fotografiert. Das Tier hat ein silbernes Fell, ein goldenes Horn und blaues Haar.

@@ -10,7 +10,19 @@ postImage:
   thumbnail: "sternentor-in-deutschland-entdeckt-preview.jpg"
   alt: "Ein großes steinernes rundes Sternentor mit zwei Archäologen"
 place: Speyer - Rheinland-Pfalz - Deutschland
-tags: [sternentor, antike, speyer, entdeckung, science-fiction]
+tags:
+  [
+    anna-luese,
+    anna-lüse,
+    antike,
+    entdeckung,
+    markus-mueller,
+    peter-schmidt,
+    rheinlandpfalz,
+    sciencefiction,
+    speyer,
+    sternentor,
+  ]
 ---
 
 Was für eine Überraschung! Bei Bauarbeiten in der Nähe des Kaiser- und Mariendoms in Speyer, einem bedeutenden romanischen Bauwerk, haben zwei Arbeiter möglicherweise ein mysteriöses Portal freigelegt.

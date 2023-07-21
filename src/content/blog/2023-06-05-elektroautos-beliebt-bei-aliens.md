@@ -8,8 +8,19 @@ postImage:
   src: "elektroauto-wird-von-ufo-entfuehrt.webp"
   prevSrc: "elektroauto-wird-von-ufo-entfuehrt-preview.webp"
   thumbnail: "elektroauto-wird-von-ufo-entfuehrt-preview.jpg"
-  alt: "Ein rotes Elektroauto wird gerade von einem Ufo entführt"
-tags: [elektroautos, ufos, aliens, entführungen, außerirdische, mystery]
+  alt: "Ein rotes Elektroauto wird gerade von einem UFO entführt"
+tags:
+  [
+    aliens,
+    außerirdische,
+    elektroautos,
+    entführungen,
+    eva-green,
+    mystery,
+    otto-von-braun,
+    ufos,
+    xeno-zoidberg,
+  ]
 ---
 
 Elektroautos sind nicht nur gut für die Umwelt, sondern auch für die Außerirdischen. Das zumindest legen die neuesten Berichte von Menschen nahe, die behaupten, von UFOs entführt worden zu sein. Die meisten von ihnen waren zum Zeitpunkt der Entführung in einem Elektroauto unterwegs.

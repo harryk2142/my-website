@@ -1,4 +1,8 @@
+import { el, mount } from "https://esm.sh/redom";
+
 import u from "https://esm.sh/umbrellajs";
+
+const blogPostsCounter = 17;
 
 interface BlogPost {
   title: string;
@@ -7,14 +11,13 @@ interface BlogPost {
   pubDate: string;
   url: string;
 }
-const getRandomBlogPosts = async (counter: number) => {
+const getRandomBlogPosts = async (counter: number): Promise<BlogPost[]> => {
   // 18 - 4 - counter = start
   // 0 - 4 Reserviert
   // 5 - max Erlaubt
   // Aktuell Max 18
-  const currentBlogPostCounter = 17;
   const notForRandom = 4;
-  const start = currentBlogPostCounter - notForRandom - counter;
+  const start = blogPostsCounter - notForRandom - counter;
   const randomStart = Math.floor(Math.random() * start) + 4;
 
   const randomBlogPosts: BlogPost[] = [];
@@ -27,7 +30,10 @@ const getRandomBlogPosts = async (counter: number) => {
   return randomBlogPosts;
 };
 
-const getRandomBlogPostHtml = async (blogPost: BlogPost) => {
+const setRandomBlogPostUmbrella = async (parentId: string) => {
+  const blogPosts = await getRandomBlogPosts(1);
+  const blogPost = blogPosts[0];
+
   const pubDate = new Date(blogPost.pubDate);
   const pubDateIso = pubDate.toISOString();
   const pubDateHtml = pubDate.toLocaleDateString("de-de", {
@@ -35,7 +41,6 @@ const getRandomBlogPostHtml = async (blogPost: BlogPost) => {
     month: "short",
     day: "numeric",
   });
-
   const result = u("<a>")
     .attr("href", "blog/" + blogPost.url)
     .append(
@@ -45,10 +50,12 @@ const getRandomBlogPostHtml = async (blogPost: BlogPost) => {
           u("<div>")
             .addClass("s4", "m12", "l4")
             .append(
-              u("<image>")
+              u("<img>")
                 .addClass("latest-post-list-item-img")
-                .attr("src", "images/blog/" + blogPost.img)
-                .attr("alt", blogPost.alt)
+                .attr({
+                  src: "images/blog/" + blogPost.img,
+                  alt: blogPost.alt,
+                })
             )
         )
         .append(
@@ -71,13 +78,62 @@ const getRandomBlogPostHtml = async (blogPost: BlogPost) => {
             )
         )
     );
-  return result;
+  u("#" + parentId).append(result);
 };
 
-const getRandomBlogPostsInHtml = async (counter: number) => {
-  const randomBlogPosts = await getRandomBlogPosts(counter);
+const setRandomBlogPost = async (parentId: string) => {
+  const blogPosts = await getRandomBlogPosts(1);
+  const blogPost = blogPosts[0];
 
-  return getRandomBlogPostHtml(randomBlogPosts[0]);
+  const pubDate = new Date(blogPost.pubDate);
+  const pubDateIso = pubDate.toISOString();
+  const pubDateHtml = pubDate.toLocaleDateString("de-de", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
+  const result = el(
+    "a",
+    { href: "blog/" + blogPost.url },
+    el("div", { class: "flex latest-post-list-item" }, [
+      el(
+        "div",
+        { class: "s4 m12 l4" },
+        el("img", {
+          class: "latest-post-list-item-img",
+          src: "images/blog/" + blogPost.img,
+          alt: blogPost.alt,
+        })
+      ),
+      el(
+        "div",
+        { class: "s8 m12 l8" },
+        el(
+          "div",
+          {
+            class: "latest-post-list-item-content",
+          },
+          [
+            el(
+              "div",
+              { class: "latest-post-list-item-date" },
+              el(
+                "time",
+                { class: "latest-post-list-item-date", dateTime: pubDateIso },
+                pubDateHtml
+              )
+            ),
+            el("span", blogPost.title),
+          ]
+        )
+      ),
+    ])
+  );
+
+  const parent = document.querySelector("#" + parentId);
+  if (parent) {
+    mount(parent, result);
+  }
 };
-
-export { getRandomBlogPosts, getRandomBlogPostsInHtml };
+export { setRandomBlogPost, setRandomBlogPostUmbrella };

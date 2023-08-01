@@ -70,12 +70,9 @@ import Ufo from "../components/Ufo.astro";
             <h2>Random</h2>
             <div id="random-post-container"></div>
             <script>
-              import u from "https://esm.sh/umbrellajs";
               import("../components/BlogPost/RandomBlogPostController").then(
                 (module) => {
-                  module.getRandomBlogPostsInHtml(1).then((result) => {
-                    u("#random-post-container").append(result);
-                  });
+                  module.setRandomBlogPost("random-post-container");
                 }
               );
             </script>

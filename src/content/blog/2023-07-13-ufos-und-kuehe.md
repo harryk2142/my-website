@@ -19,6 +19,7 @@ tags:
     kuhlingen,
     lustigerblogeintrag,
     milchhofmüller,
+    paranormal,
     ufos,
     verschwörungstheorien,
   ]

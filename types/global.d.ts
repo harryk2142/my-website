@@ -20,3 +20,9 @@ declare module "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js" {
 declare module "https://esm.sh/canvas-confetti" {
   export { default } from "canvas-confetti";
 }
+declare module "https://esm.sh/umbrellajs" {
+  export { default } from "umbrellajs";
+}
+declare module "https://esm.sh/redom" {
+  export { el, mount } from "redom";
+}

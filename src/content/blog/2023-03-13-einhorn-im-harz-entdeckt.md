@@ -19,6 +19,7 @@ tags:
     harz,
     magischerwald,
     niedersachsen,
+    paranormal,
   ]
 ---
 

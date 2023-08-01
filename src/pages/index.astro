@@ -70,12 +70,11 @@ import Ufo from "../components/Ufo.astro";
             <h2>Random</h2>
             <div id="random-post-container"></div>
             <script>
+              import u from "https://esm.sh/umbrellajs";
               import("../components/BlogPost/RandomBlogPostController").then(
                 (module) => {
                   module.getRandomBlogPostsInHtml(1).then((result) => {
-                    document
-                      .querySelector("#random-post-container")
-                      .append(result);
+                    u("#random-post-container").append(result);
                   });
                 }
               );
@@ -207,11 +206,10 @@ import Ufo from "../components/Ufo.astro";
       }
     </style>
     <script>
-      const ticker = document.querySelector(
-        "#breaking-news-ticker"
-      ) as HTMLElement;
-      ticker.addEventListener("click", async () => {
-        const { callConfetti } = await import("./../scripts/confetti");
+      import u from "https://esm.sh/umbrellajs";
+
+      u("#breaking-news-ticker").on("click", async () => {
+        const { callConfetti } = await import("./../features/confetti");
 
         callConfetti();
       });

@@ -146,13 +146,6 @@ const blogPosts = [
     url: "2022-12-31-ufos-auf-dem-feld",
   },
 ];
-interface BlogPost {
-  title: string;
-  img: string;
-  alt: string;
-  pubDate: string;
-  url: string;
-}
 interface Parameter {
   params: { id: number };
 }

@@ -58,7 +58,7 @@ jobs:
           path: ./dist
 
       - name: Run Pagefind
-        run: pnpm run-pagefind
+        run: pnpm pagefind
 
   deploy:
     environment:

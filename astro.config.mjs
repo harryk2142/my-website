@@ -10,6 +10,7 @@ dotenv.config(); // load env vars from .env
 // https://astro.build/config
 export default defineConfig({
   site: "https://harryk2142.github.io",
+  base:"/my-website",
   integrations: [mdx({
     remarkPlugins: [],
     rehypePlugins: [rehypeAstroRelativeMarkdownLinks]

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://harry-kramer.net/sitemap-index.xml

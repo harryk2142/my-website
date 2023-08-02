@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && size-limit",
-    "run-pagefind": "pnpm pagefind",
+    "build": "astro build && size-limit && pnpm pagefind",
     "preview": "astro preview",
     "build-and-preview": "pnpm build && pnpm preview",
     "astro": "astro",

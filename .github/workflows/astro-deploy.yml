@@ -57,6 +57,9 @@ jobs:
         with:
           path: ./dist
 
+      - name: Run Pagefind
+        run: pnpm run-pagefind
+
   deploy:
     environment:
       name: github-pages

@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../consts";
 import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const latestPost = posts[0];
 const latestThreePosts = posts.slice(1, 4);
@@ -70,10 +70,10 @@ import Ufo from "../components/Ufo.astro";
             <h2>Random</h2>
             <div id="random-post-container"></div>
             <script>
-              import("../components/BlogPost/RandomBlogPostController").then(
+              import("../features/BlogPost/RandomBlogPostController").then(
                 (module) => {
                   module.setRandomBlogPost("random-post-container");
-                }
+                },
               );
             </script>
           </section>

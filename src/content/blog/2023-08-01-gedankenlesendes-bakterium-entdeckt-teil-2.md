@@ -5,9 +5,9 @@ description: "Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Les
 headline: "Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt - Teil 2"
 pubDate: 2023-08-01
 postImage:
-  src: "gruenes-bakterium-blaue-fluessingkeit.webp"
-  prevSrc: "gruenes-bakterium-blaue-fluessingkeit-preview.webp"
-  thumbnail: "gruenes-bakterium-blaue-fluessingkeit-preview.jpg"
+  src: "gruenes-bakterium-blaue-fluessigkeit.webp"
+  prevSrc: "gruenes-bakterium-blaue-fluessigkeit-preview.webp"
+  thumbnail: "gruenes-bakterium-blaue-fluessigkeit-preview.jpg"
   alt: "Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen."
 tags:
   [
@@ -23,7 +23,6 @@ tags:
 ---
 
 [Zu Teil 1 der Geschichte](2023-02-08-gedankenlesendes-bakterium-entdeckt.md)  
-
 
 Es begann im Januar dieses Jahres, als Dr. Weltraumwunder, ein Astrobiologe mit einer Vorliebe für schrille Krawatten und das Unbekannte, ein merkwürdiges Bakterium vom Mars entdeckte. Der wissenschaftliche Name dieser Mikrobe war ein Rätsel, bis Dr. Anna Lüse, unsere Lieblingsmikrobiologin und Teilzeit-Quantenphysikerin (Ja, sie ist wirklich so cool), in das Bild trat.  
 

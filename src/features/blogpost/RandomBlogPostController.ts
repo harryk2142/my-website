@@ -2,7 +2,7 @@ import { el, mount } from "https://esm.sh/redom";
 
 import u from "https://esm.sh/umbrellajs";
 
-const blogPostsCounter = 17;
+const blogPostsCounter = 19;
 
 interface BlogPost {
   title: string;

@@ -6,17 +6,20 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 dotenv.config(); // load env vars from .env
 
-
 // https://astro.build/config
 export default defineConfig({
-  site: "https://harryk2142.github.io",
-  base:"/my-website",
-  integrations: [mdx({
-    remarkPlugins: [],
-    rehypePlugins: [rehypeAstroRelativeMarkdownLinks]
-  }), sitemap({
-    filter: page => !page.includes("tags") && !page.includes("api")
-  }), robotsTxt()],
+  site: "https://harry-kramer.net",
+  // base:"/my-website",
+  integrations: [
+    mdx({
+      remarkPlugins: [],
+      rehypePlugins: [rehypeAstroRelativeMarkdownLinks]
+    }),
+    sitemap({
+      filter: page => !page.includes("tags") && !page.includes("api")
+    }),
+    robotsTxt()
+  ],
   vite: {
     define: {
       FB_API_KEY: JSON.stringify(process.env.FIREBASE_COMMENTS_API_KEY),
@@ -25,7 +28,6 @@ export default defineConfig({
     plugins: [],
     build: {
       modulePreload: false
-      // reportCompressedSize: true,
     }
   },
 

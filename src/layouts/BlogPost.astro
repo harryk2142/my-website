@@ -7,8 +7,6 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Main from "../components/Main.astro";
 import LeftAside from "../components/BlogPost/Left.astro";
 import Comments from "../components/BlogPost/Comments.astro";
-import CommentInputTemplate from "../components/BlogPost/CommentInputTemplate.astro";
-import CommentTemplate from "../components/BlogPost/CommentTemplate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const pathSegments = Astro.request.url.split("/");
@@ -120,8 +118,6 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
         <section id="main-content">
           <slot />
         </section>
-        <CommentInputTemplate />
-        <CommentTemplate />
         <div id="comment-form-container" style="margin-top:20px">
           <h3>Kommentar hinzufügen</h3>
           <div id="new-comment-form"></div>
@@ -137,11 +133,8 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
         createBlogPost,
       } from "../components/BlogPost/BlogPostController";
 
-      import {
-        createCommentBox,
-        createCommentsBox,
-        createCommentInputForm,
-      } from "../components/BlogPost/CommentController";
+      import { createCommentForm } from "../features/comments/commentForm";
+      import { createCommentsBox } from "../features/comments/commentsBlock";
 
       import {
         loadLikes,
@@ -168,10 +161,10 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
               document.querySelector("#like-counter").innerText = newLikeCount;
             });
 
-          const createdForm = createCommentInputForm(blogPostId);
-          (
-            document.querySelector("#comment-form-container") as HTMLElement
-          ).appendChild(createdForm);
+          const parent = document.querySelector("#comment-form-container");
+
+          parent && createCommentForm(parent, blogPostId);
+
           createCommentsBox(blogPostId);
         });
       }, 500);

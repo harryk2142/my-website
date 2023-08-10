@@ -30,7 +30,7 @@ const getRandomBlogPosts = async (counter: number): Promise<BlogPost[]> => {
   return randomBlogPosts;
 };
 
-const setRandomBlogPostUmbrella = async (parentId: string) => {
+const setRandomBlogpostUmbrella = async (parentId: string) => {
   const blogPosts = await getRandomBlogPosts(1);
   const blogPost = blogPosts[0];
 
@@ -81,7 +81,7 @@ const setRandomBlogPostUmbrella = async (parentId: string) => {
   u("#" + parentId).append(result);
 };
 
-const setRandomBlogPost = async (parentId: string) => {
+const setRandomBlogpost = async (parentId: string) => {
   const blogPosts = await getRandomBlogPosts(1);
   const blogPost = blogPosts[0];
 
@@ -136,4 +136,4 @@ const setRandomBlogPost = async (parentId: string) => {
     mount(parent, result);
   }
 };
-export { setRandomBlogPost, setRandomBlogPostUmbrella };
+export { setRandomBlogpost, setRandomBlogpostUmbrella };

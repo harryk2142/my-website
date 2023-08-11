@@ -1,5 +1,5 @@
 import { el, mount } from "https://esm.sh/redom";
-import { Comment } from "../../scripts/firebase";
+import { Comment } from "./comment-firebase-bridge";
 import { createCommentForm } from "./commentForm";
 
 const addRepliesToContainer = (

@@ -129,27 +129,24 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
     <style is:inline></style>
     <script>
       import {
-        loadBlogPost,
-        createBlogPost,
-      } from "../components/BlogPost/BlogPostController";
+        loadBlogpost,
+        createBlogpost,
+      } from "../features/blogpost/blogpost-service";
 
       import { createCommentForm } from "../features/comments/commentForm";
       import { createCommentsBox } from "../features/comments/commentsBlock";
 
-      import {
-        loadLikes,
-        submitLike,
-      } from "../components/BlogPost/LikeController";
+      import { loadLikes, submitLike } from "../features/like/like-service";
 
       setTimeout(async () => {
         const blogPostIdentifier = document.querySelector(
           "#blog-post-identifier"
         ).innerText;
-        loadBlogPost(blogPostIdentifier).then(async (blogPost) => {
+        loadBlogpost(blogPostIdentifier).then(async (blogPost) => {
           if (blogPost) {
             document.querySelector("#blog-post-id").innerText = blogPost.id;
           } else {
-            const newId = await createBlogPost(blogPostIdentifier);
+            const newId = await createBlogpost(blogPostIdentifier);
             document.querySelector("#blog-post-id").innerText = newId;
           }
           let blogPostId = document.querySelector("#blog-post-id").innerText;

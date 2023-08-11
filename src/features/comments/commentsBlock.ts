@@ -1,10 +1,8 @@
 import { el, mount } from "https://esm.sh/redom";
 import u from "https://esm.sh/umbrellajs";
 import { createCommentBox } from "./commentBlock";
-import {
-  fillCommentsWithReplies,
-  loadCommentsFromFirebase,
-} from "./commentService";
+import { fillCommentsWithReplies } from "./comment-service";
+import { loadCommentsFromFirebase } from "./comment-firebase-bridge";
 
 const createCommentsBox = (postId: string) => {
   loadCommentsFromFirebase(postId).then((comments) => {

@@ -1,6 +1,6 @@
 import { el, mount } from "https://esm.sh/redom";
 import u from "https://esm.sh/umbrellajs";
-import { submitComment, submitReply } from "./commentService";
+import { submitComment, submitReply } from "./comment-firebase-bridge";
 
 const clickAbsenden = async (event: MouseEvent) => {
   const parent = u(event.target as HTMLElement).parent();

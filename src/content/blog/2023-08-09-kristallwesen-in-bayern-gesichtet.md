@@ -13,8 +13,11 @@ place: Wunderlichhausen - Bayern - Deutschland
 tags:
   [
     augenzeugenbericht,
+    deutschland,
+    deutschlandmysteries,
     gerhard-glotzauge,
     mystery,
+    wasstecktdahinter,
   ]
 ---
 

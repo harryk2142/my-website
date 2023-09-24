@@ -2,7 +2,7 @@ import { el, mount } from "https://esm.sh/redom";
 
 import u from "https://esm.sh/umbrellajs";
 
-const blogPostsCounter = 19;
+const blogPostsCounter = 21;
 
 interface BlogPost {
   title: string;
@@ -12,10 +12,10 @@ interface BlogPost {
   url: string;
 }
 const getRandomBlogPosts = async (counter: number): Promise<BlogPost[]> => {
-  // 18 - 4 - counter = start
+  // 21 - 4 - counter = start
   // 0 - 4 Reserviert
   // 5 - max Erlaubt
-  // Aktuell Max 18
+  // Aktuell Max 21
   const notForRandom = 4;
   const start = blogPostsCounter - notForRandom - counter;
   const randomStart = Math.floor(Math.random() * start) + 4;

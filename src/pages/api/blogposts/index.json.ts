@@ -2,6 +2,23 @@ import type { APIRoute } from "astro";
 
 const blogposts = [
   {
+    title:
+      "Mysteriöser Angriff in der Nähe von Tübingen: Junge Leute von nächtlichen Kreaturen heimgesucht",
+    img: "mysterioese-fliegende-kreatur-preview.webp",
+    alt: "Eine künstlerische Darstellung der Kreatur, basierend auf den Beschreibungen der Gruppe. Hintergrund: Eine nächtliche Szenerie mit einem Vollmond und Wolken, die den Himmel bedecken. Sterne funkeln durch die Wolkenlücken, und die Silhouette eines Waldes ist am Horizont zu sehen.",
+    pubDate: "2023-09-25T00:00:00.000Z",
+    url: "2023-09-25-mysterioeser-angriff-in-der-naehe-von-tuebingen",
+  },
+
+  {
+    title: "Geister im Büro: Warum Ihr Drucker wirklich immer klemmt",
+    img: "ein-geist-in-einem-office-preview.webp",
+    alt: "Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden.",
+    pubDate: "2023-09-24T00:00:00.000Z",
+    url: "2023-09-24-geist-in-einem-office",
+  },
+
+  {
     title: "Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?",
     img: "mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.webp",
     alt: "Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden.",

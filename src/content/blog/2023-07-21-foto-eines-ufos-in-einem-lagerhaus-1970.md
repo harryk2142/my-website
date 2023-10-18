@@ -5,9 +5,9 @@ description: "UFO oder futuristischer Satellit? Entdecken Sie die humorvolle Sei
 headline: "UFO oder fortschrittlicher Satelliten? Was ist hier zu sehen?"
 pubDate: 2023-07-21
 postImage:
-  src: "zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild.webp"
-  prevSrc: "zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.webp"
-  thumbnail: "zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.jpg"
+  src: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild.webp
+  prevSrc: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.webp
+  thumbnail: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.jpg
   alt: "Zwei Wissenschaftler untersuchen Teile eines Ufos. Schwarz Weiß Foto aus dem Jahr 1970"
 place: Kaiserslautern - Rheinland-Pfalz - Deutschland
 tags:

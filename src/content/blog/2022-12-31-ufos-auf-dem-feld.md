@@ -5,9 +5,9 @@ description: "Ein UFO ist auf einer Koppel gelandet. Lese hier mehr dazu."
 headline: "Spektakuläre Entdeckung auf der Farm: UFO landet auf Koppel"
 pubDate: 2022-12-31
 postImage:
-  src: "ufos-mit-kuehen-auf-dem-feld.webp"
-  prevSrc: "ufos-mit-kuehen-auf-dem-feld-preview.webp"
-  thumbnail: "ufos-mit-kuehen-auf-dem-feld-preview.jpg"
+  src: /images/blog/ufos-mit-kuehen-auf-dem-feld.webp
+  prevSrc: /images/blog/ufos-mit-kuehen-auf-dem-feld-preview.webp
+  thumbnail: /images/blog/ufos-mit-kuehen-auf-dem-feld-preview.jpg
   alt: "Eine Kuh schaut lustig in die Kamera. Im Hintergrund sind UFOs zu sehen."
 place: Kuhlingen - Bayern - Deutschland
 tags:

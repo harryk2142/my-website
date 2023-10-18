@@ -1,25 +1,22 @@
 ---
-id: "20230924-0"
+id: 20230924-0
 title: "Geister im Büro: Warum Ihr Drucker wirklich immer klemmt"
-description: "Druckerprobleme im Büro? Könnten Geister schuld sein? Entdecken Sie die Geheimnisse von Nebelstein und Schattenburg. Klicken Sie jetzt."
+description: Druckerprobleme im Büro? Könnten Geister schuld sein? Entdecken Sie die Geheimnisse von Nebelstein und Schattenburg. Klicken Sie jetzt.
 headline: "Geister im Büro: Warum Ihr Drucker wirklich immer klemmt"
 pubDate: 2023-09-24
 postImage:
-  src: "ein-geist-in-einem-office.webp"
-  prevSrc: "ein-geist-in-einem-office-preview.webp"
-  thumbnail: "ein-geist-in-einem-office-preview.jpg"
-  alt: "Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden."
+  alt: Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden.
+  src: /images/blog/ein-geist-in-einem-office.webp
+  prevSrc: /images/blog/ein-geist-in-einem-office-preview.webp
+  thumbnail: /images/blog/ein-geist-in-einem-office-preview.jpg
 place: Nebelstein, Schattenburg - Bayern - Deutschland
 tags:
-  [
-    deutschland,
-    geist,
-    geister,
-    gerhard-glotzauge,
-    mystery,
-    office
-    schattenburg,
-  ]
+  - deutschland
+  - geist
+  - geister
+  - gerhard-glotzauge
+  - mystery
+  - office schattenburg
 ---
 
 Es ist Montagmorgen, und Sie haben gerade Ihren Kaffee in der Hand. Sie schicken ein wichtiges Dokument zum Drucken, und just in dem Moment, in dem Sie es am dringendsten brauchen, gibt der Drucker seinen Geist auf. Aber haben Sie sich jemals gefragt, ob es wirklich der Drucker ist... oder könnte es ein echter Geist sein?

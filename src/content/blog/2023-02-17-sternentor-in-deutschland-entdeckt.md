@@ -1,28 +1,26 @@
 ---
-id: "20230420-0"
-title: "Forscher entdecken antikes Sternentor in Deutschland"
+id: 20230217-0
+title: Forscher entdecken antikes Sternentor in Deutschland
 description: "Sensationelle Entdeckung: Forscher finden antikes Sternentor in der Nähe der Stadt Speyer in Deutschland. Lese jetzt hier mehr dazu."
 headline: "Sensationelle Entdeckung: Forscher finden antikes Sternentor in der Nähe der Stadt Speyer in Deutschland"
-pubDate: 2023-04-20
+pubDate: 2023-02-17
 postImage:
-  src: "sternentor-in-deutschland-entdeckt.webp"
-  prevSrc: "sternentor-in-deutschland-entdeckt-preview.webp"
-  thumbnail: "sternentor-in-deutschland-entdeckt-preview.jpg"
-  alt: "Ein großes steinernes rundes Sternentor mit zwei Archäologen"
+  alt: Ein großes steinernes rundes Sternentor mit zwei Archäologen
+  src: /images/blog/sternentor-in-deutschland-entdeckt.webp
+  prevSrc: /images/blog/sternentor-in-deutschland-entdeckt-preview.webp
+  thumbnail: /images/blog/sternentor-in-deutschland-entdeckt-preview.jpg
 place: Speyer - Rheinland-Pfalz - Deutschland
 tags:
-  [
-    anna-luese,
-    anna-lüse,
-    antike,
-    entdeckung,
-    markus-mueller,
-    peter-schmidt,
-    rheinlandpfalz,
-    sciencefiction,
-    speyer,
-    sternentor,
-  ]
+  - anna-luese
+  - anna-lüse
+  - antike
+  - entdeckung
+  - markus-mueller
+  - peter-schmidt
+  - rheinlandpfalz
+  - sciencefiction
+  - speyer
+  - sternentor
 ---
 
 Was für eine Überraschung! Bei Bauarbeiten in der Nähe des Kaiser- und Mariendoms in Speyer, einem bedeutenden romanischen Bauwerk, haben zwei Arbeiter möglicherweise ein mysteriöses Portal freigelegt.

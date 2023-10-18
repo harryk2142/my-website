@@ -50,12 +50,10 @@ const setRandomBlogpostUmbrella = async (parentId: string) => {
           u("<div>")
             .addClass("s4", "m12", "l4")
             .append(
-              u("<img>")
-                .addClass("latest-post-list-item-img")
-                .attr({
-                  src: "images/blog/" + blogPost.img,
-                  alt: blogPost.alt,
-                })
+              u("<img>").addClass("latest-post-list-item-img").attr({
+                src: blogPost.img,
+                alt: blogPost.alt,
+              })
             )
         )
         .append(
@@ -92,6 +90,7 @@ const setRandomBlogpost = async (parentId: string) => {
     month: "short",
     day: "numeric",
   });
+  console.log(blogPost);
 
   const result = el(
     "a",
@@ -102,7 +101,7 @@ const setRandomBlogpost = async (parentId: string) => {
         { class: "s4 m12 l4" },
         el("img", {
           class: "latest-post-list-item-img",
-          src: "images/blog/" + blogPost.img,
+          src: blogPost.img,
           alt: blogPost.alt,
         })
       ),

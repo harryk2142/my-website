@@ -5,9 +5,9 @@ description: "Enthüllt: Die geheimnisvolle Blaupause - Lese hier weiter was Art
 headline: "Enthüllt: Die geheimnisvolle Blaupause"
 pubDate: 2023-07-02
 postImage:
-  src: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte.webp"
-  prevSrc: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.webp"
-  thumbnail: "geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.jpg"
+  src: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte.webp
+  prevSrc: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.webp
+  thumbnail: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.jpg
   alt: "Eine Blaupause einer großen mysteriösen Maschine mit einem Menschen in der Mitte"
 tags:
   [

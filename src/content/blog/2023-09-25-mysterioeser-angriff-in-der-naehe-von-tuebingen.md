@@ -1,39 +1,37 @@
 ---
-id: "20230925-0"
+id: 20230925-0
 title: "Mysteriöser Angriff in der Nähe von Tübingen: Junge Leute von nächtlichen Kreaturen heimgesucht"
 description: "Ein nächtlicher Ausflug wird zum Albtraum: Junge Menschen in Tübingen von seltsamen, mantaähnlichen Kreaturen angegriffen. Zwei Verletzte, viele Fragen. Erfahren Sie die unheimliche Wahrheit, die Sie nachts wach halten wird."
 headline: "Unerklärlicher Angriff in Tübingen: Mysteriöse Flugmonster attackieren junge Leute – Was steckt dahinter?"
 pubDate: 2023-09-25
 postImage:
-  src: "mysterioese-fliegende-kreatur.webp"
-  prevSrc: "mysterioese-fliegende-kreatur-preview.webp"
-  thumbnail: "mysterioese-fliegende-kreatur-preview.jpg"
   alt: "Eine künstlerische Darstellung der Kreatur, basierend auf den Beschreibungen der Gruppe. Hintergrund: Eine nächtliche Szenerie mit einem Vollmond und Wolken, die den Himmel bedecken. Sterne funkeln durch die Wolkenlücken, und die Silhouette eines Waldes ist am Horizont zu sehen."
+  src: /images/blog/mysterioese-fliegende-kreatur.webp
+  prevSrc: /images/blog/mysterioese-fliegende-kreatur-preview.webp
+  thumbnail: /images/blog/mysterioese-fliegende-kreatur-preview.jpg
 place: Tübingen - Baden Württemberg - Deutschland
 tags:
-  [
-        deutschland,
-    augenzeugenbericht,
-    badenwürttemberg,
-    badenwürttembergrätsel,
-    deutschlandmysteries,
-    echtegruselgeschichten,
-    flugmonster,
-    gruseligenächte,
-    jungeleuteingefahr,
-    monster,
-    monsterattacke,
-    mysteriöserangriff,
-    mystery,
-    nächtlicheralbtraum,
-    polizeiratlos,
-    schlaflosintübingen,
-    schlafmangelfolgen,
-    unerklärlicheereignisse,
-    unheimlichebegegnung,
-    waldabenteuer,
-    wasstecktdahinter,
-  ]
+  - deutschland
+  - augenzeugenbericht
+  - badenwürttemberg
+  - badenwürttembergrätsel
+  - deutschlandmysteries
+  - echtegruselgeschichten
+  - flugmonster
+  - gruseligenächte
+  - jungeleuteingefahr
+  - monster
+  - monsterattacke
+  - mysteriöserangriff
+  - mystery
+  - nächtlicheralbtraum
+  - polizeiratlos
+  - schlaflosintübingen
+  - schlafmangelfolgen
+  - unerklärlicheereignisse
+  - unheimlichebegegnung
+  - waldabenteuer
+  - wasstecktdahinter
 ---
 
 Eine Gruppe junger Menschen erlebte am vergangenen Wochenende einen wahren Albtraum. Während eines nächtlichen Ausflugs in die Wälder wurden sie von einer Gruppe mysteriöser, fliegender Kreaturen angegriffen.

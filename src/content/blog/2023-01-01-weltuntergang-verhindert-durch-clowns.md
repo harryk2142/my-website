@@ -5,9 +5,9 @@ description: "In diesem Blogeintrag erfährst du die unglaubliche Geschichte, wi
 headline: "Silvester 2022: Weltuntergang verhindert durch Clowns"
 pubDate: 2023-01-01
 postImage:
-  src: "clowns-retten-die-welt.webp"
-  prevSrc: "clowns-retten-die-welt-preview.webp"
-  thumbnail: "clowns-retten-die-welt-preview.jpg"
+  src: /images/blog/clowns-retten-die-welt.webp
+  prevSrc: /images/blog/clowns-retten-die-welt-preview.webp
+  thumbnail: /images/blog/clowns-retten-die-welt-preview.jpg
   alt: "Zwei Clowns stehen um die Erdkugel herum"
 place: Planet Erde, Überall
 tags:

@@ -5,9 +5,9 @@ description: "Exlusiv - Männliches Einhorn in einem magischen Wald im Harz entd
 headline: "Exklusiv - Männliches Einhorn in einem magischen Wald im Harz entdeckt"
 pubDate: 2023-03-13
 postImage:
-  src: "goldenes-einhorn.webp"
-  prevSrc: "goldenes-einhorn-preview.webp"
-  thumbnail: "goldenes-einhorn-preview.jpg"
+  src: /images/blog/goldenes-einhorn.webp
+  prevSrc: /images/blog/goldenes-einhorn-preview.webp
+  thumbnail: /images/blog/goldenes-einhorn-preview.jpg
   alt: "Ein goldenes Einhorn mit blauem Haar"
 place: Nationalpark Harz - Region Niedersachsen - Deutschland
 tags:

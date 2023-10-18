@@ -21,7 +21,7 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
     <BaseHead
       title={title}
       description={description}
-      image={"images/blog/" + headImage}
+      image={headImage}
       type={"article"}
     />
     <style>
@@ -92,13 +92,9 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
         {
           postImage && (
             <div class="blog-post-img-container">
+              <img hidden src={postImage.prevSrc} alt={postImage.alt} />
               <img
-                hidden
-                src={"/images/blog/" + postImage.prevSrc}
-                alt={postImage.alt}
-              />
-              <img
-                src={"/images/blog/" + postImage.src}
+                src={postImage.src}
                 alt={postImage.alt}
                 data-pagefind-index-attrs="alt"
               />

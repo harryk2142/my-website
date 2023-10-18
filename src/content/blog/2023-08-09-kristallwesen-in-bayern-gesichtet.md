@@ -1,24 +1,22 @@
 ---
-id: "20230809-0"
-title: "Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?"
-description: "Alien, Roboter oder Kristallwesen? Augenzeuge in Wunderlichhausen sichtet merkwürdiges Wesen?"
-headline: "Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?"
+id: 20230809-0
+title: Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?
+description: Alien, Roboter oder Kristallwesen? Augenzeuge in Wunderlichhausen sichtet merkwürdiges Wesen?
+headline: Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?
 pubDate: 2023-08-09
 postImage:
-  src: "mysterioeses-ding-mischung-aus-alien-roboter-und-kristall.webp"
-  prevSrc: "mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.webp"
-  thumbnail: "mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.jpg"
-  alt: "Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden."
+  alt: Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden.
+  src: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall.webp
+  prevSrc: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.webp
+  thumbnail: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.jpg
 place: Wunderlichhausen - Bayern - Deutschland
 tags:
-  [
-    augenzeugenbericht,
-    deutschland,
-    deutschlandmysteries,
-    gerhard-glotzauge,
-    mystery,
-    wasstecktdahinter,
-  ]
+  - augenzeugenbericht
+  - deutschland
+  - deutschlandmysteries
+  - gerhard-glotzauge
+  - mystery
+  - wasstecktdahinter
 ---
 
 Es war ein ganz normaler Mittwoch in Wunderlichhausen, Bayern, als Gerhard Glotzauge, ein einfacher Bürger, beim Genuss seines morgendlichen Kaffees auf seine Veranda trat und auf ein Spektakel stieß, das seinesgleichen suchte.

@@ -1,23 +1,22 @@
 ---
-id: "20230505-0"
-title: "Gigantischer Gorilla in Frankfurt gesichtet"
+id: 20230505-0
+title: Gigantischer Gorilla in Frankfurt gesichtet
 description: "Breaking News: Gigantischer Gorilla in Frankfurter Skyline gesichtet! Lese hier die einen Bericht dazu."
 headline: "Breaking News: Gigantischer Gorilla in Frankfurter Skyline gesichtet!"
 pubDate: 2023-05-05
 postImage:
-  src: "gigantischer-gorilla-in-frankfurt.webp"
-  prevSrc: "gigantischer-gorilla-in-frankfurt-preview.webp"
-  thumbnail: "gigantischer-gorilla-in-frankfurt-preview.jpg"
-  alt: "Gigantischer Gorilla auf einem Dach eines Hochhauses in Frankfurt"
+  alt: Gigantischer Gorilla auf einem Dach eines Hochhauses in Frankfurt
+  src: /images/blog/gigantischer-gorilla-in-frankfurt.jpg
+  prevSrc: /images/blog/gigantischer-gorilla-in-frankfurt-preview.webp
+  thumbnail: /images/blog/gigantischer-gorilla-in-frankfurt-preview.jpg
 place: Innenstadt - Frankfurt am Main - Deutschland
-tags: [
-  action, 
-  deutschland,
-  frankfurt, 
-  gorilla, 
-  sichtung, 
-  skyline, 
-  ]
+tags:
+  - action
+  - deutschland
+  - frankfurt
+  - gorilla
+  - sichtung
+  - skyline
 ---
 
 In einer dramatischen und beunruhigenden Entwicklung hat ein gigantischer Gorilla heute Morgen in der Frankfurter Skyline für Aufregung gesorgt. Der Gorilla, der Experten zufolge mindestens zehn Meter groß ist und ein Gewicht von mehreren Tonnen hat, wurde zuerst von Angestellten eines Hochhauses in der Innenstadt gesichtet.

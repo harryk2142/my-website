@@ -5,9 +5,9 @@ description: "Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Les
 headline: "Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt"
 pubDate: 2023-02-08
 postImage:
-  src: "gruenes-bakterium-blaue-fluessigkeit.webp"
-  prevSrc: "gruenes-bakterium-blaue-fluessigkeit-preview.webp"
-  thumbnail: "gruenes-bakterium-blaue-fluessigkeit-preview.jpg"
+  src: /images/blog/gruenes-bakterium-blaue-fluessigkeit.webp
+  prevSrc: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.webp
+  thumbnail: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.jpg
   alt: "Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen."
 place: "Mars, Elysium Planitia-Region, Koordinaten: 4.5°N, 135°E"
 tags: [bakterium, entdeckung, hans-weltraumwunder, mars, mystery]

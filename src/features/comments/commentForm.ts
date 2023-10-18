@@ -120,7 +120,7 @@ const createCommentForm = (
       autocomplete: "off",
       placeholder: "Anonym",
     }),
-    el("label", { id: "lbl-input-text", for: "input-text" }, "Kommentar:"),
+    el("label", { id: "lbl-input-text", for: idTextInput }, "Kommentar:"),
     el("textarea", {
       id: idTextInput,
       name: "input-text",

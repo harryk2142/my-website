@@ -5,9 +5,9 @@ description: "Entdecke die fesselnde Geschichte eines grünen Rindes, das mit Le
 headline: "Ein ungewöhnliches Rind mit Rockstar-Ambitionen: Das grüne Rind, das Gitarre spielt"
 pubDate: 2023-07-09
 postImage:
-  src: "gruenes-rind-mit-gitarre.webp"
-  prevSrc: "gruenes-rind-mit-gitarre-preview.webp"
-  thumbnail: "gruenes-rind-mit-gitarre-preview.jpg"
+  src: /images/blog/gruenes-rind-mit-gitarre.webp
+  prevSrc: /images/blog/gruenes-rind-mit-gitarre-preview.webp
+  thumbnail: /images/blog/gruenes-rind-mit-gitarre-preview.jpg
   alt: "Ein grünes Rind spielt auf der Weide auf einer Gitarre"
 place: Kuhlingen - Bayern - Deutschland
 tags:

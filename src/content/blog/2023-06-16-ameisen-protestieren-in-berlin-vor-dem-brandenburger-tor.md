@@ -5,9 +5,9 @@ description: "Großes Ameisenaufgebot vor dem Brandenburger Tor: Die Insektenrev
 headline: "Großes Ameisenaufgebot vor dem Brandenburger Tor: Die Insektenrevolution für den Klimaschutz"
 pubDate: 2023-06-16
 postImage:
-  src: "ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor.webp"
-  prevSrc: "ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor-preview.webp"
-  thumbnail: "ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor-preview.jpg"
+  src: /images/blog/ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor.webp
+  prevSrc: /images/blog/ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor-preview.webp
+  thumbnail: /images/blog/ameisen-protestieren-in-berlin-vor-dem-brandenburger-tor-preview.jpg
   alt: "Viele große Ameisen protestieren in Berlin vor dem Brandenburger Tor"
 place: Brandenburger Tor - Berlin - Deutschland
 tags: [ameisen, brandenburgertor,     deutschland, insektenrevolution, klimaschutz, protest]

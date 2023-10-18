@@ -1,0 +1,89 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "id",
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "title": "headline",
+          "name": "headline",
+          "type": "string"
+        },
+        {
+          "title": "postImage",
+          "name": "postImage",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "src",
+              "name": "src",
+              "type": "image",
+              "isPreviewImage": true
+            },
+            {
+              "title": "prevSrc",
+              "name": "prevSrc",
+              "type": "image"
+            },
+            {
+              "title": "thumbnail",
+              "name": "thumbnail",
+              "type": "image"
+            },
+            {
+              "title": "alt",
+              "name": "alt",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "place",
+          "name": "place",
+          "type": "string"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ]
+}

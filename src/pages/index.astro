@@ -13,6 +13,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
 import Main from "../components/Main.astro";
 import Ufo from "../components/Ufo.astro";
+import { Icon } from "astro-icon";
 ---
 
 <!DOCTYPE html>
@@ -88,9 +89,7 @@ import Ufo from "../components/Ufo.astro";
                           <div class="s4 m12 l4">
                             <img
                               class="latest-post-list-item-img"
-                              src={
-                                "/images/blog/" + post.data.postImage.prevSrc
-                              }
+                              src={post.data.postImage.prevSrc}
                               alt={post.data.postImage.alt}
                             />
                           </div>

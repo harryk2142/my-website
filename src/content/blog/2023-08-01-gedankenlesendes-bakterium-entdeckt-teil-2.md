@@ -1,25 +1,23 @@
 ---
-id: "20230801-0"
-title: "Gedankenlesendes Bakterium entdeckt - Teil 2"
-description: "Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Lese hier den zweiten Teil dazu."
-headline: "Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt - Teil 2"
+id: 20230801-0
+title: Gedankenlesendes Bakterium entdeckt - Teil 2
+description: Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Lese hier den zweiten Teil dazu.
+headline: Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt - Teil 2
 pubDate: 2023-08-01
 postImage:
-  src: "gruenes-bakterium-blaue-fluessigkeit.webp"
-  prevSrc: "gruenes-bakterium-blaue-fluessigkeit-preview.webp"
-  thumbnail: "gruenes-bakterium-blaue-fluessigkeit-preview.jpg"
-  alt: "Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen."
+  alt: Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen.
+  src: /images/blog/gruenes-bakterium-blaue-fluessigkeit.webp
+  prevSrc: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.webp
+  thumbnail: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.jpg
 tags:
-  [
-    anna-luese,
-    anna-lüse,
-    bakterium,
-    cogitobactermarsis,
-    entdeckung,
-    hans-weltraumwunder,
-    mars,
-    mystery,
-  ]
+  - anna-luese
+  - anna-lüse
+  - bakterium
+  - cogitobactermarsis
+  - entdeckung
+  - hans-weltraumwunder
+  - mars
+  - mystery
 ---
 
 [Zu Teil 1 der Geschichte](2023-02-08-gedankenlesendes-bakterium-entdeckt.md)  

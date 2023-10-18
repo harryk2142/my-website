@@ -1,29 +1,27 @@
 ---
-id: "20230713-0"
-title: "UFO-Alarm in Kuhlingen"
-description: "Entdecke das lustige Geheimnis der UFOs, die Kühe in Kuhlingen, Bayern, beobachten! Tauche ein in diese skurrile Begegnung zwischen Außerirdischen und bayerischen Kühen und erlebe eine unterhaltsame Geschichte voller Spaß und Verschwörungstheorien."
+id: 20230713-0
+title: UFO-Alarm in Kuhlingen
+description: Entdecke das lustige Geheimnis der UFOs, die Kühe in Kuhlingen, Bayern, beobachten! Tauche ein in diese skurrile Begegnung zwischen Außerirdischen und bayerischen Kühen und erlebe eine unterhaltsame Geschichte voller Spaß und Verschwörungstheorien.
 headline: "UFO-Alarm in Kuhlingen: Außerirdische entdecken ihre Leidenschaft für bayerische Kühe!"
 pubDate: 2023-07-13
 postImage:
-  src: "ufos-mit-kuehen-auf-dem-feld-01.webp"
-  prevSrc: "ufos-mit-kuehen-auf-dem-feld-01-preview.webp"
-  thumbnail: "ufos-mit-kuehen-auf-dem-feld-01-preview.jpg"
-  alt: "UFOs mit Kühen auf einem Feld"
+  alt: UFOs mit Kühen auf einem Feld
+  src: /images/blog/ufos-mit-kuehen-auf-dem-feld-01.webp
+  prevSrc: /images/blog/ufos-mit-kuehen-auf-dem-feld-01-preview.webp
+  thumbnail: /images/blog/ufos-mit-kuehen-auf-dem-feld-01-preview.jpg
 place: Kuhlingen - Bayern - Deutschland
 tags:
-  [
-    außerirdische,
-    bayern,
-    deutschland,
-    komödie,
-    kühe,
-    kuhlingen,
-    lustigerblogeintrag,
-    milchhofmüller,
-    paranormal,
-    ufos,
-    verschwörungstheorien,
-  ]
+  - außerirdische
+  - bayern
+  - deutschland
+  - komödie
+  - kühe
+  - kuhlingen
+  - lustigerblogeintrag
+  - milchhofmüller
+  - paranormal
+  - ufos
+  - verschwörungstheorien
 ---
 
 Liebe Leserinnen und Leser,

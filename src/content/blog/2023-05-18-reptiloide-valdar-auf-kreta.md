@@ -1,16 +1,22 @@
 ---
-id: "20230518-0"
+id: 20230518-0
 title: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 description: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 headline: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 pubDate: 2023-05-18
 postImage:
-  src: "reptiloide-mit-strohhut.webp"
-  prevSrc: "reptiloide-mit-strohhut-preview.webp"
-  thumbnail: "reptiloide-mit-strohhut-preview.jpg"
-  alt: "Ein Reptiloide mit einem Strohut am Strand"
+  alt: Ein Reptiloide mit einem Strohut am Strand
+  src: /images/blog/reptiloide-mit-strohhut.webp
+  prevSrc: /images/blog/reptiloide-mit-strohhut-preview.webp
+  thumbnail: /images/blog/reptiloide-mit-strohhut-preview.jpg
 place: Kreta - Griechenland
-tags: [griechenland, kreta, reptiloid, strand, urlaub, valdar]
+tags:
+  - griechenland
+  - kreta
+  - reptiloid
+  - strand
+  - urlaub
+  - valdar
 ---
 
 Liebe Leserinnen und Leser, heute lüften wir das Geheimnis um Valdar, den freizeitliebenden Reptiloliden, der sich auf Kreta einen ungewöhnlichen Urlaub gönnt. Begleiten Sie uns zu einem genauer definierten Ort, an dem der Strand von Elafonisi mit seinem einzigartigen Charme Valdar zu unerwarteten Offenbarungen über seine Arbeit verleitet.

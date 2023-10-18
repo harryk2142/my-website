@@ -5,9 +5,9 @@ description: "Es wurden Gitarre spielende Fische im Lake Tahoe entdeckt. Lese je
 headline: "Wow - Gitarre spielende Fische im Lake Tahoe entdeckt"
 pubDate: 2023-02-11
 postImage:
-  src: "fische-spielen-gitarre.webp"
-  prevSrc: "fische-spielen-gitarre-preview.webp"
-  thumbnail: "fische-spielen-gitarre-preview.jpg"
+  src: /images/blog/fische-spielen-gitarre.webp
+  prevSrc: /images/blog/fische-spielen-gitarre-preview.webp
+  thumbnail: /images/blog/fische-spielen-gitarre-preview.jpg
   alt: "Zwei Fische spielen Gitarre"
 place: Lake Tahoe - Kalifornien, Nevada, USA
 tags:

@@ -51,7 +51,7 @@ import { Icon } from "astro-icon";
                   latestPost.data.postImage && (
                     <section class="post-image">
                       <img
-                        src={"/images/blog/" + latestPost.data.postImage.src}
+                        src={latestPost.data.postImage.src}
                         alt={latestPost.data.postImage.alt}
                       />
                       <div class="image-overlay" />

@@ -6,6 +6,7 @@ type Props = HTMLAttributes<"a">;
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
+// const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 const isActive = (href as string).split("/")[1] === pathname.split("/")[1];
 ---
 
@@ -14,12 +15,23 @@ const isActive = (href as string).split("/")[1] === pathname.split("/")[1];
 </a>
 <style>
   a {
-    margin: 10px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     display: inline-block;
+    border-bottom: 4px solid transparent;
     text-decoration: none;
+    color: var(--secondary-color);
+  }
+  a:hover {
+    color: var(--element-earth);
   }
   a.active {
     font-weight: bolder;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    padding-bottom: 0.5rem;
+    border-bottom-color: var(--secondary-color);
+  }
+  a.active:hover {
+    border-bottom-color: var(--element-earth);
   }
 </style>

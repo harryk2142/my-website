@@ -1,14 +1,11 @@
 ---
-id: 20230518-0
 title: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 description: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 headline: "Valdar der Reptiloid: Ein ungewöhnlicher Urlaub am legendären Strand von Kreta"
 pubDate: 2023-05-18
-postImage:
+heroImage:
   alt: Ein Reptiloide mit einem Strohut am Strand
-  src: /images/blog/reptiloide-mit-strohhut.webp
-  prevSrc: /images/blog/reptiloide-mit-strohhut-preview.webp
-  thumbnail: /images/blog/reptiloide-mit-strohhut-preview.jpg
+  url: /images/blog/reptiloide-mit-strohhut.webp
 place: Kreta - Griechenland
 tags:
   - griechenland

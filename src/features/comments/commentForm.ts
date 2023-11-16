@@ -3,7 +3,10 @@ import u from "https://esm.sh/umbrellajs";
 import { submitComment, submitReply } from "./comment-firebase-bridge";
 
 const clickAbsenden = async (event: MouseEvent) => {
-  const parent = u(event.target as HTMLElement).parent();
+  (event.target as HTMLButtonElement).disabled = true;
+  const parent = u(event.target as HTMLElement)
+    .parent()
+    .parent();
   const protection = parent
     .find("[name='protection']")
     .first() as HTMLInputElement;
@@ -34,7 +37,7 @@ const clickAbsenden = async (event: MouseEvent) => {
   const inputTextValue = iputText.value;
 
   if (!inputTextValue) {
-    console.log("EMPTY INPUT");
+    console.warn("EMPTY INPUT");
     return;
   }
 
@@ -86,7 +89,7 @@ const createCommentForm = (
   const idAbsendenButton = "senden-btn-" + parentId;
   const idAbbrechenButton = "abbrechen-btn-" + parentId;
 
-  const result = el("div", [
+  const result = el("div", { class: "comment-form" }, [
     el("input", {
       type: "hidden",
       id: idProtection,
@@ -119,6 +122,7 @@ const createCommentForm = (
       name: "input-username",
       autocomplete: "off",
       placeholder: "Anonym",
+      class: "username",
     }),
     el("label", { id: "lbl-input-text", for: idTextInput }, "Kommentar:"),
     el("textarea", {
@@ -128,30 +132,33 @@ const createCommentForm = (
       rows: 8,
       placeholder: "Hier eingeben...",
       autocomplete: "off",
+      class: "text",
     }),
-    parentCommentId &&
+    el("div", { class: "comment-form-btn-block" }, [
+      parentCommentId &&
+        el(
+          "button",
+          {
+            id: idAbbrechenButton,
+            name: idAbbrechenButton,
+            type: "button",
+            class: "abbrechen-btn",
+            onclick: clickAbbrechen,
+          },
+          "Abbrechen"
+        ),
       el(
         "button",
         {
-          id: idAbbrechenButton,
-          name: idAbbrechenButton,
+          id: idAbsendenButton,
+          name: idAbsendenButton,
           type: "button",
-          class: "abbrechen-btn",
-          onclick: clickAbbrechen,
+          class: "primary absenden-btn",
+          onclick: clickAbsenden,
         },
-        "Abbrechen"
+        "Absenden"
       ),
-    el(
-      "button",
-      {
-        id: idAbsendenButton,
-        name: idAbsendenButton,
-        type: "button",
-        class: "primary",
-        onclick: clickAbsenden,
-      },
-      "Absenden"
-    ),
+    ]),
   ]);
 
   mount(htmlParent, result);

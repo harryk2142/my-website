@@ -2,18 +2,25 @@
 const today = new Date();
 ---
 
-<footer class="primary" id="footer">
-  {today.getFullYear()} - page has ai generated content.
+<footer class="sticky bottom">
+  <div class="footer-container">
+    <span>
+      &copy; {today.getFullYear()} Kramer. All rights reserved.
+    </span>
+  </div>
 </footer>
 <style>
   footer {
-    padding: 15px;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+    color: rgb(var(--gray));
     text-align: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    bottom: 0;
-    background-color: #333;
-    color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
   }
 </style>

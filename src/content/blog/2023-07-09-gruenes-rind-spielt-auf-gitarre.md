@@ -1,13 +1,10 @@
 ---
-id: "20230709-0"
 title: "Ein grünes Rind mit Rockstar-Ambitionen"
 description: "Entdecke die fesselnde Geschichte eines grünen Rindes, das mit Leidenschaft Gitarre spielt. Ein musikalisches Abenteuer voller Überraschungen und humorvoller Momente"
 headline: "Ein ungewöhnliches Rind mit Rockstar-Ambitionen: Das grüne Rind, das Gitarre spielt"
 pubDate: 2023-07-09
-postImage:
-  src: /images/blog/gruenes-rind-mit-gitarre.webp
-  prevSrc: /images/blog/gruenes-rind-mit-gitarre-preview.webp
-  thumbnail: /images/blog/gruenes-rind-mit-gitarre-preview.jpg
+heroImage:
+  url: /images/blog/gruenes-rind-mit-gitarre.webp
   alt: "Ein grünes Rind spielt auf der Weide auf einer Gitarre"
 place: Kuhlingen - Bayern - Deutschland
 tags:

@@ -1,13 +1,10 @@
 ---
-id: "20230127-0"
-title: "Durchbruch im Bereich Fusion"
+title: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
 description: "Die Zukunft der Energieversorgung ist gesichert. Lese jetzt weiter und entdecke, wie die Fusion die Zukunft verändern wird!"
 headline: "Durchbruch im Bereich Fusion - Marsianer und Terraner gelingt Durchbruch."
 pubDate: 2023-01-27
-postImage:
-  src: /images/blog/fusionskraftwerk-auf-dem-mars.webp
-  prevSrc: /images/blog/fusionskraftwerk-auf-dem-mars-preview.webp
-  thumbnail: /images/blog/fusionskraftwerk-auf-dem-mars-preview.jpg
+heroImage:
+  url: /images/blog/fusionskraftwerk-auf-dem-mars.webp
   alt: "Ein modernes Funsionskraftwerk auf dem Mars"
 place: "Mars, Elysium Planitia-Region, Koordinaten: 4.5°N, 135°E"
 tags:

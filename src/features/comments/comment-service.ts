@@ -1,4 +1,4 @@
-import { Comment } from "./comment-firebase-bridge";
+import { type Comment } from "./comment-firebase-bridge";
 
 const fillCommentsWithReplies = (comments: Comment[]) => {
   function addReplies(comments: Comment[]) {

@@ -1,128 +1,210 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import MainHeader from "../components/MainHeader.astro";
+import { Image } from "astro:assets";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Main from "../components/Main.astro";
-import LeftAside from "../components/BlogPost/Left.astro";
-import Comments from "../components/BlogPost/Comments.astro";
+
+import GlobalImports from "./../components/GlobalImports.astro";
+import MetaImports from "./../components/MetaImports.astro";
+import NavigationBar from "./../components/NavigationBar.astro";
+import Left from "../components/Blogpost/Left.astro";
+import Comments from "../components/Blogpost/Comments.astro";
+
+const debug = Boolean(import.meta.env.PUBLIC_DEBUG);
 
 type Props = CollectionEntry<"blog">["data"];
 const pathSegments = Astro.request.url.split("/");
-const blogPostIdentifier = pathSegments.at(pathSegments.length - 2);
-const { id, title, description, headline, pubDate, postImage, place, tags } =
-  Astro.props;
-const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
+const blogPostIdentifier = pathSegments.at(pathSegments.length - 2) as string;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  shareImage,
+  place,
+  tags,
+} = Astro.props;
 ---
 
 <html lang="de">
   <head>
-    <BaseHead
+    <GlobalImports />
+    <MetaImports
       title={title}
       description={description}
-      image={headImage}
-      type={"article"}
+      image={heroImage.url}
+      alt={heroImage.alt}
     />
-    <style>
-      .blog-post-img-container {
-        width: 100%;
-        max-width: 450px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      article {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 700px;
-        word-wrap: break-word;
-        padding-bottom: 20px;
-      }
-      article h2 {
-        margin-bottom: 10px;
-      }
-      #publication-date {
-        font-size: 1.25rem;
-        color: var(--element-water-dark);
-        font-weight: bold;
-        font-style: italic;
-      }
-      #place {
-        font-size: 1rem;
-        color: var(--element-water-darker);
-      }
-      #main-content {
-        font-size: 1.25rem;
-      }
-      /* Style page content */
-      #blogpost-container {
-        margin-left: 40px; /* Same as the width of the sidebar */
-        padding: 0px 10px;
-      }
-      .link-tag {
-        color: var(--element-water-dark);
-      }
-    </style>
     <style is:inline>
-      #main-content p {
-        margin-bottom: 24px;
+      #blogpost-container {
+        max-width: calc(100% - 3rem);
+        margin: auto;
+        padding: 0 2rem;
+        color: rgb(var(--gray-dark));
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 0.5rem;
+
+        & .hero-image-block {
+          overflow: hidden;
+          width: calc(100% - 2rem);
+          aspect-ratio: 1;
+          display: block;
+          margin: 2rem auto;
+          border-radius: 2rem;
+          /* box-shadow: var(--box-shadow); */
+          max-width: 500px;
+        }
+
+        & #blogpost-image > img {
+        }
+
+        & #place {
+          text-align: center;
+        }
+
+        & #blogpost-title {
+          /* margin-bottom: 1em; */
+          /* padding: 0.5rem 0; */
+          text-align: center;
+          line-height: 1;
+
+          & h1 {
+            margin-bottom: 1rem;
+          }
+        }
+
+        & #date {
+          display: flex;
+          justify-content: center;
+          /* margin-bottom: 0.5em; */
+          color: rgb(var(--gray));
+        }
+
+        & .last-updated-on {
+          /* margin-bottom: 0.5em; */
+          color: rgb(var(--gray));
+          font-style: italic;
+        }
+
+        & #tags {
+          /* margin-bottom: 0.5em; */
+          /* text-align: justify; */
+          font-size: smaller;
+
+          & .link-tag {
+            text-decoration: none;
+          }
+
+          & .link-tag:hover {
+            color: var(--element-water-dark);
+          }
+        }
+
+        & hr {
+          border: 2px solid black;
+          width: 100%;
+          margin: 1rem 0;
+        }
+
+        & #article {
+          text-align: justify;
+
+          & p {
+            margin-bottom: 2em;
+          }
+        }
+      }
+      ol {
+        counter-reset: list-counter; /* Einen Zähler für die Liste initialisieren */
+        list-style: none; /* Standard-Listensymbole entfernen */
+        padding-left: 0; /* Linken Abstand entfernen */
+      }
+
+      ol li {
+        counter-increment: list-counter; /* Zähler für jedes Listenelement erhöhen */
+        display: flex; /* Flexbox für das Listenelement verwenden */
+        align-items: baseline; /* Elemente in einer Zeile ausrichten */
+      }
+
+      ol li::before {
+        content: counter(list-counter) "."; /* Nummerierung mit Punkt anzeigen */
+        margin-right: 10px; /* Abstand zwischen Nummer und Text */
       }
     </style>
   </head>
+
   <body>
-    <MainHeader />
-    <Main>
-      <span hidden id="blog-post-identifier">{blogPostIdentifier}</span>
-      <span hidden id="blog-post-id"></span>
-      <LeftAside />
+    <NavigationBar isStartPage={false} />
+    <main class="wrapper">
+      <span hidden id="blog-post-identifier" data-pagefind-ignore
+        >{blogPostIdentifier}</span
+      >
+      <span hidden id="blog-post-id" data-pagefind-ignore></span>
+      <Left />
+
       <article id="blogpost-container">
-        <h1 class="title container" id="title">{headline}</h1>
-        <span id="publication-date"><FormattedDate date={pubDate} /></span>
+        <div id="blogpost-image">
+          {
+            heroImage && (
+              <div class="hero-image-block">
+                <Image
+                  src={heroImage.url}
+                  alt={heroImage.alt}
+                  width="600"
+                  height="600"
+                />
+                <img
+                  hidden
+                  data-pagefind-index-attrs="alt"
+                  data-pagefind-meta="image[src], image_alt[alt]"
+                  src={heroImage.url.replace("/blog/", "/blog/small/")}
+                  alt={heroImage.alt}
+                />
+              </div>
+            )
+          }
+        </div>
+        <div id="blogpost-title">
+          <h1 data-pagefind-meta="title">{title}</h1>
+        </div>
+        {place && <p id="place">{place}</p>}
         {
-          place && (
-            <>
-              <br />
-              <span id="place">{place}</span>
-            </>
-          )
-        }
-        {
-          postImage && (
-            <div class="blog-post-img-container">
-              <img hidden src={postImage.prevSrc} alt={postImage.alt} />
-              <img
-                src={postImage.src}
-                alt={postImage.alt}
-                data-pagefind-index-attrs="alt"
-              />
+          pubDate && (
+            <div id="date">
+              <FormattedDate date={pubDate} />
             </div>
           )
         }
-        <div class="panel">
-          {
-            tags &&
-              tags.map((tag) => (
+        {
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+        {
+          tags && (
+            <div id="tags">
+              {tags.map((tag) => (
                 <a href={`/tags/${tag}`} class="link-tag">
                   #{tag}
                 </a>
-              ))
-          }
-        </div>
-        <section id="main-content">
+              ))}
+            </div>
+          )
+        }
+        <hr />
+        <div id="article">
           <slot />
-        </section>
-        <div id="comment-form-container" style="margin-top:20px">
-          <h3>Kommentar hinzufügen</h3>
-          <div id="new-comment-form"></div>
         </div>
         <Comments />
       </article>
-    </Main>
-
-    <style is:inline></style>
+    </main>
     <script>
       import {
         loadBlogpost,
@@ -135,24 +217,29 @@ const headImage = postImage?.thumbnail ?? postImage?.prevSrc;
       import { loadLikes, submitLike } from "../features/like/like-service";
 
       setTimeout(async () => {
-        const blogPostIdentifier = document.querySelector(
-          "#blog-post-identifier"
+        const blogPostIdentifier = (
+          document.querySelector("#blog-post-identifier") as HTMLElement
         ).innerText;
         loadBlogpost(blogPostIdentifier).then(async (blogPost) => {
           if (blogPost) {
-            document.querySelector("#blog-post-id").innerText = blogPost.id;
+            (document.querySelector("#blog-post-id") as HTMLElement).innerText =
+              blogPost.id;
           } else {
             const newId = await createBlogpost(blogPostIdentifier);
-            document.querySelector("#blog-post-id").innerText = newId;
+            (document.querySelector("#blog-post-id") as HTMLElement).innerText =
+              newId;
           }
-          let blogPostId = document.querySelector("#blog-post-id").innerText;
+          let blogPostId = (
+            document.querySelector("#blog-post-id") as HTMLElement
+          ).innerText;
           loadLikes(blogPostId);
-          document
-            .querySelector("#like-btn")
-            .addEventListener("click", async () => {
-              const newLikeCount = await submitLike(blogPostId);
-              document.querySelector("#like-counter").innerText = newLikeCount;
-            });
+          (
+            document.querySelector("#like-btn") as HTMLButtonElement
+          ).addEventListener("click", async () => {
+            const newLikeCount = await submitLike(blogPostId);
+            (document.querySelector("#like-counter") as HTMLElement).innerText =
+              newLikeCount.toString();
+          });
 
           const parent = document.querySelector("#comment-form-container");
 

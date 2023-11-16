@@ -1,14 +1,14 @@
 ---
-export interface Props {
-  date: Date;
+interface Props {
+  date: Date | undefined;
 }
 
 const { date } = Astro.props;
 ---
 
-<time data-pagefind-sort="date" datetime={date.toISOString()}>
+<time datetime={date?.toISOString()} class="formatted-date">
   {
-    date.toLocaleDateString("de-de", {
+    date?.toLocaleDateString("de-de", {
       year: "numeric",
       month: "short",
       day: "numeric",

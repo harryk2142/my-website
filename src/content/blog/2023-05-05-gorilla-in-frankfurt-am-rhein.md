@@ -4,11 +4,9 @@ title: Gigantischer Gorilla in Frankfurt gesichtet
 description: "Breaking News: Gigantischer Gorilla in Frankfurter Skyline gesichtet! Lese hier die einen Bericht dazu."
 headline: "Breaking News: Gigantischer Gorilla in Frankfurter Skyline gesichtet!"
 pubDate: 2023-05-05
-postImage:
+heroImage:
   alt: Gigantischer Gorilla auf einem Dach eines Hochhauses in Frankfurt
-  src: /images/blog/gigantischer-gorilla-in-frankfurt.jpg
-  prevSrc: /images/blog/gigantischer-gorilla-in-frankfurt-preview.webp
-  thumbnail: /images/blog/gigantischer-gorilla-in-frankfurt-preview.jpg
+  url: /images/blog/gigantischer-gorilla-in-frankfurt.webp
 place: Innenstadt - Frankfurt am Main - Deutschland
 tags:
   - action

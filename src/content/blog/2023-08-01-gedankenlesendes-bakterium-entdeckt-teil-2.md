@@ -1,14 +1,11 @@
 ---
-id: 20230801-0
 title: Gedankenlesendes Bakterium entdeckt - Teil 2
 description: Es wurde ein gedankenlesendes Bakterium auf dem Mars entdeckt. Lese hier den zweiten Teil dazu.
 headline: Unglaublich - Gedankenlesendes Bakterium auf dem Mars entdeckt - Teil 2
 pubDate: 2023-08-01
-postImage:
+heroImage:
   alt: Ein grünes Bakterium in einer blauen Flüssigkeit. Im Hintergrund ist eine Wissenschaftlerin zu sehen.
-  src: /images/blog/gruenes-bakterium-blaue-fluessigkeit.webp
-  prevSrc: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.webp
-  thumbnail: /images/blog/gruenes-bakterium-blaue-fluessigkeit-preview.jpg
+  url: /images/blog/gruenes-bakterium-blaue-fluessigkeit.webp
 tags:
   - anna-luese
   - anna-lüse

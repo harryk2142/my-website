@@ -1,5 +1,5 @@
 import { el, mount } from "https://esm.sh/redom";
-import { Comment } from "./comment-firebase-bridge";
+import { type Comment } from "./comment-firebase-bridge";
 import { createCommentForm } from "./commentForm";
 
 const addRepliesToContainer = (
@@ -18,7 +18,10 @@ const addRepliesToContainer = (
 const createCommentBox = (comment: Comment) => {
   const createdCommentBox = el("div", { class: "comment-block" }, [
     el("span.comment-username", comment.username),
-    el("span.comment-date", comment.formattedDate ?? ""),
+    el("div", [
+      el("span", "schrieb am "),
+      el("span.comment-date", comment.formattedDate ?? ""),
+    ]),
     el("div", el("span.comment-text", comment.text)),
     el(
       "div",

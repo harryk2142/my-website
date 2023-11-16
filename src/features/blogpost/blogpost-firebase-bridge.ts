@@ -10,8 +10,8 @@ import {
   query,
   setDoc,
   where,
-} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js";
-import { FirebaseApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-lite.js";
+// import { FirebaseApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 const sammlungName = "posts";
 interface Post {
   id: string;
@@ -33,7 +33,7 @@ const blogpostConverter = {
   },
 };
 const getBlogpostByIdentifier = async (
-  app: FirebaseApp,
+  app,
   blogPostIdentifier: string
 ): Promise<Post | undefined> => {
   const db = getFirestore(app);
@@ -56,10 +56,7 @@ const getBlogpostByIdentifier = async (
   }
   return undefined;
 };
-const getBlogpostById = async (
-  app: FirebaseApp,
-  id: string
-): Promise<Post | undefined> => {
+const getBlogpostById = async (app, id: string): Promise<Post | undefined> => {
   const db = getFirestore(app);
   const ref = doc(db, sammlungName, id).withConverter(blogpostConverter);
 
@@ -71,7 +68,7 @@ const getBlogpostById = async (
   return undefined;
 };
 
-const savePost = async (app: FirebaseApp, blogPostIdentifier: string) => {
+const savePost = async (app, blogPostIdentifier: string) => {
   const db = getFirestore(app);
 
   const q = query(

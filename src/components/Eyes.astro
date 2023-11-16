@@ -1,5 +1,11 @@
-<div id="eye-container" class="eye-container">
-  <div id="upper-lid" class="upper-lid"></div>
+<!-- 
+README:
+Das Elternelement braucht eine Höhe.
+Der Eye-Container nimmt dann die Höhe vom Element an.
+Die Hintergrundfarbe kann im Style angepasst werden.
+-->
+<div id="eye-container" class="eye-container primary">
+  <div id="upper-lid" class="upper-lid primary"></div>
   <canvas id="eye-canvas" class="eye-canvas"></canvas>
 </div>
 <script>
@@ -26,7 +32,6 @@
   const canvas = document.getElementById("eye-canvas") as HTMLCanvasElement;
 
   fitToContainer(canvas);
-  console.log("HERE");
 
   const upperLid = document.getElementById("upper-lid") as HTMLElement;
   upperLid.style.width = canvas.width + "px";
@@ -36,7 +41,10 @@
   let pointEye1: Point = calculateLeftPoint();
   let pointEye2: Point = calculateRightPoint();
   const radius = (canvas.height - 20) / 2;
-  function drawEye({ x: centerX, y: centerY }, mousePosition: Point) {
+  function drawEye(
+    { x: centerX, y: centerY }: { x: number; y: number },
+    mousePosition: Point
+  ) {
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
     context.fillStyle = "white";
@@ -127,10 +135,11 @@
 
   #upper-lid {
     position: absolute;
-    background-color: #333;
+    background: var(--primary-color);
     animation: blink 10s infinite;
   }
   #eye-container {
+    background: var(--primary-color);
     height: 100%;
     aspect-ratio: 2 / 1;
   }

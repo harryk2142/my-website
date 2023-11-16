@@ -106,13 +106,14 @@ const headlines = [
 interface Parameter {
   params: { id: number };
 }
-export const get: APIRoute = ({ params, request }) => {
+export const GET: APIRoute = ({ params, request }) => {
   const id = params.id as string;
-  return {
-    body: JSON.stringify({
-      headline: headlines[id],
-    }),
-  };
+  return new Response(JSON.stringify({ headline: headlines[Number(id)] }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
 export function getStaticPaths() {
   const ids: Parameter[] = [];

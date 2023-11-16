@@ -1,13 +1,10 @@
 ---
-id: "20230702-0"
 title: "Enthüllt: Die geheimnisvolle Blaupause"
 description: "Enthüllt: Die geheimnisvolle Blaupause - Lese hier weiter was Arti Fact rausgefunden hat."
 headline: "Enthüllt: Die geheimnisvolle Blaupause"
 pubDate: 2023-07-02
-postImage:
-  src: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte.webp
-  prevSrc: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.webp
-  thumbnail: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte-preview.jpg
+heroImage:
+  url: /images/blog/geheimnisvolle-blaupause-mit-mensch-in-der-mitte.webp
   alt: "Eine Blaupause einer großen mysteriösen Maschine mit einem Menschen in der Mitte"
 tags:
   [

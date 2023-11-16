@@ -1,33 +1,32 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import MainHeader from "../../components/MainHeader.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../../consts";
-import Main from "../../components/Main.astro";
 import TagCloud from "../../components/TagCloud.astro";
+import GlobalImports from "./../../components/GlobalImports.astro";
+import MetaImports from "./../../components/MetaImports.astro";
+import NavigationBar from "./../../components/NavigationBar.astro";
+import Headline from "../../components/Headline.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
-    <BaseHead
-      title={SITE_TITLE}
-      description={SITE_DESCRIPTION_SHORT}
-      image={"icons/favicon-96x96.png"}
-      type={"website"}
+    <GlobalImports />
+    <MetaImports
+      title="Seite mit allen Tags"
+      description="Hier siehst du alle Tags"
     />
     <meta name="robots" content="noindex" />
   </head>
   <body data-pagefind-ignore>
-    <MainHeader />
-    <Main>
+    <NavigationBar />
+    <main class="content wrapper">
       <div class="wrapper">
         <dir class="container">
-          <h1 class="center">TAGS</h1>
+          <Headline>Tags</Headline>
           <TagCloud />
         </dir>
       </div>
-    </Main>
+    </main>
     <Footer />
   </body>
 </html>

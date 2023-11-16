@@ -1,14 +1,8 @@
 ---
-id: "20230101-0"
 title: "Silvester 2022: Weltuntergang verhindert durch Clowns"
-description: "In diesem Blogeintrag erfährst du die unglaubliche Geschichte, wie eine Gruppe von Clowns die Apokalypse verhindert hat. Lese jetzt weiter."
 headline: "Silvester 2022: Weltuntergang verhindert durch Clowns"
+description: "In diesem Blogeintrag erfährst du die unglaubliche Geschichte, wie eine Gruppe von Clowns die Apokalypse verhindert hat. Lese jetzt weiter."
 pubDate: 2023-01-01
-postImage:
-  src: /images/blog/clowns-retten-die-welt.webp
-  prevSrc: /images/blog/clowns-retten-die-welt-preview.webp
-  thumbnail: /images/blog/clowns-retten-die-welt-preview.jpg
-  alt: "Zwei Clowns stehen um die Erdkugel herum"
 place: Planet Erde, Überall
 tags:
   [
@@ -19,6 +13,9 @@ tags:
     lustigerblogeintrag,
     weltuntergang,
   ]
+heroImage:
+  alt: "Zwei Clowns stehen um die Erdkugel herum"
+  url: /images/blog/clowns-retten-die-welt.webp
 ---
 
 Die Menschheit stand kurz vor dem Weltuntergang, als sich am Silvesterabend des Jahres 2022 plötzlich etwas Unerwartetes ereignete. Aus dem Nichts tauchten Hunderte von Clowns auf und verteilten sich über den ganzen Globus.

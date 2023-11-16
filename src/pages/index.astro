@@ -1,211 +1,141 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import MainHeader from "../components/MainHeader.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../consts";
-import { getCollection } from "astro:content";
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-const latestPost = posts[0];
-const latestThreePosts = posts.slice(1, 4);
-import FormattedDate from "../components/FormattedDate.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
 import BreakingNewsTicker from "../components/BreakingNewsTicker.astro";
-import Main from "../components/Main.astro";
+import Footer from "../components/Footer.astro";
+import LatestBlogpostCard from "../components/LatestBlogpostCard.astro";
+import RandomBlogpost from "../components/RandomBlogpost.astro";
+import Searchbox from "../components/Searchbox.astro";
+import GlobalImports from "./../components/GlobalImports.astro";
+import MetaImports from "./../components/MetaImports.astro";
+import NavigationBar from "./../components/NavigationBar.astro";
+import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../consts";
+
+import { getCollection } from "astro:content";
 import Ufo from "../components/Ufo.astro";
-import { Icon } from "astro-icon";
+
+const posts = (await getCollection("blog"))
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const latestPost = posts[0];
+const latestThreePosts = [posts[1], posts[2], posts[3]];
 ---
 
-<!DOCTYPE html>
 <html lang="de">
   <head>
-    <BaseHead
+    <GlobalImports />
+    <MetaImports
       title={SITE_TITLE}
       description={SITE_DESCRIPTION_SHORT}
-      image={"icons/favicon-96x96.png"}
       type={"website"}
     />
   </head>
   <body data-pagefind-ignore>
-    <MainHeader isStartPage={true} />
-    <Main>
-      <article id="breaking-news-ticker">
+    <NavigationBar isStartPage={true} />
+    <div class="wrapper" id="main">
+      <div class="" id="breaking-news-block">
         <BreakingNewsTicker />
-      </article>
-      <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
-      <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
-      <div id="search"></div>
-      <script>
-        window.addEventListener("DOMContentLoaded", (event) => {
-          new PagefindUI({ element: "#search" });
-        });
-      </script>
-      <hr />
-      <div class="flex" style="padding-bottom:4rem">
-        <div class="s12 m8 l6 xl6">
-          <section id="latest-post">
-            <h2>LATEST POST</h2>
-            <a href={`/blog/${latestPost.slug}/`}>
-              <article class="blog-post">
-                {
-                  latestPost.data.postImage && (
-                    <section class="post-image">
-                      <img
-                        src={latestPost.data.postImage.src}
-                        alt={latestPost.data.postImage.alt}
-                      />
-                      <div class="image-overlay" />
-                    </section>
-                  )
-                }
-                <section class="post-content">
-                  <p class="post-title">{latestPost.data.title}</p>
-                  <p><FormattedDate date={latestPost.data.pubDate} /></p>
-                </section>
-              </article>
-            </a>
-          </section>
+      </div>
+      <div id="searchbox-block" class="shadow border-radius">
+        <Searchbox />
+      </div>
+      <div id="blogposts">
+        <div id="latest-blogpost-block" class="">
+          <h2>Latest Blogpost</h2>
+          <LatestBlogpostCard latestPost={latestPost} />
         </div>
-        <div class="s12 m4 l6 xl6">
-          <section id="random-posts">
-            <h2>Random</h2>
-            <div id="random-post-container"></div>
-            <script>
-              import { setRandomBlogpost } from "../features/blogpost/random-blogpost";
-              setRandomBlogpost("random-post-container");
-            </script>
-          </section>
-          <section id="latest-post-list">
-            <a id="more-link" href="/blog">
-              <h2>More</h2>
-            </a>
-            <div class="">
-              {
-                latestThreePosts.map((post) => (
-                  <div class="">
-                    <a href={`/blog/${post.slug}/`}>
-                      <div class="flex latest-post-list-item">
-                        {post.data.postImage && (
-                          <div class="s4 m12 l4">
-                            <img
-                              class="latest-post-list-item-img"
-                              src={post.data.postImage.prevSrc}
-                              alt={post.data.postImage.alt}
-                            />
-                          </div>
-                        )}
-
-                        <div class="s8 m12 l8">
-                          <div class="latest-post-list-item-content">
-                            <div class="latest-post-list-item-date">
-                              <FormattedDate date={post.data.pubDate} />
-                            </div>
-                            <div>
-                              <span>{post.data.title}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                ))
-              }
+        <div class="">
+          <div id="random-blogpost-block" class="">
+            <h2>Random Blogpost</h2>
+            <div class="container">
+              <RandomBlogpost />
             </div>
-            <section id="zu-weiteren-posts">
-              <a id="zu-weiteren-posts-button" class="primary" href="/blog">
-                <div>Zu weiteren Posts <Ufo size="M" /></div>
+          </div>
+
+          <div id="latest-blogposts-block">
+            <h2>Latest 3 Blogposts</h2>
+            {
+              latestThreePosts.map((a) => (
+                <div class="container latest-blogpost-container">
+                  <div class="">
+                    <BlogPostCard blogpost={a} classlist="" />
+                  </div>
+                </div>
+              ))
+            }
+            <div class="container">
+              <a class="link-button border-radius shadow" href="/blog/1">
+                <span>Mehr</span><Ufo size="L" />
               </a>
-            </section>
-          </section>
+            </div>
+          </div>
         </div>
       </div>
-    </Main>
+    </div>
     <Footer />
-    <style is:inline>
-      #more-link {
-        color: black;
-      }
-      #zu-weiteren-posts {
-        background-color: #333;
-        text-align: center;
-      }
-      #zu-weiteren-posts-button,
-      #zu-weiteren-posts-button:visited {
+    <style>
+      #main {
+        container-name: main-container;
+        container-type: inline-size;
         height: 100%;
-        color: #fff;
       }
-      .latest-post-list-item-date {
-        font-size: 14px;
-        color: cadetblue;
+      #breaking-news-block {
+        margin: 1rem;
       }
-      #latest-post,
-      #latest-post-list {
-        margin-left: 10px;
-        margin-right: 10px;
+      #searchbox-block {
+        padding: 1rem;
+        margin: 1rem;
       }
-      .blog-post {
-        position: relative;
-        box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
-        margin-bottom: 10px;
+      #blogposts {
+        padding: 1rem;
+        display: grid;
+        justify-content: space-between;
       }
-
-      .post-image {
-        position: relative;
-        aspect-ratio: 1 / 1;
+      #random-blogpost-block {
+        margin: 0 0 3rem 0;
+      }
+      .latest-blogpost-container {
+        margin-bottom: 1rem;
       }
 
-      .post-title {
-        font-size: large;
-        font-weight: bold;
+      .link-button {
+        background-color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        text-decoration: none;
+        height: 4rem;
+        cursor: pointer;
       }
-
-      .post-image img {
-        width: 100%;
-        height: auto;
+      h2 {
+        font-size: clamp(1.4rem, 3vw, 2.5rem);
+        padding: 0 1rem;
+        /* text-align: left; */
+        margin-bottom: 1rem;
       }
-
-      .image-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 1)
-        );
+      #latest-blogpost-block {
+        margin: 0 0 2rem 0;
       }
-
-      .post-content {
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        text-align: left;
-        color: #fff; /* Weiße Farbe für den Text */
-        z-index: 1;
-        word-wrap: break-word;
+      @container main-container (width >= 950px) {
+        #blogposts {
+          grid-template-columns: 50% 50%;
+          gap: 1rem;
+        }
       }
-
-      .latest-post-list-item-img {
-        padding: 10px 10px;
+      @container main-container (width < 950px) and (width >= 600px) {
+        #blogposts {
+          grid-template-columns: 60% 40%;
+          gap: 1rem;
+        }
       }
-      .latest-post-list-item {
-        box-shadow: 0 14px 6px 0 rgba(0, 0, 0, 0.2);
-        margin-bottom: 10px;
-      }
-      .latest-post-list-item-content {
-        padding: 10px;
+      @container main-container (width < 600px) {
+        #blogposts {
+          padding: 1rem 0;
+        }
+        #latest-blogpost-block {
+          padding: 0 1rem;
+        }
       }
     </style>
-    <script>
-      import u from "https://esm.sh/umbrellajs";
-
-      u("#breaking-news-ticker").on("click", async () => {
-        const { callConfetti } = await import("./../features/confetti");
-
-        callConfetti();
-      });
-    </script>
   </body>
 </html>

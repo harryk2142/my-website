@@ -1,0 +1,221 @@
+---
+import Eyes from "./Eyes.astro";
+import HeaderLink from "./HeaderLink.astro";
+
+interface Props {
+  isStartPage?: boolean;
+  logo?: string;
+}
+
+const { isStartPage, logo = "/icons/android-icon-192x192.png" } = Astro.props;
+---
+
+<div class="primary sticky top" data-pagefind-ignore>
+  <div class="wrapper">
+    <header id="header">
+      <div id="header-content" class="h100">
+        <div id="left-block" class="h100">
+          <div id="logo-container" class="h100">
+            <a class="h100" href="/">
+              <img
+                class="h100"
+                src={"/icons/android-icon-192x192.png"}
+                alt="Logo der Webseite"
+              />
+            </a>
+          </div>
+          {
+            isStartPage ? (
+              <div id="title-container" class="h100">
+                <h1>
+                  <a class="primary" href="/">
+                    The AI Files
+                  </a>
+                </h1>
+                <div class="block" id="subtitle">
+                  A mystery blog
+                </div>
+              </div>
+            ) : (
+              <div id="title-container" class="h100">
+                <h2>
+                  <a class="primary" href="/">
+                    The AI Files
+                  </a>
+                </h2>
+                <div class="block" id="subtitle">
+                  A mystery blog
+                </div>
+              </div>
+            )
+          }
+          <div id="eyes-container" class="">
+            <Eyes />
+          </div>
+          <div id="burger-menu" class="">
+            <span id="menu-icon-open" class="menu-icon">&equiv;</span>
+            <span id="menu-icon-close" class="menu-icon">x</span>
+          </div>
+        </div>
+        <div id="right-block" class="h100">
+          <div id="navigation-links" class="primary">
+            <HeaderLink href="/">Home</HeaderLink>
+            <HeaderLink href="/blog/1">Blog</HeaderLink>
+            <HeaderLink href="/tags">Tags</HeaderLink>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<style>
+  header {
+    height: 5rem;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    container-name: header;
+    container-type: inline-size;
+  }
+  h1,
+  h2 {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+  }
+  #subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    margin: 0;
+  }
+  a {
+    /* display: block; */
+    text-decoration: none;
+    /* color: var(--secondary-color); */
+  }
+
+  #title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #title-container {
+    padding: 0 1rem;
+  }
+  #eyes-container {
+    height: 90%;
+  }
+  @container header (width >= 800px) {
+    #logo-container {
+      padding: 0 0 0 0;
+    }
+
+    #eyes-container {
+      padding: 0 2rem;
+    }
+    #left-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #right-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem 0 0;
+    }
+    #header-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    #burger-menu {
+      display: none;
+    }
+    #navigation-links {
+      display: flex;
+    }
+  }
+  @container header (width < 800px) {
+    #left-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #navigation-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+    }
+    #navigation-links a {
+      margin: 20px;
+    }
+    #burger-menu {
+      display: block;
+    }
+    #navigation-links:not(.opened) {
+      display: none;
+    }
+    #header-content,
+    #right-block {
+      width: 100%;
+    }
+  }
+  @container header (width < 500px) {
+    #logo-container {
+      display: none;
+    }
+  }
+  @container header (width < 400px) {
+    #eyes-container {
+      display: none;
+    }
+  }
+  @container header (width < 250px) {
+    #subtitle {
+      display: none;
+    }
+  }
+
+  #menu-icon-open,
+  #menu-icon-close {
+    cursor: pointer;
+    font-size: 2.3rem;
+    margin-right: 24px;
+  }
+  #menu-icon-close {
+    display: none;
+  }
+</style>
+<script>
+  function openMenu() {
+    const navigationLinksSmall = document.querySelector(
+      "#navigation-links"
+    ) as HTMLElement;
+    // navigationLinksSmall.style.display = "flex";
+    navigationLinksSmall.classList.add("opened");
+    const iconOpen = document.querySelector("#menu-icon-open") as HTMLElement;
+    iconOpen.style.display = "none";
+    const iconClose = document.querySelector("#menu-icon-close") as HTMLElement;
+    iconClose.style.display = "block";
+  }
+  function closeMenu() {
+    const navigationLinksSmall = document.querySelector(
+      "#navigation-links"
+    ) as HTMLElement;
+    // navigationLinksSmall.style.display = "none";
+    navigationLinksSmall.classList.remove("opened");
+    const iconClose = document.querySelector("#menu-icon-close") as HTMLElement;
+    iconClose.style.display = "none";
+    const iconOpen = document.querySelector("#menu-icon-open") as HTMLElement;
+    iconOpen.style.display = "block";
+  }
+
+  document
+    .querySelector("#menu-icon-open")
+    ?.addEventListener("click", () => openMenu());
+  document
+    .querySelector("#menu-icon-close")
+    ?.addEventListener("click", () => closeMenu());
+</script>

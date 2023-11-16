@@ -18,7 +18,7 @@ const getRandomBlogPosts = async (counter: number): Promise<BlogPost[]> => {
   // Aktuell Max 21
   const notForRandom = 4;
   const start = blogPostsCounter - notForRandom - counter;
-  const randomStart = Math.floor(Math.random() * start) + 4;
+  const randomStart = Math.floor(Math.random() * start) + notForRandom;
 
   const randomBlogPosts: BlogPost[] = [];
   for (let index = randomStart; index < counter + randomStart; index++) {
@@ -45,35 +45,30 @@ const setRandomBlogpostUmbrella = async (parentId: string) => {
     .attr("href", "blog/" + blogPost.url)
     .append(
       u("<div>")
-        .addClass("flex", "latest-post-list-item")
         .append(
-          u("<div>")
-            .addClass("s4", "m12", "l4")
-            .append(
-              u("<img>").addClass("latest-post-list-item-img").attr({
-                src: blogPost.img,
-                alt: blogPost.alt,
-              })
-            )
+          u("<div>").append(
+            u("<img>").addClass("latest-post-list-item-img").attr({
+              src: blogPost.img,
+              alt: blogPost.alt,
+            })
+          )
         )
         .append(
-          u("<div>")
-            .addClass("s8", "m12", "l8")
-            .append(
-              u("<div>")
-                .addClass("latest-post-list-item-content")
-                .append(
-                  u("<div>")
-                    .addClass("latest-post-list-item-date")
-                    .append(
-                      u("<time>")
-                        .addClass("latest-post-list-item-date")
-                        .attr("dateTime", pubDateIso)
-                        .html(pubDateHtml)
-                    )
-                )
-                .append(u("<span>").text(blogPost.title))
-            )
+          u("<div>").append(
+            u("<div>")
+              .addClass("latest-post-list-item-content")
+              .append(
+                u("<div>")
+                  .addClass("latest-post-list-item-date")
+                  .append(
+                    u("<time>")
+                      .addClass("latest-post-list-item-date")
+                      .attr("dateTime", pubDateIso)
+                      .html(pubDateHtml)
+                  )
+              )
+              .append(u("<span>").text(blogPost.title))
+          )
         )
     );
   u("#" + parentId).append(result);
@@ -90,44 +85,38 @@ const setRandomBlogpost = async (parentId: string) => {
     month: "short",
     day: "numeric",
   });
-  console.log(blogPost);
 
   const result = el(
     "a",
     { href: "blog/" + blogPost.url },
-    el("div", { class: "flex latest-post-list-item" }, [
-      el(
-        "div",
-        { class: "s4 m12 l4" },
+    el(
+      "div",
+      { class: "card-container" },
+      el("div", { class: "card" }, [
         el("img", {
-          class: "latest-post-list-item-img",
+          class: "card-image",
           src: blogPost.img,
           alt: blogPost.alt,
-        })
-      ),
-      el(
-        "div",
-        { class: "s8 m12 l8" },
+        }),
         el(
           "div",
           {
-            class: "latest-post-list-item-content",
+            class: "card-content",
           },
           [
             el(
-              "div",
-              { class: "latest-post-list-item-date" },
+              "p",
               el(
                 "time",
                 { class: "latest-post-list-item-date", dateTime: pubDateIso },
                 pubDateHtml
               )
             ),
-            el("span", blogPost.title),
+            el("p", blogPost.title),
           ]
-        )
-      ),
-    ])
+        ),
+      ])
+    )
   );
 
   const parent = document.querySelector("#" + parentId);
@@ -135,4 +124,4 @@ const setRandomBlogpost = async (parentId: string) => {
     mount(parent, result);
   }
 };
-export { setRandomBlogpost, setRandomBlogpostUmbrella };
+export { setRandomBlogpost, setRandomBlogpostUmbrella, getRandomBlogPosts };

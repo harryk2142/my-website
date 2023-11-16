@@ -1,48 +1,45 @@
-<div class="sidenav">
+<div class="sidenav" data-pagefind-ignore>
     <div class="like-container flex column center-x center-y">
-        <span class="aside-btn" id="like-btn">&#x1F44D;</span>
-        <span id="like-counter">0</span>
-        <a href="#comments-container">
-            <span id="to-comments">&#x1F5E8;</span>
-        </a>
-        <span id="comments-counter">0</span>
+      <span class="aside-btn" id="like-btn">&#x1F44D;</span>
+      <span id="like-counter">0</span>
+      <a href="#comments-container">
+        <span class="asside-btn" id="to-comments">&#x1F5E8;</span>
+      </a>
+      <span id="comments-counter">0</span>
     </div>
-</div>
-
-<style>
+  </div>
+  
+  <style>
+    a {
+      text-decoration: none;
+    }
     /* The sidebar menu */
     .sidenav {
-        height: 100%; /* Full-height: remove this if you want "auto" height */
-        width: 40px; /* Set the width of the sidebar */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        /* top: 0; */
-        /* left: 160px; */
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 20px;
+      height: 100%; /* Full-height: remove this if you want "auto" height */
+      width: 40px; /* Set the width of the sidebar */
+      position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+      z-index: 10; /* Stay on top */
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 5rem;
     }
-    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-    @media screen and (max-height: 450px) {
-        .sidenav {
-            padding-top: 15px;
-        }
-    }
-
+  
     .aside-btn {
-        font-size: 2rem;
-        cursor: pointer;
+      font-size: 2rem;
+      cursor: pointer;
     }
-
+  
     #like-counter,
     #comments-counter {
-        font-size: 1.5rem;
-        color: var(--element-earth-darker);
-        font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
-
+  
     #to-comments {
-        font-size: 1.5rem;
-        color: var(--element-water-dark);
-        font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--element-water-dark);
+      font-weight: bold;
     }
-</style>
+  </style>
+  

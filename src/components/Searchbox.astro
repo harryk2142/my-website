@@ -1,0 +1,21 @@
+---
+import Search from "astro-pagefind/components/Search";
+---
+
+<section id="searchbox" class="">
+  <Search
+    id="search"
+    className="pagefind-ui"
+    uiOptions={{ showImages: true }}
+  />
+</section>
+<style>
+  :root {
+    --pagefind-ui-border-radius: 20px;
+    --pagefind-ui-image-box-ratio: 1 / 2;
+    --pagefind-ui-scale: 1;
+  }
+  #searchbox {
+    margin: 1rem 0 2rem 0;
+  }
+</style>

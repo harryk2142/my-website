@@ -20,13 +20,44 @@
         {
           "title": "Title",
           "name": "title",
+          "description": "Der Titel vom Blogpost (Nicht SEO). Steht auf für die Überschrift.",
           "type": "string",
           "single": true
         },
         {
           "title": "Description",
           "name": "description",
+          "description": "Beschreibung vom Blogeintrag (Nicht SEO).",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "headline",
+          "name": "headline",
           "type": "string"
+        },
+        {
+          "title": "Main image",
+          "name": "heroImage",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "Url",
+              "name": "url",
+              "type": "image",
+              "isPreviewImage": true
+            },
+            {
+              "title": "Alt Text",
+              "name": "alt",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "Image for sharing preview",
+          "name": "shareImage",
+          "type": "image"
         },
         {
           "title": "Publishing date",
@@ -36,47 +67,21 @@
           "isPublishDate": true
         },
         {
-          "title": "id",
-          "name": "id",
-          "type": "string"
+          "title": "Update date",
+          "name": "updateDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isModifiedDate": true
         },
         {
-          "title": "headline",
-          "name": "headline",
-          "type": "string"
-        },
-        {
-          "title": "postImage",
-          "name": "postImage",
-          "type": "fields",
-          "fields": [
-            {
-              "title": "src",
-              "name": "src",
-              "type": "image",
-              "isPreviewImage": true
-            },
-            {
-              "title": "prevSrc",
-              "name": "prevSrc",
-              "type": "image"
-            },
-            {
-              "title": "thumbnail",
-              "name": "thumbnail",
-              "type": "image"
-            },
-            {
-              "title": "alt",
-              "name": "alt",
-              "type": "string"
-            }
-          ]
-        },
-        {
-          "title": "place",
+          "title": "Place",
           "name": "place",
           "type": "string"
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean"
         },
         {
           "title": "tags",
@@ -85,5 +90,6 @@
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.taxonomy.seoTitleField": "seoTitle"
 }

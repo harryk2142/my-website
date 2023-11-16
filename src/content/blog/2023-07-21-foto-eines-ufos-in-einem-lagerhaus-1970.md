@@ -1,13 +1,10 @@
 ---
-id: "20230721-0"
 title: "UFO oder fortschrittlicher Satellit? Was ist hier zu sehen?"
 description: "UFO oder futuristischer Satellit? Entdecken Sie die humorvolle Seite der paranormalen Forschung!"
 headline: "UFO oder fortschrittlicher Satelliten? Was ist hier zu sehen?"
 pubDate: 2023-07-21
-postImage:
-  src: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild.webp
-  prevSrc: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.webp
-  thumbnail: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild-preview.jpg
+heroImage:
+  url: /images/blog/zwei-wissenschaftler-untersuchen-teile-eines-ufos-auf-einem-schwarz-weiß-bild.webp
   alt: "Zwei Wissenschaftler untersuchen Teile eines Ufos. Schwarz Weiß Foto aus dem Jahr 1970"
 place: Kaiserslautern - Rheinland-Pfalz - Deutschland
 tags:

@@ -1,4 +1,4 @@
-import { FirebaseApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+import { type FirebaseApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import {
   addDoc,
   collection,
@@ -6,7 +6,7 @@ import {
   getFirestore,
   orderBy,
   query,
-} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-lite.js";
+} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-lite.js";
 import { getApp } from "../firebase/firebase";
 
 const sammlungName = "posts";

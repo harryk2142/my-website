@@ -1,14 +1,11 @@
 ---
-id: 20230809-0
-title: Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?
+title: Aus Bayern - Alien, Roboter oder Kristallwesen?
 description: Alien, Roboter oder Kristallwesen? Augenzeuge in Wunderlichhausen sichtet merkwürdiges Wesen?
 headline: Alien, Roboter oder Kristallwesen? Was wurde in Bayern gesichtet?
 pubDate: 2023-08-09
-postImage:
+heroImage:
   alt: Ein mysteriöses Ding, das wie eine Mischung aus einem Alien, einem Roboter und einem Kristall aussieht. Schwebend über dem Boden.
-  src: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall.webp
-  prevSrc: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.webp
-  thumbnail: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall-preview.jpg
+  url: /images/blog/mysterioeses-ding-mischung-aus-alien-roboter-und-kristall.webp
 place: Wunderlichhausen - Bayern - Deutschland
 tags:
   - augenzeugenbericht

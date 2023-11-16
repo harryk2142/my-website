@@ -1,14 +1,17 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import MainHeader from "../../components/MainHeader.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION_SHORT } from "../../consts";
-import Main from "../../components/Main.astro";
-import { getCollection } from "astro:content";
-import FormattedDate from "src/components/FormattedDate.astro";
+import GlobalImports from "./../../components/GlobalImports.astro";
+import MetaImports from "./../../components/MetaImports.astro";
+import NavigationBar from "./../../components/NavigationBar.astro";
 
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Headline from "../../components/Headline.astro";
 export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
+  const allPosts = (await getCollection("blog"))
+    .filter((e) => !e.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.data.tags).flat()),
   ];
@@ -17,6 +20,7 @@ export async function getStaticPaths() {
     const filteredPosts = allPosts.filter((post) =>
       post.data.tags.includes(tag)
     );
+
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -30,15 +34,15 @@ const { posts } = Astro.props;
 
 <html lang="de">
   <head>
-    <BaseHead
-      title={SITE_TITLE}
-      description={SITE_DESCRIPTION_SHORT}
-      image={"icons/favicon-96x96.png"}
-      type={"website"}
+    <GlobalImports />
+    <MetaImports
+      title={"Tag " + tag}
+      description={"Hier stehen die Blogeinträge zum Tag " + tag}
     />
     <meta name="robots" content="noindex" />
   </head>
   <body data-pagefind-ignore>
+    <NavigationBar />
     <style>
       ul {
         padding: 0; /* Remove padding */
@@ -48,31 +52,69 @@ const { posts } = Astro.props;
         margin-left: 6px;
       }
     </style>
-    <MainHeader />
-    <Main class="">
-      <div class="wrapper">
-        <div class="container">
-          <h1>#{tag}</h1>
-          <div id="tag-list">
-            <ul>
-              {
-                posts.map((post) => (
-                  <li>
-                    <a href={`/blog/${post.slug}/`}>
-                      <>
-                        <FormattedDate date={post.data.pubDate} />
-                        <span> - </span>
-                      </>
-                      {post.data.title}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+    <div class="wrapper">
+      <div class="container" id="tag-container">
+        <Headline>
+          #{tag}
+        </Headline>
+        <div id="tag-list">
+          <ul id="list-of-blogposts">
+            {
+              posts.map((post) => (
+                <li class="shadow border-radius">
+                  <a href={`/blog/${post.slug}/`}>
+                    <span class="date-for-blogpost">
+                      <FormattedDate date={post.data.pubDate} />
+                    </span>
+                    <span class="title-for-blogpost">{post.data.title}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
-    </Main>
+    </div>
     <Footer />
+    <style>
+      #tag-container {
+        /* padding-top: 10rem; */
+        height: calc(100vh - 8rem);
+        /* height: 100vh; */
+        /* text-align: center; */
+      }
+      ul {
+        /* display: flex; */
+        /* flex-flow: row wrap; */
+        /* align-items: stretch; */
+        /* justify-content: stretch; */
+        /* align-items: center; */
+        list-style-type: none;
+        cursor: pointer;
+        /* line-height: 2rem; */
+      }
+      a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: start;
+        & .date-for-blogpost {
+          margin: 0 1rem 0 0;
+        }
+      }
+      li {
+        /* width: 200px; */
+        /* height: 35px; */
+        /* height: 6rem; */
+        padding: 0.5rem;
+        margin: 0.5rem;
+        /* flex-grow: 1; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* background: grey; */
+      }
+    </style>
   </body>
 </html>

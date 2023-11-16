@@ -1,0 +1,85 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+type Props = {
+  latestPost: CollectionEntry<"blog">;
+};
+
+const { latestPost } = Astro.props;
+---
+
+<a href={`/blog/${latestPost.slug}/`}>
+  <div id="latest-blogpost" class="shadow">
+    {
+      latestPost.data && (
+        <img
+          class="card-image"
+          src={latestPost.data.heroImage.url}
+          alt={latestPost.data.heroImage.alt}
+        />
+      )
+    }
+    <div class="overlay"></div>
+    <h2 class="top">NEW</h2>
+    <div id="" class="content">
+      <p class="post-date">
+        <FormattedDate date={latestPost.data.pubDate} />
+      </p>
+      <p class="post-title">{latestPost.data.title}</p>
+    </div>
+  </div>
+</a>
+<style>
+  h2 {
+    margin: 0 0 1rem 0;
+  }
+  #latest-blogpost {
+    position: relative;
+    text-align: center;
+    color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    & img {
+      height: auto;
+      width: 100%;
+    }
+
+    & .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 1)
+      );
+    }
+    .content {
+      position: absolute;
+      text-align: start;
+      left: 1rem;
+      bottom: 1rem;
+      padding: 1rem;
+    }
+    .top {
+      position: absolute;
+      text-align: start;
+      left: 1rem;
+      top: 1rem;
+      padding: 1rem;
+      font-size: clamp(3rem, 4rem, 6rem);
+      color: var(--secondary-color);
+      text-shadow:
+        2px 0px 0px black,
+        /* Right shadow */ -2px 0px 0px black,
+        /* Left shadow */ 0px 2px 0px black,
+        /* Bottom shadow */ 0px -2px 0px black; /* Top shadow */
+    }
+    .content p {
+      color: var(--secondary-color);
+    }
+  }
+</style>

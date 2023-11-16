@@ -1,18 +1,9 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "checkJs": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noEmit": true,
-    "skipLibCheck": true,
     "strictNullChecks": true,
+    "allowJs": true,
+    "noImplicitAny": false,
     "target": "ESNext"
   }
 }

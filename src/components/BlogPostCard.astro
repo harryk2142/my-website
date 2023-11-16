@@ -1,0 +1,106 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+type Props = {
+  blogpost?: CollectionEntry<"blog"> | undefined;
+  classlist?: string;
+};
+const { blogpost, classlist } = Astro.props;
+const imagePath =
+  blogpost?.data.shareImage ??
+  blogpost?.data.heroImage.url.replace("/images/blog/", "/images/blog/small/");
+
+const prefix = Astro.url.origin;
+---
+
+<a href={prefix + "/blog/" + blogpost?.slug} data-pagefind-ignore>
+  <div class={"blogpost-card-container shadow border-radius " + classlist}>
+    <div class="blogpost-card">
+      <img
+        src={imagePath}
+        alt={blogpost?.data.heroImage.alt}
+        class="blogpost-card-img"
+      />
+      <div class="blogpost-card-text">
+        <FormattedDate date={blogpost?.data.pubDate} />
+        <div class="blogpost-card-title">
+          {blogpost?.data.title}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+  .blogpost-card-container {
+    container-name: cardcontainer;
+    container-type: inline-size;
+    background-color: var(--secondary-color);
+    /* border-radius: 1rem; */
+    /* margin-bottom: 1rem; */
+    overflow: hidden;
+  }
+  .blogpost-card {
+    display: flex;
+    /* align-items: center; */
+    overflow: hidden;
+  }
+  @container cardcontainer (width < 400px) {
+    .blogpost-card {
+      flex-direction: column;
+
+      & img {
+        width: 100%;
+      }
+      & .blogpost-card-text {
+        overflow: hidden;
+        padding: 1rem;
+      }
+    }
+  }
+  /* @container cardcontainer (width >= 350px) and (width < 400px) {
+    .blogpost-card {
+
+      & img {
+        width: 80%;
+      }
+      & .blogpost-card-text {
+        overflow: hidden;
+        padding: 1rem;
+      }
+    }
+  } */
+  @container cardcontainer (width >= 400px) and (width < 500px) {
+    .blogpost-card {
+      /* flex-direction: row; */
+
+      & img {
+        width: 40%;
+        height: auto;
+      }
+
+      & .blogpost-card-text {
+        overflow: hidden;
+        padding: 1rem;
+      }
+    }
+  }
+  @container cardcontainer (width >= 500px) {
+    .blogpost-card {
+      /* flex-direction: row; */
+
+      & img {
+        width: 30%;
+        height: auto;
+      }
+
+      & .blogpost-card-text {
+        overflow: hidden;
+        padding: 1rem;
+      }
+    }
+  }
+</style>

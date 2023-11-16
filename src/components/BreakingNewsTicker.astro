@@ -1,4 +1,4 @@
-<section id="ticker">
+<section id="ticker" class="shadow border-radius">
   <h2 id="ticker-head">BREAKING NEWS</h2>
   <div class="ticker-container">
     <div id="ticker-item" class="ticker-item" style="z-index:0"></div>
@@ -6,18 +6,17 @@
 </section>
 <style>
   #ticker {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 0.5rem 1rem;
   }
   .ticker-container {
     overflow: hidden;
     position: relative;
-    height: 2rem;
+    height: 3rem;
   }
   .ticker-item {
     font-weight: bold;
     font-size: 1.5rem;
-    color: darkgreen;
+    color: var(--element-fire);
     position: absolute;
     white-space: nowrap;
     transform: translateX(100%);

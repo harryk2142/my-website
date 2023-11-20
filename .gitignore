@@ -19,3 +19,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# custom
+public/images/blog/sharing
+public/images/blog/small

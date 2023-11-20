@@ -9,7 +9,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "convert-images": "node npmscripts/create-og-images.js",
+    "convert-images": "node npmscripts/create-images.js",
+    "start-firebase":"pnpm exec firebase emulators:start",
     "format": "prettier --write --plugin=prettier-plugin-astro ."
   },
   "dependencies": {

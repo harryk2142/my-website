@@ -1,42 +1,52 @@
 import fs from "fs";
 import sharp from "sharp";
+import path from "path";
 
-const pathToImages = "./public/images/blog";
-
-fs.readdir(pathToImages, (err, files) => {
+const pathPrefix = "./public/images/blog";
+const inputDir = pathPrefix + "/original";
+const outputDirs = {
+  blog: pathPrefix,
+  sharing: pathPrefix + "/sharing",
+  small: pathPrefix + "/small",
+};
+// Stelle sicher, dass die Ausgabeordner existieren
+Object.values(outputDirs).forEach((dir) => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+});
+fs.readdir(inputDir, (err, files) => {
   if (err) {
-    console.error(err);
+    console.error("Fehler beim Lesen des Verzeichnisses:", err);
     return;
   }
 
   files.forEach((file) => {
-    if (file.endsWith(".webp") && !file.endsWith("_small.webp")) {
-      const inputPath = `${pathToImages}/${file}`;
-      const outputPathShare = `${pathToImages}/sharing/${file.replace(
-        ".webp",
-        ".jpg"
-      )}`;
-      const outputPathPreview = `${pathToImages}/small/${file}`;
+    const inputFilePath = path.join(inputDir, file);
+    const fileNameWithoutExt = path.parse(file).name;
 
-      sharp(inputPath)
+    // Überprüfe, ob die Datei ein Bild ist
+    if (/\.(jpg|jpeg|png|webp)$/i.test(file)) {
+      // Für den Blog in WebP konvertieren
+      sharp(inputFilePath)
+      .resize(1024, 1024, { fit: "fill", withoutEnlargement:false })
+        .toFormat("webp", {
+          quality:80
+        })
+        .toFile(`${outputDirs.blog}/${fileNameWithoutExt}.webp`);
+
+      // Für Sharing als JPEG mit 512x512
+      sharp(inputFilePath)
         .resize(512, 512, { fit: "inside" })
-        .jpeg()
-        .toFile(outputPathShare)
-        // .then(() => {
-        //   console.log(`Og image converted`);
-        // })
-        .catch((err) => {
-          console.error(err);
-        });
+        .toFormat("jpeg")
+        .toFile(`${outputDirs.sharing}/${fileNameWithoutExt}.jpeg`);
 
-      sharp(inputPath)
-        .resize(256, 265, { fit: "inside" })
-        .webp()
-        .toFile(outputPathPreview)
-        .catch((err) => {
-          console.error(err);
-        });
+      // Für Small als WebP mit 256x256
+      sharp(inputFilePath)
+        .resize(256, 256, { fit: "inside" })
+        .toFormat("webp")
+        .toFile(`${outputDirs.small}/${fileNameWithoutExt}.webp`);
     }
   });
-  console.log("\x1b[32m%s\x1b[0m", "All og images converted successfully!");
+  console.log("\x1b[32m%s\x1b[0m", "All images converted successfully!");
 });

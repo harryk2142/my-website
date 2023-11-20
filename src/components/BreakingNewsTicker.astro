@@ -16,11 +16,11 @@
   .ticker-item {
     font-weight: bold;
     font-size: 1.5rem;
-    color: var(--element-fire);
+    color: var(--primary-color);            
     position: absolute;
     white-space: nowrap;
     transform: translateX(100%);
-    animation: ticker-animation 120s linear infinite;
+    animation: ticker-animation 50s linear infinite;
   }
 
   @keyframes ticker-animation {
@@ -28,7 +28,7 @@
       transform: translateX(10%);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
   }
 </style>
@@ -92,7 +92,7 @@
           });
         }
       });
-    }, 60000);
+    }, 50000);
   }
   generateTicker();
 </script>

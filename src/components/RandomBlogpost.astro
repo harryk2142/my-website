@@ -41,7 +41,7 @@ import BlogPostCard from "./BlogPostCard.astro";
   const anchor = randomBlogPostContainer.find("a");
   anchor.attr("href", "blog/" + blogPost.url);
   const image = randomBlogPostContainer.find(".blogpost-card-img");
-  image.attr("src", blogPost.img);
+  image.attr("src", blogPost.img.replace("blog/","blog/small/"));
   image.attr("alt", blogPost.alt);
   const date = randomBlogPostContainer.find("time");
   date.attr("datetime", pubDateIso);
